@@ -2,7 +2,6 @@ name: Build QA Hub Dashboard
 
 on:
   # Triggers whenever a project pushes its latest.json into projects/
-  # or when dashboard assets (scripts/) are updated
   push:
     branches: [ main, dev ]
     paths:
@@ -12,16 +11,22 @@ on:
   # Allow manual runs from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only allow one deployment at a time
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
-  build-dashboard:
+  build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
     steps:
-      # 1️⃣ Checkout the hub repo (full history so gh-pages deploy works)
-      - name: Checkout hub repository
+      # 1️⃣ Checkout the repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       # 2️⃣ Node
@@ -34,10 +39,20 @@ jobs:
       - name: Generate combined dashboard
         run: node scripts/generate-hub-dashboard.mjs
 
-      # 4️⃣ Deploy dist/ to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # 4️⃣ Upload dist/ as a Pages artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # 5️⃣ Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
