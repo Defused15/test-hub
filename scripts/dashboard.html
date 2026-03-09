@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA Hub · Test Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div>
+      <div class="eyebrow">QA Hub · Combined Test Report</div>
+      <h1><strong>All Projects</strong> Dashboard</h1>
+    </div>
+    <div class="header-meta">
+      <span class="mono" id="gen-date"></span>
+      <span class="pill ok" id="global-pill"><span class="dot"></span><span id="pill-text">All passed</span></span>
+    </div>
+  </header>
+
+  <div class="sl">Global Summary</div>
+  <div class="gstats" id="gstats"></div>
+
+  <div class="sl">Projects</div>
+  <div class="cards" id="cards"></div>
+
+  <div class="sl">All Tests</div>
+  <div class="table-wrap">
+    <div class="table-controls">
+      <div class="filter-btns" id="filter-btns">
+        <button class="fbtn active all" data-filter="all">All</button>
+        <button class="fbtn pass" data-filter="expected">Passed</button>
+        <button class="fbtn fail" data-filter="unexpected">Failed</button>
+        <button class="fbtn flaky" data-filter="flaky">Flaky</button>
+        <button class="fbtn skip" data-filter="skipped">Skipped</button>
+      </div>
+      <span class="fcount" id="fcount"></span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr>
+          <th class="sortable" data-col="project">Project</th>
+          <th>Test</th>
+          <th class="sortable" data-col="browser">Browser</th>
+          <th class="sortable" data-col="status">Status</th>
+          <th class="sortable" data-col="duration">Duration</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span class="ft" id="footer-l"></span>
+    <span class="ft">qa hub · auto-generated</span>
+  </footer>
+</div>
+
+<script>
+const { projects, global } = /*%%DATA%%*/null;
+
+const fmtDur  = ms => ms >= 1000 ? (ms/1000).toFixed(2)+'s' : ms+'ms';
+const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
+const browserColor = { chromium:'#1a56a0', firefox:'#b54800', webkit:'#5c3080' };
+const chipMap   = { expected:'pass', unexpected:'fail', flaky:'flaky', skipped:'skip' };
+const chipLabel = { expected:'Passed', unexpected:'Failed', flaky:'Flaky', skipped:'Skipped' };
+
+document.getElementById('gen-date').textContent = 'generated ' + fmtDate(Date.now());
+if (!global.ok) {
+  const p = document.getElementById('global-pill');
+  p.className = 'pill fail';
+  document.getElementById('pill-text').textContent = 'Failures detected';
+}
+
+document.getElementById('gstats').innerHTML = [
+  { cls:'',   label:'Total',   val: global.total },
+  { cls:'p',  label:'Passed',  val: global.expected },
+  { cls:'f',  label:'Failed',  val: global.unexpected },
+  { cls:'fl', label:'Flaky',   val: global.flaky },
+  { cls:'',   label:'Skipped', val: global.skipped },
+].map(s => '<div class="gc '+s.cls+'"><div class="gn">'+s.val+'</div><div class="gl">'+s.label+'</div></div>').join('');
+
+document.getElementById('footer-l').textContent = projects.length + ' project' + (projects.length!==1?'s':'') + ' · ' + global.total + ' tests total';
+
+document.getElementById('cards').innerHTML = projects.map(p => {
+  const passRate = p.stats.total ? ((p.stats.expected / p.stats.total)*100).toFixed(0) : 0;
+  const barColor = p.stats.ok ? '#2d6a3f' : '#8b2020';
+  const browsers = p.projectNames.map(b => {
+    const c = browserColor[b] || '#888';
+    return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
+  }).join('');
+  return '<div class="card">'
+    + '<div class="card-header">'
+    + '<div><div class="card-name">'+p.name+'</div><div class="card-date">'+fmtDate(p.startTime)+'</div></div>'
+    + '<span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span>'
+    + '</div>'
+    + '<div class="card-stats">'
+    + '<div class="cs"><div class="cs-l">Total</div><div class="cs-n">'+p.stats.total+'</div></div>'
+    + '<div class="cs p"><div class="cs-l">Passed</div><div class="cs-n">'+p.stats.expected+'</div></div>'
+    + '<div class="cs f"><div class="cs-l">Failed</div><div class="cs-n">'+p.stats.unexpected+'</div></div>'
+    + '<div class="cs fl"><div class="cs-l">Flaky</div><div class="cs-n">'+p.stats.flaky+'</div></div>'
+    + '</div>'
+    + '<div class="progress-track"><div class="progress-fill" style="width:'+passRate+'%;background:'+barColor+'"></div></div>'
+    + '<div class="browsers">'+browsers+'</div>'
+    + '</div>';
+}).join('');
+
+document.getElementById('tbody').innerHTML = projects.flatMap(p =>
+  p.tests.map(t => {
+    const bColor = browserColor[t.project] || '#888';
+    const cls   = chipMap[t.outcome]   || 'skip';
+    const lbl   = chipLabel[t.outcome] || t.outcome;
+    return '<tr data-outcome="'+t.outcome+'" data-project="'+p.name+'" data-browser="'+t.project+'" data-duration="'+t.duration+'">'
+      + '<td><span class="dur">'+p.name+'</span></td>'
+      + '<td><div class="tt">'+t.title+'</div><div class="tf">'+t.file+':'+t.line+'</div></td>'
+      + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+t.project+'</span></td>'
+      + '<td><span class="chip '+cls+'">'+lbl+'</span></td>'
+      + '<td><span class="dur">'+fmtDur(t.duration)+'</span></td>'
+      + '</tr>';
+  })
+).join('');
+
+// ── Filter ────────────────────────────────────────────────────────────────────
+
+let activeFilter = 'all';
+let sortCol = null;
+let sortDir = 1;
+
+function updateTable() {
+  const rows = [...document.querySelectorAll('#tbody tr')];
+
+  // Sort
+  if (sortCol) {
+    const tbody = document.getElementById('tbody');
+    rows.sort((a, b) => {
+      let av = a.dataset[sortCol] || '';
+      let bv = b.dataset[sortCol] || '';
+      if (sortCol === 'duration') return (Number(av) - Number(bv)) * sortDir;
+      return av.localeCompare(bv) * sortDir;
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  }
+
+  // Filter
+  let visible = 0;
+  rows.forEach(r => {
+    const show = activeFilter === 'all' || r.dataset.outcome === activeFilter;
+    r.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  document.getElementById('fcount').textContent = visible + ' of ' + rows.length + ' tests';
+}
+
+document.getElementById('filter-btns').addEventListener('click', e => {
+  const btn = e.target.closest('.fbtn');
+  if (!btn) return;
+  activeFilter = btn.dataset.filter;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateTable();
+});
+
+document.querySelectorAll('th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) {
+      sortDir *= -1;
+      th.className = 'sortable sort-' + (sortDir === 1 ? 'asc' : 'desc');
+    } else {
+      document.querySelectorAll('th.sortable').forEach(t => t.className = 'sortable');
+      sortCol = col;
+      sortDir = 1;
+      th.className = 'sortable sort-asc';
+    }
+    updateTable();
+  });
+});
+
+updateTable();
+</script>
+</body>
+</html>

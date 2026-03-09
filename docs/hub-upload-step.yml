@@ -1,0 +1,86 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# QA Hub — Upload Step
+# ─────────────────────────────────────────────────────────────────────────────
+# Copy this step into your project's workflow and set the two env vars below.
+#
+# Requirements:
+#   • A fine-grained GitHub token with Contents → Read & Write on the hub repo,
+#     stored as a repository secret named HUB_TOKEN.
+#   • Your Playwright workflow must produce a JSON report at the path defined
+#     by REPORT_PATH (default: ./playwright-report/report.json).
+# ─────────────────────────────────────────────────────────────────────────────
+
+- name: Push report to QA Hub
+  if: always()
+  env:
+    HUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+    HUB_REPO: Defused15/test-hub        # ← hub repo (owner/repo)
+    PROJECT_NAME: your-project-name     # ← folder name under projects/
+    REPORT_PATH: ./playwright-report/report.json
+  run: |
+    node -e "
+      const fs    = require('fs');
+      const https = require('https');
+
+      const reportPath = process.env.REPORT_PATH;
+      if (!fs.existsSync(reportPath)) {
+        console.log('⚠️  report.json not found, skipping hub upload');
+        process.exit(0);
+      }
+
+      const content  = fs.readFileSync(reportPath).toString('base64');
+      const token    = process.env.HUB_TOKEN;
+      const repo     = process.env.HUB_REPO;
+      const project  = process.env.PROJECT_NAME;
+      const apiPath  = '/repos/' + repo + '/contents/projects/' + project + '/latest.json';
+
+      const headers = {
+        'Authorization': 'Bearer ' + token,
+        'Accept':        'application/vnd.github+json',
+        'User-Agent':    'qa-hub',
+        'Content-Type':  'application/json'
+      };
+
+      const getReq = https.request(
+        { hostname: 'api.github.com', path: apiPath, method: 'GET', headers },
+        res => {
+          let data = '';
+          res.on('data', c => data += c);
+          res.on('end', () => {
+            let sha = '';
+            try { sha = JSON.parse(data).sha || ''; } catch {}
+
+            const body = JSON.stringify({
+              message: 'chore: update ' + project + ' report',
+              content,
+              ...(sha ? { sha } : {})
+            });
+
+            const putReq = https.request(
+              {
+                hostname: 'api.github.com',
+                path: apiPath,
+                method: 'PUT',
+                headers: { ...headers, 'Content-Length': Buffer.byteLength(body) }
+              },
+              r => {
+                let out = '';
+                r.on('data', c => out += c);
+                r.on('end', () => {
+                  if (r.statusCode === 200 || r.statusCode === 201) {
+                    console.log('✅  Report pushed to hub (HTTP ' + r.statusCode + ')');
+                  } else {
+                    console.error('❌  Hub upload failed (HTTP ' + r.statusCode + ')');
+                    console.error(out);
+                    process.exit(1);
+                  }
+                });
+              }
+            );
+            putReq.write(body);
+            putReq.end();
+          });
+        }
+      );
+      getReq.end();
+    "
