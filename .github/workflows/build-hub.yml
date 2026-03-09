@@ -1,0 +1,41 @@
+name: Build QA Hub Dashboard
+
+on:
+  # Triggers whenever a project pushes its latest.json into projects/
+  push:
+    branches: [ main ]
+    paths:
+      - 'projects/*/latest.json'
+
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-dashboard:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      # 1️⃣ Checkout the hub repo (full history so gh-pages deploy works)
+      - name: Checkout hub repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3️⃣ Generate the combined dashboard from all projects/*/latest.json files
+      - name: Generate combined dashboard
+        run: node scripts/generate-hub-dashboard.mjs
+
+      # 4️⃣ Deploy dist/ to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true

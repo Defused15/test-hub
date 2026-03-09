@@ -1,0 +1,13 @@
+{
+  "name": "qa-test-hub",
+  "version": "1.0.0",
+  "description": "Aggregated QA test dashboard across all projects",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-hub-dashboard.mjs",
+    "dev": "npm run build && npx serve dist"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
