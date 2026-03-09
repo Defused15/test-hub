@@ -114,8 +114,11 @@ mkdirSync(DIST, { recursive: true });
 
 // Inject JSON data into HTML template
 const dataJson   = JSON.stringify({ projects, global });
+const cacheBust  = Date.now().toString(36); // short base-36 timestamp
 const htmlTpl    = readFileSync(join(__dirname, 'dashboard.html'), 'utf8');
-const htmlOutput = htmlTpl.replace('/*%%DATA%%*/null', dataJson);
+const htmlOutput = htmlTpl
+  .replace('/*%%DATA%%*/null', dataJson)
+  .replace('href="style.css"', `href="style.css?v=${cacheBust}"`);
 
 writeFileSync(join(DIST, 'index.html'), htmlOutput, 'utf8');
 copyFileSync(join(__dirname, 'dashboard.css'), join(DIST, 'style.css'));

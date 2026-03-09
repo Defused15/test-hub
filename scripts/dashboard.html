@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QA Hub · Test Dashboard</title>
+<meta name="description" content="Combined QA test report dashboard — all projects, all results.">
+<meta name="theme-color" content="#1a1814">
+<meta property="og:title" content="QA Hub · Test Dashboard">
+<meta property="og:description" content="Combined QA test report dashboard — all projects, all results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qa.rcastillo.dev/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QA Hub · Test Dashboard">
+<meta name="twitter:description" content="Combined QA test report dashboard — all projects, all results.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -44,19 +53,31 @@
         <button class="fbtn flaky" data-filter="flaky">Flaky</button>
         <button class="fbtn skip" data-filter="skipped">Skipped</button>
       </div>
-      <span class="fcount" id="fcount"></span>
     </div>
     <div class="table-scroll">
       <table>
         <thead><tr>
           <th class="sortable" data-col="project">Project</th>
-          <th>Test</th>
+          <th class="sortable" data-col="test">Test</th>
           <th class="sortable" data-col="browser">Browser</th>
           <th class="sortable" data-col="status">Status</th>
           <th class="sortable" data-col="duration">Duration</th>
         </tr></thead>
         <tbody id="tbody"></tbody>
       </table>
+    </div>
+    <div class="pagination">
+      <span class="fcount" id="fcount"></span>
+      <div class="pagination-pages" id="pagination-pages"></div>
+      <div class="page-size-wrap">
+        <label class="fcount" for="page-size">Rows</label>
+        <select id="page-size" class="page-size-select">
+          <option value="10">10</option>
+          <option value="25" selected>25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
     </div>
   </div>
 
@@ -71,11 +92,21 @@ const { projects, global } = /*%%DATA%%*/null;
 
 const fmtDur  = ms => ms >= 1000 ? (ms/1000).toFixed(2)+'s' : ms+'ms';
 const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
+const timeAgo = ts => {
+  const diff = Date.now() - ts;
+  const s = Math.floor(diff/1000), m = Math.floor(s/60), h = Math.floor(m/60), d = Math.floor(h/24);
+  if (d > 30) return fmtDate(ts);
+  if (d >= 1)  return d + (d===1?' day':' days') + ' ago';
+  if (h >= 1)  return h + (h===1?' hour':' hours') + ' ago';
+  if (m >= 1)  return m + (m===1?' minute':' minutes') + ' ago';
+  return 'just now';
+};
 const browserColor = { chromium:'#1a56a0', firefox:'#b54800', webkit:'#5c3080' };
 const chipMap   = { expected:'pass', unexpected:'fail', flaky:'flaky', skipped:'skip' };
 const chipLabel = { expected:'Passed', unexpected:'Failed', flaky:'Flaky', skipped:'Skipped' };
 
-document.getElementById('gen-date').textContent = 'generated ' + fmtDate(Date.now());
+const now = Date.now();
+document.getElementById('gen-date').textContent = 'generated ' + fmtDate(now);
 if (!global.ok) {
   const p = document.getElementById('global-pill');
   p.className = 'pill fail';
@@ -92,35 +123,42 @@ document.getElementById('gstats').innerHTML = [
 
 document.getElementById('footer-l').textContent = projects.length + ' project' + (projects.length!==1?'s':'') + ' · ' + global.total + ' tests total';
 
-document.getElementById('cards').innerHTML = projects.map(p => {
-  const passRate = p.stats.total ? ((p.stats.expected / p.stats.total)*100).toFixed(0) : 0;
-  const barColor = p.stats.ok ? '#2d6a3f' : '#8b2020';
-  const browsers = p.projectNames.map(b => {
-    const c = browserColor[b] || '#888';
-    return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
+if (projects.length === 0) {
+  document.getElementById('cards').innerHTML =
+    '<div class="empty-state"><div class="empty-icon">🧪</div><div class="empty-title">No projects yet</div><div class="empty-sub">Upload a Playwright JSON report from one of your repos to see results here.</div></div>';
+} else {
+  document.getElementById('cards').innerHTML = projects.map(p => {
+    const passRate = p.stats.total ? ((p.stats.expected / p.stats.total)*100).toFixed(0) : 0;
+    const barColor = p.stats.ok ? '#2d6a3f' : '#8b2020';
+    const browsers = p.projectNames.map(b => {
+      const c = browserColor[b] || '#888';
+      return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
+    }).join('');
+    return '<div class="card">'
+      + '<div class="card-header">'
+      + '<div><div class="card-name">'+p.name+'</div>'
+      + '<div class="card-date" title="'+fmtDate(p.startTime)+'">'+timeAgo(p.startTime)+'<span class="tip-icon">i</span></div></div>'
+      + '<span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span>'
+      + '</div>'
+      + '<div class="card-stats">'
+      + '<div class="cs"><div class="cs-l">Total</div><div class="cs-n">'+p.stats.total+'</div></div>'
+      + '<div class="cs p"><div class="cs-l">Passed</div><div class="cs-n">'+p.stats.expected+'</div></div>'
+      + '<div class="cs f"><div class="cs-l">Failed</div><div class="cs-n">'+p.stats.unexpected+'</div></div>'
+      + '<div class="cs fl"><div class="cs-l">Flaky</div><div class="cs-n">'+p.stats.flaky+'</div></div>'
+      + '</div>'
+      + '<div class="progress-track"><div class="progress-fill" style="width:'+passRate+'%;background:'+barColor+'"></div></div>'
+      + '<div class="progress-label"><span>'+p.stats.expected+'/'+p.stats.total+' passed</span><span style="color:'+(p.stats.ok?'var(--pass)':'var(--fail)')+'">'+passRate+'%</span></div>'
+      + '<div class="browsers">'+browsers+'</div>'
+      + '</div>';
   }).join('');
-  return '<div class="card">'
-    + '<div class="card-header">'
-    + '<div><div class="card-name">'+p.name+'</div><div class="card-date">'+fmtDate(p.startTime)+'</div></div>'
-    + '<span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span>'
-    + '</div>'
-    + '<div class="card-stats">'
-    + '<div class="cs"><div class="cs-l">Total</div><div class="cs-n">'+p.stats.total+'</div></div>'
-    + '<div class="cs p"><div class="cs-l">Passed</div><div class="cs-n">'+p.stats.expected+'</div></div>'
-    + '<div class="cs f"><div class="cs-l">Failed</div><div class="cs-n">'+p.stats.unexpected+'</div></div>'
-    + '<div class="cs fl"><div class="cs-l">Flaky</div><div class="cs-n">'+p.stats.flaky+'</div></div>'
-    + '</div>'
-    + '<div class="progress-track"><div class="progress-fill" style="width:'+passRate+'%;background:'+barColor+'"></div></div>'
-    + '<div class="browsers">'+browsers+'</div>'
-    + '</div>';
-}).join('');
+}
 
 document.getElementById('tbody').innerHTML = projects.flatMap(p =>
   p.tests.map(t => {
     const bColor = browserColor[t.project] || '#888';
     const cls   = chipMap[t.outcome]   || 'skip';
     const lbl   = chipLabel[t.outcome] || t.outcome;
-    return '<tr data-outcome="'+t.outcome+'" data-project="'+p.name+'" data-browser="'+t.project+'" data-duration="'+t.duration+'">'
+    return '<tr data-outcome="'+t.outcome+'" data-project="'+p.name+'" data-test="'+t.title+'" data-browser="'+t.project+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'">'
       + '<td><span class="dur">'+p.name+'</span></td>'
       + '<td><div class="tt">'+t.title+'</div><div class="tf">'+t.file+':'+t.line+'</div></td>'
       + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+t.project+'</span></td>'
@@ -130,45 +168,109 @@ document.getElementById('tbody').innerHTML = projects.flatMap(p =>
   })
 ).join('');
 
-// ── Filter ────────────────────────────────────────────────────────────────────
+// ── Filter / Sort / Paginate ──────────────────────────────────────────────────
 
 let activeFilter = 'all';
-let sortCol = null;
-let sortDir = 1;
+let sortCol      = null;
+let sortDir      = 1;
+let currentPage  = 1;
+let pageSize     = 25;
 
-function updateTable() {
-  const rows = [...document.querySelectorAll('#tbody tr')];
+function getFilteredSorted() {
+  let rows = [...document.querySelectorAll('#tbody tr')];
+
+  // Filter
+  rows = rows.filter(r => activeFilter === 'all' || r.dataset.outcome === activeFilter);
 
   // Sort
   if (sortCol) {
-    const tbody = document.getElementById('tbody');
     rows.sort((a, b) => {
       let av = a.dataset[sortCol] || '';
       let bv = b.dataset[sortCol] || '';
       if (sortCol === 'duration') return (Number(av) - Number(bv)) * sortDir;
       return av.localeCompare(bv) * sortDir;
     });
-    rows.forEach(r => tbody.appendChild(r));
   }
 
-  // Filter
-  let visible = 0;
-  rows.forEach(r => {
-    const show = activeFilter === 'all' || r.dataset.outcome === activeFilter;
-    r.classList.toggle('hidden', !show);
-    if (show) visible++;
+  return rows;
+}
+
+function updateTable() {
+  const allRows      = [...document.querySelectorAll('#tbody tr')];
+  const filtered     = getFilteredSorted();
+  const totalVisible = filtered.length;
+  const totalPages   = Math.max(1, Math.ceil(totalVisible / pageSize));
+
+  // Clamp page
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  const start = (currentPage - 1) * pageSize;
+  const end   = start + pageSize;
+  const pageRows = new Set(filtered.slice(start, end));
+
+  // Re-order DOM to match sort, then show/hide
+  const tbody = document.getElementById('tbody');
+  filtered.forEach(r => tbody.appendChild(r));
+  allRows.forEach(r => r.classList.toggle('hidden', !pageRows.has(r)));
+
+  // Count label
+  const from = totalVisible === 0 ? 0 : start + 1;
+  const to   = Math.min(end, totalVisible);
+  document.getElementById('fcount').textContent =
+    totalVisible === 0 ? '0 tests' : from + '–' + to + ' of ' + totalVisible + ' tests';
+
+  // Pagination controls
+  const pag = document.getElementById('pagination-pages');
+  if (totalPages <= 1) { pag.innerHTML = ''; return; }
+
+  let html = '<button class="pbtn" data-page="'+(currentPage-1)+'" '+(currentPage===1?'disabled':'')+'>‹</button>';
+
+  // Page number buttons — show up to 7 with ellipsis
+  const pages = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages.push(1);
+    if (currentPage > 3) pages.push('…');
+    for (let i = Math.max(2, currentPage-1); i <= Math.min(totalPages-1, currentPage+1); i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push('…');
+    pages.push(totalPages);
+  }
+
+  pages.forEach(p => {
+    if (p === '…') {
+      html += '<span class="pellipsis">…</span>';
+    } else {
+      html += '<button class="pbtn'+(p===currentPage?' active':'')+'" data-page="'+p+'">'+p+'</button>';
+    }
   });
 
-  document.getElementById('fcount').textContent = visible + ' of ' + rows.length + ' tests';
+  html += '<button class="pbtn" data-page="'+(currentPage+1)+'" '+(currentPage===totalPages?'disabled':'')+'>›</button>';
+  pag.innerHTML = html;
 }
 
 document.getElementById('filter-btns').addEventListener('click', e => {
   const btn = e.target.closest('.fbtn');
   if (!btn) return;
   activeFilter = btn.dataset.filter;
+  currentPage  = 1;
   document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   updateTable();
+});
+
+document.getElementById('page-size').addEventListener('change', e => {
+  pageSize    = Number(e.target.value);
+  currentPage = 1;
+  updateTable();
+});
+
+document.getElementById('pagination-pages').addEventListener('click', e => {
+  const btn = e.target.closest('.pbtn');
+  if (!btn || btn.disabled) return;
+  currentPage = Number(btn.dataset.page);
+  updateTable();
+  document.querySelector('.table-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 document.querySelectorAll('th.sortable').forEach(th => {
@@ -183,6 +285,7 @@ document.querySelectorAll('th.sortable').forEach(th => {
       sortDir = 1;
       th.className = 'sortable sort-asc';
     }
+    currentPage = 1;
     updateTable();
   });
 });
