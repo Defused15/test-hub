@@ -2,10 +2,12 @@ name: Build QA Hub Dashboard
 
 on:
   # Triggers whenever a project pushes its latest.json into projects/
+  # or when dashboard assets (scripts/) are updated
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
     paths:
       - 'projects/*/latest.json'
+      - 'scripts/**'
 
   # Allow manual runs from the Actions tab
   workflow_dispatch:
