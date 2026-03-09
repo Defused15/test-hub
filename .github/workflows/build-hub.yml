@@ -3,7 +3,7 @@ name: Build QA Hub Dashboard
 on:
   # Triggers whenever a project pushes its latest.json into projects/
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
     paths:
       - 'projects/*/latest.json'
       - 'scripts/**'
