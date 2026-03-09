@@ -1,0 +1,13 @@
+{
+  "name": "QA Hub",
+  "short_name": "QA Hub",
+  "description": "Combined QA test report dashboard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f7",
+  "theme_color": "#1a1814",
+  "icons": [
+    { "src": "android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
