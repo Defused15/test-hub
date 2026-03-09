@@ -1,23 +1,20 @@
-/* Font metric overrides — minimise layout shift (CLS) when DM Sans/Mono swap in */
+/* Font metric overrides — minimise layout shift (CLS) when DM Sans/Mono swap in.
+   Uses separate fallback family names so overrides never affect the loaded webfont. */
 @font-face {
-  font-family: "DM Sans";
+  font-family: "DM Sans Fallback";
   src: local("Arial");
   size-adjust: 100%;
   ascent-override: 94%;
   descent-override: 24%;
   line-gap-override: 0%;
-  font-weight: 300 600;
-  font-style: normal;
 }
 @font-face {
-  font-family: "DM Mono";
+  font-family: "DM Mono Fallback";
   src: local("Courier New");
   size-adjust: 105%;
   ascent-override: 88%;
   descent-override: 22%;
   line-gap-override: 0%;
-  font-weight: 300 400;
-  font-style: normal;
 }
 
 :root {
@@ -54,7 +51,7 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", "DM Sans Fallback", sans-serif;
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -98,7 +95,7 @@ h1 strong {
   gap: 4px;
 }
 .mono {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 11px;
   color: var(--ink3);
   font-weight: 300;
@@ -114,7 +111,7 @@ h1 strong {
   border-radius: 50%;
   border: 1px solid var(--ink4);
   font-size: 8px;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", "DM Sans Fallback", sans-serif;
   font-weight: 600;
   line-height: 1;
   color: var(--ink4);
@@ -187,7 +184,7 @@ h1 strong {
   border-right: none;
 }
 .gn {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 28px;
   line-height: 1;
   margin-bottom: 5px;
@@ -244,7 +241,7 @@ h1 strong {
   color: var(--ink);
 }
 .card-date {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 10px;
   color: var(--ink4);
   margin-top: 3px;
@@ -262,7 +259,7 @@ h1 strong {
   flex-direction: column;
 }
 .cs-n {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 22px;
   line-height: 1;
   margin-bottom: 2px;
@@ -295,7 +292,7 @@ h1 strong {
   border-radius: 3px;
 }
 .progress-label {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 10px;
   color: var(--ink4);
   margin-bottom: 14px;
@@ -385,7 +382,7 @@ h1 strong {
   border-color: var(--skip);
 }
 .fcount {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 10px;
   color: var(--ink4);
 }
@@ -395,7 +392,7 @@ h1 strong {
   gap: 6px;
 }
 .page-size-select {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 11px;
   color: var(--ink2);
   background: #fff;
@@ -430,7 +427,7 @@ h1 strong {
   height: 28px;
   padding: 0 6px;
   border-radius: 4px;
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 11px;
   border: 1px solid var(--line2);
   background: #fff;
@@ -452,7 +449,7 @@ h1 strong {
   cursor: default;
 }
 .pellipsis {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 11px;
   color: var(--ink4);
   padding: 0 4px;
@@ -523,7 +520,7 @@ tr.hidden {
   color: var(--ink);
 }
 .tf {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 10px;
   color: var(--ink4);
   margin-top: 2px;
@@ -560,7 +557,7 @@ tr.hidden {
   border-color: #d8d5d0;
 }
 .dur {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
   font-size: 11px;
   color: var(--ink2);
 }
@@ -575,7 +572,7 @@ tr.hidden {
 .ft {
   font-size: 10px;
   color: var(--ink4);
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
 }
 
 .empty-state {
