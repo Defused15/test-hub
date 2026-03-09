@@ -13,8 +13,36 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QA Hub · Test Dashboard">
 <meta name="twitter:description" content="Combined QA test report dashboard — all projects, all results.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<!-- Critical inline styles — prevents FOUT/CLS while async CSS loads -->
+<style>
+  @font-face{font-family:'DM Sans';src:local('Arial');size-adjust:100%;ascent-override:94%;descent-override:24%;line-gap-override:0%;font-weight:300 600}
+  @font-face{font-family:'DM Mono';src:local('Courier New');size-adjust:105%;ascent-override:88%;descent-override:22%;line-gap-override:0%;font-weight:300 400}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:15px}
+  body{background:#faf9f7;color:#1a1814;font-family:'DM Sans',Arial,sans-serif;line-height:1.5;min-height:100vh}
+  .page{max-width:1120px;margin:0 auto;padding:52px 36px 80px}
+  .header{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:24px;border-bottom:1.5px solid #1a1814;margin-bottom:36px}
+  h1{font-size:26px;font-weight:300;letter-spacing:-.02em}
+  h1 strong{font-weight:600}
+  .eyebrow{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6b6560;margin-bottom:4px}
+</style>
+<!-- Preconnect to shorten the font request chain -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preload the heaviest woff2 (DM Mono ~61 KiB) to break critical chain -->
+<link rel="preload" as="font" type="font/woff2" crossorigin
+  href="https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvrGuIBY.woff2">
+<!-- Non-blocking Google Fonts (display=swap avoids invisible text during load) -->
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap">
+</noscript>
+<!-- Non-blocking stylesheet -->
+<link rel="preload" as="style" href="style.css"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="style.css"></noscript>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
