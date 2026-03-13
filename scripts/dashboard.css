@@ -231,9 +231,17 @@ h1 strong {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 10px;
   margin-bottom: 16px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
+}
+.card-header > :first-child {
+  min-width: 0;
+  flex: 1 1 0;
+}
+.card-header > .pill {
+  flex-shrink: 0;
 }
 .card-name {
   font-size: 14px;
@@ -386,6 +394,19 @@ h1 strong {
   font-size: 10px;
   color: var(--ink4);
 }
+.filter-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--line2);
+  align-self: center;
+  flex-shrink: 0;
+  margin: 0 2px;
+}
+.type-filter {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
 .page-size-wrap {
   display: flex;
   align-items: center;
@@ -511,7 +532,8 @@ tr:last-child td {
 tr:hover td {
   background: var(--paper);
 }
-tr.hidden {
+tr.hidden,
+.card.hidden {
   display: none;
 }
 .tt {

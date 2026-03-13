@@ -6,8 +6,9 @@
 # Requirements:
 #   • A fine-grained GitHub token with Contents → Read & Write on the hub repo,
 #     stored as a repository secret named HUB_TOKEN.
-#   • Your Playwright workflow must produce a JSON report at the path defined
-#     by REPORT_PATH (default: ./playwright-report/report.json).
+#   • A JSON report at the path defined by REPORT_PATH.
+#     Playwright: use the built-in JSON reporter → report.json
+#     Jest:       run with --json --outputFile=jest-report.json
 # ─────────────────────────────────────────────────────────────────────────────
 
 - name: Push report to QA Hub
@@ -16,7 +17,7 @@
     HUB_TOKEN: ${{ secrets.HUB_TOKEN }}
     HUB_REPO: Defused15/test-hub        # ← hub repo (owner/repo)
     PROJECT_NAME: your-project-name     # ← folder name under projects/
-    REPORT_PATH: ./playwright-report/report.json
+    REPORT_PATH: ./playwright-report/report.json  # or ./jest-report.json for Jest
   run: |
     node -e "
       const fs    = require('fs');

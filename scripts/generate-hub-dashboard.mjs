@@ -23,6 +23,14 @@ if (projectDirs.length === 0) {
   console.warn('No project folders found in projects/. Dashboard will be empty.');
 }
 
+// ── Detect report format ──────────────────────────────────────────────────────
+
+function detectReportType(raw) {
+  if (Array.isArray(raw.testResults)) return 'jest';
+  if (Array.isArray(raw.suites))      return 'playwright';
+  return 'unknown';
+}
+
 // ── Flatten Playwright JSON suites into a flat test array ─────────────────────
 
 function flattenSpecs(suites = [], path = []) {
@@ -51,6 +59,85 @@ function flattenSpecs(suites = [], path = []) {
   return tests;
 }
 
+// ── Flatten Jest JSON into the same flat test array format ────────────────────
+
+function flattenJest(testResults = []) {
+  const tests = [];
+  for (const suite of testResults) {
+    const file = suite.testFilePath ?? '';
+    for (const t of (suite.assertionResults ?? [])) {
+      let outcome;
+      if (t.status === 'passed')       outcome = 'expected';
+      else if (t.status === 'failed')  outcome = 'unexpected';
+      else                             outcome = 'skipped'; // pending, todo
+      tests.push({
+        title:    t.fullName ?? t.title ?? '',
+        file,
+        line:     t.location?.line ?? 0,
+        project:  'unit',
+        outcome,
+        duration: t.duration ?? 0,
+        retries:  0,
+        error:    t.failureMessages?.[0] ?? null,
+      });
+    }
+  }
+  return tests;
+}
+
+// ── Parse a Playwright report ─────────────────────────────────────────────────
+
+function parsePlaywrightProject(raw, name) {
+  const stats = raw.stats ?? {};
+  const tests = flattenSpecs(raw.suites ?? []);
+  const total = (stats.expected ?? 0) + (stats.unexpected ?? 0)
+              + (stats.flaky ?? 0)    + (stats.skipped ?? 0);
+  return {
+    name,
+    type:      'playwright',
+    startTime: new Date(stats.startTime ?? Date.now()).getTime(),
+    duration:  stats.duration ?? 0,
+    workers:   raw.config?.workers ?? 1,
+    stats: {
+      total,
+      expected:   stats.expected   ?? 0,
+      unexpected: stats.unexpected ?? 0,
+      flaky:      stats.flaky      ?? 0,
+      skipped:    stats.skipped    ?? 0,
+      ok:         (stats.unexpected ?? 0) === 0,
+    },
+    projectNames: [...new Set(tests.map(t => t.project))],
+    tests,
+  };
+}
+
+// ── Parse a Jest report ───────────────────────────────────────────────────────
+
+function parseJestProject(raw, name) {
+  const tests      = flattenJest(raw.testResults ?? []);
+  const expected   = raw.numPassedTests  ?? 0;
+  const unexpected = raw.numFailedTests  ?? 0;
+  const skipped    = (raw.numPendingTests ?? 0) + (raw.numTodoTests ?? 0);
+  const total      = raw.numTotalTests   ?? tests.length;
+  return {
+    name,
+    type:      'jest',
+    startTime: raw.startTime ?? Date.now(),
+    duration:  0,
+    workers:   1,
+    stats: {
+      total,
+      expected,
+      unexpected,
+      flaky:   0,
+      skipped,
+      ok:      unexpected === 0,
+    },
+    projectNames: ['unit'],
+    tests,
+  };
+}
+
 // ── Build per-project data ────────────────────────────────────────────────────
 
 const projects = projectDirs.map(name => {
@@ -69,27 +156,11 @@ const projects = projectDirs.map(name => {
     return null;
   }
 
-  const stats = raw.stats ?? {};
-  const tests = flattenSpecs(raw.suites ?? []);
-  const total = (stats.expected ?? 0) + (stats.unexpected ?? 0)
-              + (stats.flaky ?? 0)    + (stats.skipped ?? 0);
-
-  return {
-    name,
-    startTime:    new Date(stats.startTime ?? Date.now()).getTime(),
-    duration:     stats.duration ?? 0,
-    workers:      raw.config?.workers ?? 1,
-    stats: {
-      total,
-      expected:   stats.expected   ?? 0,
-      unexpected: stats.unexpected ?? 0,
-      flaky:      stats.flaky      ?? 0,
-      skipped:    stats.skipped    ?? 0,
-      ok:         (stats.unexpected ?? 0) === 0,
-    },
-    projectNames: [...new Set(tests.map(t => t.project))],
-    tests,
-  };
+  const type = detectReportType(raw);
+  if (type === 'playwright') return parsePlaywrightProject(raw, name);
+  if (type === 'jest')       return parseJestProject(raw, name);
+  console.warn(`${name}/latest.json: unknown report format, skipping`);
+  return null;
 }).filter(Boolean);
 
 // ── Global aggregates ─────────────────────────────────────────────────────────
