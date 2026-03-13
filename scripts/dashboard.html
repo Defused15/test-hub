@@ -171,9 +171,9 @@ if (projects.length === 0) {
     const typeLabel = p.type === 'playwright' ? 'E2E' : 'Unit';
     return '<div class="card" data-type="'+p.type+'">'
       + '<div class="card-header">'
-      + '<div><div style="display:flex;align-items:center;gap:7px"><div class="card-name">'+p.name+'</div><span class="bchip">'+typeLabel+'</span></div>'
+      + '<div><div class="card-name">'+p.name+'</div>'
       + '<div class="card-date" title="'+fmtDate(p.startTime)+'">'+timeAgo(p.startTime)+'<span class="tip-icon">i</span></div></div>'
-      + '<span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span>'
+      + '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="bchip">'+typeLabel+'</span><span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span></div>'
       + '</div>'
       + '<div class="card-stats">'
       + '<div class="cs"><div class="cs-l">Total</div><div class="cs-n">'+p.stats.total+'</div></div>'
