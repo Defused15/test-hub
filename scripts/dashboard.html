@@ -169,7 +169,7 @@ if (projects.length === 0) {
       return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
     }).join('');
     const typeLabel = p.type === 'playwright' ? 'E2E' : 'Unit';
-    return '<div class="card" data-type="'+p.type+'">'
+    return '<a class="card-link" href="projects/'+encodeURIComponent(p.name)+'.html"><div class="card" data-type="'+p.type+'">'
       + '<div class="card-header">'
       + '<div><div class="card-name">'+p.name+'</div>'
       + '<div class="card-date" title="'+fmtDate(p.startTime)+'">'+timeAgo(p.startTime)+'<span class="tip-icon">i</span></div></div>'
@@ -184,7 +184,7 @@ if (projects.length === 0) {
       + '<div class="progress-track"><div class="progress-fill" style="width:'+passRate+'%;background:'+barColor+'"></div></div>'
       + '<div class="progress-label"><span>'+p.stats.expected+'/'+p.stats.total+' passed</span><span style="color:'+(p.stats.ok?'var(--pass)':'var(--fail)')+'">'+passRate+'%</span></div>'
       + '<div class="browsers">'+browsers+'</div>'
-      + '</div>';
+      + '</div></a>';
   }).join('');
 
   // Show type filter only when both types are present
@@ -317,8 +317,9 @@ document.getElementById('card-type-filter').addEventListener('click', e => {
   const type = btn.dataset.type;
   document.querySelectorAll('#card-type-filter .fbtn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('#cards .card').forEach(card => {
-    card.classList.toggle('hidden', type !== 'all' && card.dataset.type !== type);
+  document.querySelectorAll('#cards .card-link').forEach(link => {
+    const type2 = link.querySelector('.card').dataset.type;
+    link.classList.toggle('hidden', type !== 'all' && type2 !== type);
   });
 });
 

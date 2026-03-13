@@ -533,7 +533,8 @@ tr:hover td {
   background: var(--paper);
 }
 tr.hidden,
-.card.hidden {
+.card.hidden,
+.card-link.hidden {
   display: none;
 }
 .tt {
@@ -622,6 +623,81 @@ tr.hidden,
   max-width: 320px;
   line-height: 1.6;
 }
+
+/* ── Insight cards (project detail page) ───────────────────────────────────── */
+.insights-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  animation: up 0.5s 0.1s ease both;
+  will-change: opacity, transform;
+}
+@media (max-width: 900px) { .insights-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .insights-row { grid-template-columns: 1fr; } }
+.insight-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-width: 0;
+}
+.insight-card:hover {
+  border-color: var(--line2);
+  box-shadow: var(--shadow2);
+}
+.insight-label {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 6px;
+}
+.insight-value {
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.insight-sub {
+  font-size: 11px;
+  color: var(--ink3);
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Back link ──────────────────────────────────────────────────────────────── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-family: "DM Mono", "DM Mono Fallback", monospace;
+  color: var(--ink3);
+  text-decoration: none;
+  margin-bottom: 28px;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--ink); }
+.back-link::before { content: "←"; font-size: 13px; }
+
+/* ── Clickable project cards ────────────────────────────────────────────────── */
+.card-link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+}
+.card-link .card { cursor: pointer; flex: 1; }
 
 @keyframes up {
   from {
