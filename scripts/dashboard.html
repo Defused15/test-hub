@@ -66,6 +66,11 @@
   <div class="gstats" id="gstats"></div>
 
   <div class="sl">Projects</div>
+  <div class="type-filter" id="card-type-filter" style="display:none">
+    <button class="fbtn active all" data-type="all">All</button>
+    <button class="fbtn all" data-type="playwright">E2E</button>
+    <button class="fbtn all" data-type="jest">Unit</button>
+  </div>
   <div class="cards" id="cards"></div>
 
   <div class="sl">All Tests</div>
@@ -77,6 +82,10 @@
         <button class="fbtn fail" data-filter="unexpected">Failed</button>
         <button class="fbtn flaky" data-filter="flaky">Flaky</button>
         <button class="fbtn skip" data-filter="skipped">Skipped</button>
+        <span class="filter-sep" id="type-sep" style="display:none"></span>
+        <button class="fbtn active all" data-ttype="all" style="display:none">All types</button>
+        <button class="fbtn all" data-ttype="playwright" style="display:none">E2E</button>
+        <button class="fbtn all" data-ttype="jest" style="display:none">Unit</button>
       </div>
     </div>
     <div class="table-scroll">
@@ -159,9 +168,10 @@ if (projects.length === 0) {
       const c = browserColor[b] || '#888';
       return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
     }).join('');
-    return '<div class="card">'
+    const typeLabel = p.type === 'playwright' ? 'E2E' : 'Unit';
+    return '<div class="card" data-type="'+p.type+'">'
       + '<div class="card-header">'
-      + '<div><div class="card-name">'+p.name+'</div>'
+      + '<div><div style="display:flex;align-items:center;gap:7px"><div class="card-name">'+p.name+'</div><span class="bchip">'+typeLabel+'</span></div>'
       + '<div class="card-date" title="'+fmtDate(p.startTime)+'">'+timeAgo(p.startTime)+'<span class="tip-icon">i</span></div></div>'
       + '<span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span>'
       + '</div>'
@@ -176,6 +186,15 @@ if (projects.length === 0) {
       + '<div class="browsers">'+browsers+'</div>'
       + '</div>';
   }).join('');
+
+  // Show type filter only when both types are present
+  const hasPlaywright = projects.some(p => p.type === 'playwright');
+  const hasJest       = projects.some(p => p.type === 'jest');
+  if (hasPlaywright && hasJest) {
+    document.getElementById('card-type-filter').style.display = 'flex';
+    document.getElementById('type-sep').style.display = '';
+    document.querySelectorAll('[data-ttype]').forEach(el => el.style.display = '');
+  }
 }
 
 document.getElementById('tbody').innerHTML = projects.flatMap(p =>
@@ -183,7 +202,7 @@ document.getElementById('tbody').innerHTML = projects.flatMap(p =>
     const bColor = browserColor[t.project] || '#888';
     const cls   = chipMap[t.outcome]   || 'skip';
     const lbl   = chipLabel[t.outcome] || t.outcome;
-    return '<tr data-outcome="'+t.outcome+'" data-project="'+p.name+'" data-test="'+t.title+'" data-browser="'+t.project+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'">'
+    return '<tr data-outcome="'+t.outcome+'" data-project="'+p.name+'" data-test="'+t.title+'" data-browser="'+t.project+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'" data-type="'+p.type+'">'
       + '<td><span class="dur">'+p.name+'</span></td>'
       + '<td><div class="tt">'+t.title+'</div><div class="tf">'+t.file+':'+t.line+'</div></td>'
       + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+t.project+'</span></td>'
@@ -195,8 +214,9 @@ document.getElementById('tbody').innerHTML = projects.flatMap(p =>
 
 // ── Filter / Sort / Paginate ──────────────────────────────────────────────────
 
-let activeFilter = 'all';
-let sortCol      = null;
+let activeFilter     = 'all';
+let activeTypeFilter = 'all';
+let sortCol          = null;
 let sortDir      = 1;
 let currentPage  = 1;
 let pageSize     = 25;
@@ -206,6 +226,7 @@ function getFilteredSorted() {
 
   // Filter
   rows = rows.filter(r => activeFilter === 'all' || r.dataset.outcome === activeFilter);
+  rows = rows.filter(r => activeTypeFilter === 'all' || r.dataset.type === activeTypeFilter);
 
   // Sort
   if (sortCol) {
@@ -277,11 +298,28 @@ function updateTable() {
 document.getElementById('filter-btns').addEventListener('click', e => {
   const btn = e.target.closest('.fbtn');
   if (!btn) return;
-  activeFilter = btn.dataset.filter;
-  currentPage  = 1;
-  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn.dataset.filter !== undefined) {
+    activeFilter = btn.dataset.filter;
+    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  } else if (btn.dataset.ttype !== undefined) {
+    activeTypeFilter = btn.dataset.ttype;
+    document.querySelectorAll('[data-ttype]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  currentPage = 1;
   updateTable();
+});
+
+document.getElementById('card-type-filter').addEventListener('click', e => {
+  const btn = e.target.closest('.fbtn');
+  if (!btn) return;
+  const type = btn.dataset.type;
+  document.querySelectorAll('#card-type-filter .fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#cards .card').forEach(card => {
+    card.classList.toggle('hidden', type !== 'all' && card.dataset.type !== type);
+  });
 });
 
 document.getElementById('page-size').addEventListener('change', e => {

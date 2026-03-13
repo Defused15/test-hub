@@ -386,6 +386,19 @@ h1 strong {
   font-size: 10px;
   color: var(--ink4);
 }
+.filter-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--line2);
+  align-self: center;
+  flex-shrink: 0;
+  margin: 0 2px;
+}
+.type-filter {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
 .page-size-wrap {
   display: flex;
   align-items: center;
