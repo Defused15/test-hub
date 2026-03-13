@@ -126,7 +126,7 @@ const timeAgo = ts => {
   if (m >= 1)  return m + (m===1?' minute':' minutes') + ' ago';
   return 'just now';
 };
-const browserColor = { chromium:'#1a56a0', firefox:'#b54800', webkit:'#5c3080' };
+const browserColor = { chromium:'#1a56a0', firefox:'#b54800', webkit:'#5c3080', unit:'#2d7a4f' };
 const chipMap   = { expected:'pass', unexpected:'fail', flaky:'flaky', skipped:'skip' };
 const chipLabel = { expected:'Passed', unexpected:'Failed', flaky:'Flaky', skipped:'Skipped' };
 
@@ -150,7 +150,7 @@ document.getElementById('footer-l').textContent = projects.length + ' project' +
 
 if (projects.length === 0) {
   document.getElementById('cards').innerHTML =
-    '<div class="empty-state"><div class="empty-icon">🧪</div><div class="empty-title">No projects yet</div><div class="empty-sub">Upload a Playwright JSON report from one of your repos to see results here.</div></div>';
+    '<div class="empty-state"><div class="empty-icon">🧪</div><div class="empty-title">No projects yet</div><div class="empty-sub">Upload a Playwright or Jest JSON report from one of your repos to see results here.</div></div>';
 } else {
   document.getElementById('cards').innerHTML = projects.map(p => {
     const passRate = p.stats.total ? ((p.stats.expected / p.stats.total)*100).toFixed(0) : 0;
