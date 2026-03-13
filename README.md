@@ -229,6 +229,59 @@ The Jest report + hub push logic is extracted into `.github/actions/jest-report-
 - `npm run coverage` script that writes `jest-report.json` (use `--json --outputFile=jest-report.json`)
 - `HUB_TOKEN` secret configured under **Settings → Secrets and variables → Actions**
 
+### Reference implementation — Playwright + Composite Action
+
+The `QA-Playground-Tests` repo serves as the reference for Playwright-based integration. Its workflow calls a reusable Composite Action to push the Playwright JSON report to the hub.
+
+**Triggers**
+- `push` to `dev`
+- `pull_request` targeting `main`
+
+#### Push report step
+
+Runs after all Playwright tests (with `if: always()` so it runs even on test failure), then calls the Composite Action to push the report to the hub.
+
+```
+→ uses: ./.github/actions/playwright-report-hub
+    hub_token:    ${{ secrets.HUB_TOKEN }}
+    hub_repo:     Defused15/test-hub
+    project_name: QA-Playground-Tests
+```
+
+The action writes the report to `projects/QA-Playground-Tests/latest.json` in this repo, which triggers the hub rebuild.
+
+### Reusable Composite Action — Playwright
+
+The Playwright report + hub push logic is extracted into `.github/actions/playwright-report-hub/action.yml`. To reuse it in another Playwright-based repo:
+
+1. Copy `.github/actions/playwright-report-hub/` into the target repo.
+2. Call it in any workflow step:
+
+```yaml
+- name: Playwright Report & Push to QA Hub
+  if: always()
+  uses: ./.github/actions/playwright-report-hub
+  with:
+    hub_token:    ${{ secrets.HUB_TOKEN }}
+    hub_repo:     Defused15/test-hub
+    project_name: your-project-name
+```
+
+**Inputs**
+
+| Input | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `hub_token` | ✅ | — | Fine-grained PAT with Contents R/W on the hub repo |
+| `hub_repo` | ✅ | — | Hub repo in `owner/repo` format |
+| `project_name` | ✅ | — | Folder name under `projects/` in the hub |
+| `report_path` | ❌ | `./playwright-report/report.json` | Path to the Playwright JSON report file |
+
+**Requirements in the calling repo**
+
+- Playwright installed
+- Playwright configured to emit a JSON report (`--reporter=json` or `reporter: [['json', { outputFile: 'playwright-report/report.json' }]]` in `playwright.config.ts`)
+- `HUB_TOKEN` secret configured under **Settings → Secrets and variables → Actions**
+
 ### Required secrets
 
 | Secret | Where to add | Purpose |
