@@ -157,7 +157,80 @@ npm run dev
 | Framework | Status | Notes |
 |-----------|--------|-------|
 | Playwright | ✅ Supported | Uses the native JSON reporter (`--reporter=json`) |
-| Jest | 🔜 Planned | — |
+| Jest | ✅ Supported | Uses `--json --outputFile=jest-report.json` |
 | Postman / Newman | 🔜 Planned | — |
 
-Currently the dashboard parser expects Playwright's JSON report structure. Support for additional frameworks will be added by implementing per-format parsers in `generate-hub-dashboard.mjs`.
+---
+
+## CI/CD Integration
+
+### How project workflows integrate with the hub
+
+Each project repo runs its own tests and pushes the resulting JSON report to this repo via the GitHub API. The hub workflow then rebuilds and redeploys the dashboard automatically.
+
+### Reference implementation — Jest + Composite Action
+
+The `roberto-castillo-terrazas-cv` repo serves as the reference for Jest-based integration. Its workflow (`.github/workflows/GithubActions.yml`) has two jobs:
+
+**Triggers**
+- `push` to `dev`
+- `pull_request` targeting `main`
+
+#### Job 1 — Unit Tests
+
+Runs `npm run coverage` (Jest with coverage), then calls a reusable Composite Action to format the Jest JSON report and push it to the hub.
+
+```
+→ npm run coverage              (continue-on-error: true so the next step always runs)
+→ uses: ./.github/actions/jest-report-hub
+    hub_token:    ${{ secrets.HUB_TOKEN }}
+    hub_repo:     Defused15/test-hub
+    project_name: roberto-castillo-terrazas-cv
+```
+
+The action writes the report to `projects/roberto-castillo-terrazas-cv/latest.json` in this repo, which triggers the hub rebuild.
+
+#### Job 2 — Mutation Testing
+
+Runs after `test` (via `needs: test`). Executes Stryker and uploads the report as a workflow artifact (7-day retention). Does **not** push to the hub.
+
+```
+→ npx stryker run
+→ upload-artifact: reports/mutation/  (retained 7 days)
+```
+
+### Reusable Composite Action
+
+The Jest report + hub push logic is extracted into `.github/actions/jest-report-hub/action.yml`. To reuse it in another Jest-based repo:
+
+1. Copy `.github/actions/jest-report-hub/` into the target repo.
+2. Call it in any workflow step:
+
+```yaml
+- name: Jest Report & Push to QA Hub
+  uses: ./.github/actions/jest-report-hub
+  with:
+    hub_token:    ${{ secrets.HUB_TOKEN }}
+    hub_repo:     Defused15/test-hub
+    project_name: your-project-name
+```
+
+**Inputs**
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `hub_token` | ✅ | Fine-grained PAT with Contents R/W on the hub repo |
+| `hub_repo` | ✅ | Hub repo in `owner/repo` format |
+| `project_name` | ✅ | Folder name under `projects/` in the hub |
+
+**Requirements in the calling repo**
+
+- Jest installed
+- `npm run coverage` script that writes `jest-report.json` (use `--json --outputFile=jest-report.json`)
+- `HUB_TOKEN` secret configured under **Settings → Secrets and variables → Actions**
+
+### Required secrets
+
+| Secret | Where to add | Purpose |
+|--------|-------------|---------|
+| `HUB_TOKEN` | Each project repo | Fine-grained PAT — Contents R/W on `Defused15/test-hub` |
