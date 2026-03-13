@@ -164,47 +164,40 @@ npm run dev
 
 ## CI/CD Integration
 
-### How project workflows integrate with the hub
+Each project repo runs its own tests and pushes the resulting JSON report to this repo via the GitHub API. The hub workflow ([`.github/workflows/build-hub.yml`](.github/workflows/build-hub.yml)) then rebuilds and redeploys the dashboard automatically.
 
-Each project repo runs its own tests and pushes the resulting JSON report to this repo via the GitHub API. The hub workflow then rebuilds and redeploys the dashboard automatically.
+> **Quick start:** copy the ready-made upload step from [`docs/hub-upload-step.yml`](docs/hub-upload-step.yml) into your project workflow and update the two env vars (`PROJECT_NAME`, `REPORT_PATH`).
 
-### Reference implementation — Jest + Composite Action
+---
 
-The `roberto-castillo-terrazas-cv` repo serves as the reference for Jest-based integration. Its workflow (`.github/workflows/GithubActions.yml`) has two jobs:
+### Jest integration
 
-**Triggers**
-- `push` to `dev`
-- `pull_request` targeting `main`
+**Reference repo:** `roberto-castillo-terrazas-cv` · workflow: `.github/workflows/GithubActions.yml`
 
-#### Job 1 — Unit Tests
+**Triggers:** `push` → `dev` · `pull_request` → `main`
 
-Runs `npm run coverage` (Jest with coverage), then calls a reusable Composite Action to format the Jest JSON report and push it to the hub.
+#### Workflow jobs
+
+| Job | What it does | Pushes to hub? |
+|-----|-------------|----------------|
+| `test` | Runs `npm run coverage` (`continue-on-error: true`), then calls the Composite Action | ✅ Yes |
+| `mutation` | Runs `npx stryker run` after `test`, uploads artifact (7-day retention) | ❌ No |
+
+#### Push report step
 
 ```
-→ npm run coverage              (continue-on-error: true so the next step always runs)
+→ npm run coverage              (continue-on-error: true)
 → uses: ./.github/actions/jest-report-hub
     hub_token:    ${{ secrets.HUB_TOKEN }}
     hub_repo:     Defused15/test-hub
     project_name: roberto-castillo-terrazas-cv
 ```
 
-The action writes the report to `projects/roberto-castillo-terrazas-cv/latest.json` in this repo, which triggers the hub rebuild.
+Writes to `projects/roberto-castillo-terrazas-cv/latest.json` → triggers hub rebuild.
 
-#### Job 2 — Mutation Testing
+#### Composite Action — `jest-report-hub`
 
-Runs after `test` (via `needs: test`). Executes Stryker and uploads the report as a workflow artifact (7-day retention). Does **not** push to the hub.
-
-```
-→ npx stryker run
-→ upload-artifact: reports/mutation/  (retained 7 days)
-```
-
-### Reusable Composite Action
-
-The Jest report + hub push logic is extracted into `.github/actions/jest-report-hub/action.yml`. To reuse it in another Jest-based repo:
-
-1. Copy `.github/actions/jest-report-hub/` into the target repo.
-2. Call it in any workflow step:
+Copy `.github/actions/jest-report-hub/` from `roberto-castillo-terrazas-cv` into the target repo, then call it:
 
 ```yaml
 - name: Jest Report & Push to QA Hub
@@ -215,47 +208,43 @@ The Jest report + hub push logic is extracted into `.github/actions/jest-report-
     project_name: your-project-name
 ```
 
-**Inputs**
+| Input | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `hub_token` | ✅ | — | Fine-grained PAT with Contents R/W on the hub repo |
+| `hub_repo` | ✅ | — | Hub repo in `owner/repo` format |
+| `project_name` | ✅ | — | Folder name under `projects/` in the hub |
 
-| Input | Required | Description |
-|-------|----------|-------------|
-| `hub_token` | ✅ | Fine-grained PAT with Contents R/W on the hub repo |
-| `hub_repo` | ✅ | Hub repo in `owner/repo` format |
-| `project_name` | ✅ | Folder name under `projects/` in the hub |
+**Requirements:** Jest installed · `npm run coverage` writes `jest-report.json` (flag: `--json --outputFile=jest-report.json`) · `HUB_TOKEN` secret added to the repo.
 
-**Requirements in the calling repo**
+---
 
-- Jest installed
-- `npm run coverage` script that writes `jest-report.json` (use `--json --outputFile=jest-report.json`)
-- `HUB_TOKEN` secret configured under **Settings → Secrets and variables → Actions**
+### Playwright integration
 
-### Reference implementation — Playwright + Composite Action
+**Reference repo:** `QA-Playground-Tests` · workflow: `.github/workflows/<your-workflow>.yml`
 
-The `QA-Playground-Tests` repo serves as the reference for Playwright-based integration. Its workflow calls a reusable Composite Action to push the Playwright JSON report to the hub.
+**Triggers:** `push` → `dev` · `pull_request` → `main`
 
-**Triggers**
-- `push` to `dev`
-- `pull_request` targeting `main`
+#### Workflow jobs
+
+| Job | What it does | Pushes to hub? |
+|-----|-------------|----------------|
+| `test` | Runs Playwright tests, then calls the Composite Action (`if: always()`) | ✅ Yes |
 
 #### Push report step
 
-Runs after all Playwright tests (with `if: always()` so it runs even on test failure), then calls the Composite Action to push the report to the hub.
-
 ```
+→ npx playwright test           (if: always() so it runs even on failure)
 → uses: ./.github/actions/playwright-report-hub
     hub_token:    ${{ secrets.HUB_TOKEN }}
     hub_repo:     Defused15/test-hub
     project_name: QA-Playground-Tests
 ```
 
-The action writes the report to `projects/QA-Playground-Tests/latest.json` in this repo, which triggers the hub rebuild.
+Writes to `projects/QA-Playground-Tests/latest.json` → triggers hub rebuild.
 
-### Reusable Composite Action — Playwright
+#### Composite Action — `playwright-report-hub`
 
-The Playwright report + hub push logic is extracted into `.github/actions/playwright-report-hub/action.yml`. To reuse it in another Playwright-based repo:
-
-1. Copy `.github/actions/playwright-report-hub/` into the target repo.
-2. Call it in any workflow step:
+Copy `.github/actions/playwright-report-hub/` from `QA-Playground-Tests` into the target repo, then call it:
 
 ```yaml
 - name: Playwright Report & Push to QA Hub
@@ -267,20 +256,16 @@ The Playwright report + hub push logic is extracted into `.github/actions/playwr
     project_name: your-project-name
 ```
 
-**Inputs**
-
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `hub_token` | ✅ | — | Fine-grained PAT with Contents R/W on the hub repo |
 | `hub_repo` | ✅ | — | Hub repo in `owner/repo` format |
 | `project_name` | ✅ | — | Folder name under `projects/` in the hub |
-| `report_path` | ❌ | `./playwright-report/report.json` | Path to the Playwright JSON report file |
+| `report_path` | ❌ | `./playwright-report/report.json` | Path to the Playwright JSON report |
 
-**Requirements in the calling repo**
+**Requirements:** Playwright installed · JSON reporter enabled (`--reporter=json` or `reporter: [['json', { outputFile: 'playwright-report/report.json' }]]` in `playwright.config.ts`) · `HUB_TOKEN` secret added to the repo.
 
-- Playwright installed
-- Playwright configured to emit a JSON report (`--reporter=json` or `reporter: [['json', { outputFile: 'playwright-report/report.json' }]]` in `playwright.config.ts`)
-- `HUB_TOKEN` secret configured under **Settings → Secrets and variables → Actions**
+---
 
 ### Required secrets
 
