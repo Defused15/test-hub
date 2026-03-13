@@ -524,7 +524,8 @@ tr:last-child td {
 tr:hover td {
   background: var(--paper);
 }
-tr.hidden {
+tr.hidden,
+.card.hidden {
   display: none;
 }
 .tt {
