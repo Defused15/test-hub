@@ -4,7 +4,7 @@
   "description": "Aggregated QA test dashboard across all projects",
   "type": "module",
   "scripts": {
-    "build": "node scripts/generate-hub-dashboard.mjs",
+    "build": "node scripts/build.mjs",
     "dev": "npm run build && npx serve dist"
   },
   "engines": {

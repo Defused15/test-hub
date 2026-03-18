@@ -47,6 +47,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 <link rel="manifest" href="site.webmanifest">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 <main class="page">
@@ -72,6 +73,33 @@
     <button class="fbtn all" data-type="jest">Unit</button>
   </div>
   <div class="cards" id="cards"></div>
+
+  <div class="sl" id="trends-sl" style="display:none">Trends</div>
+  <div class="charts-grid" id="trends-grid" style="display:none">
+    <div class="chart-card">
+      <div class="chart-title">Pass Rate Trend</div>
+      <canvas id="chart-passrate" height="180"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Duration Trend</div>
+      <canvas id="chart-duration" height="180"></canvas>
+    </div>
+  </div>
+
+  <div class="sl" id="heatmap-sl" style="display:none">Reliability Heatmap</div>
+  <div id="heatmap-wrap" style="display:none"></div>
+
+  <div class="sl">Rankings</div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Top 5 Flaky Tests</div>
+      <canvas id="chart-flaky" height="180"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Top 5 Slowest Tests</div>
+      <canvas id="chart-slowest" height="180"></canvas>
+    </div>
+  </div>
 
   <div class="sl">All Tests</div>
   <div class="table-wrap">
@@ -121,8 +149,25 @@
   </footer>
 </main>
 
+<!-- ── Test detail side panel ──────────────────────────────────────────────── -->
+<div class="panel-backdrop" id="panel-backdrop"></div>
+<aside class="detail-panel" id="detail-panel" aria-hidden="true">
+  <div class="dp-head">
+    <div class="dp-title" id="dp-title"></div>
+    <button class="dp-close" id="dp-close" aria-label="Close">✕</button>
+  </div>
+  <div class="dp-meta-bar" id="dp-meta-bar"></div>
+  <div class="dp-file-bar" id="dp-file-bar"></div>
+  <div class="dp-tabs" id="dp-tabs">
+    <button class="dp-tab active" data-tab="steps">Steps</button>
+    <button class="dp-tab" data-tab="history">History</button>
+  </div>
+  <div class="dp-body" id="dp-body"></div>
+</aside>
+
 <script>
 const { projects, global } = /*%%DATA%%*/null;
+const history = /*%%HISTORY%%*/null;
 
 const fmtDur  = ms => ms >= 1000 ? (ms/1000).toFixed(2)+'s' : ms+'ms';
 const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
@@ -173,7 +218,7 @@ if (projects.length === 0) {
       + '<div class="card-header">'
       + '<div><div class="card-name">'+p.name+'</div>'
       + '<div class="card-date" title="'+fmtDate(p.startTime)+'">'+timeAgo(p.startTime)+'<span class="tip-icon">i</span></div></div>'
-      + '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="bchip">'+typeLabel+'</span><span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span></div>'
+      + '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="type-badge type-badge--'+p.type+'">'+typeLabel+'</span><span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span></div>'
       + '</div>'
       + '<div class="card-stats">'
       + '<div class="cs"><div class="cs-l">Total</div><div class="cs-n">'+p.stats.total+'</div></div>'
@@ -197,20 +242,20 @@ if (projects.length === 0) {
   }
 }
 
-document.getElementById('tbody').innerHTML = projects.flatMap(p =>
-  p.tests.map(t => {
-    const bColor = browserColor[t.project] || '#888';
-    const cls   = chipMap[t.outcome]   || 'skip';
-    const lbl   = chipLabel[t.outcome] || t.outcome;
-    return '<tr data-outcome="'+t.outcome+'" data-project="'+p.name+'" data-test="'+t.title+'" data-browser="'+t.project+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'" data-type="'+p.type+'">'
-      + '<td><span class="dur">'+p.name+'</span></td>'
-      + '<td><div class="tt">'+t.title+'</div><div class="tf">'+t.file+':'+t.line+'</div></td>'
-      + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+t.project+'</span></td>'
-      + '<td><span class="chip '+cls+'">'+lbl+'</span></td>'
-      + '<td><span class="dur">'+fmtDur(t.duration)+'</span></td>'
-      + '</tr>';
-  })
-).join('');
+const allTests = projects.flatMap(p => p.tests.map(t => ({ ...t, projectName: p.name, projectType: p.type })));
+
+document.getElementById('tbody').innerHTML = allTests.map((t, idx) => {
+  const bColor = browserColor[t.project] || '#888';
+  const cls    = chipMap[t.outcome]   || 'skip';
+  const lbl    = chipLabel[t.outcome] || t.outcome;
+  return '<tr data-outcome="'+t.outcome+'" data-project="'+t.projectName+'" data-test="'+t.title+'" data-browser="'+t.project+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'" data-type="'+t.projectType+'" data-idx="'+idx+'" class="clickable-row">'
+    + '<td><span class="dur">'+t.projectName+'</span></td>'
+    + '<td><div class="tt">'+t.title+'</div><div class="tf">'+t.file+':'+t.line+'</div></td>'
+    + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+t.project+'</span></td>'
+    + '<td><span class="chip '+cls+'">'+lbl+'</span></td>'
+    + '<td><span class="dur">'+fmtDur(t.duration)+'</span></td>'
+    + '</tr>';
+}).join('');
 
 // ── Filter / Sort / Paginate ──────────────────────────────────────────────────
 
@@ -355,6 +400,376 @@ document.querySelectorAll('th.sortable').forEach(th => {
 });
 
 updateTable();
+
+// ── Test detail panel ─────────────────────────────────────────────────────────
+(function () {
+  const panel      = document.getElementById('detail-panel');
+  const backdrop   = document.getElementById('panel-backdrop');
+  const dpTitle    = document.getElementById('dp-title');
+  const dpMetaBar  = document.getElementById('dp-meta-bar');
+  const dpFileBar  = document.getElementById('dp-file-bar');
+  const dpTabs     = document.getElementById('dp-tabs');
+  const dpBody     = document.getElementById('dp-body');
+
+  const CHIP_CLS     = { expected:'pass', unexpected:'fail', flaky:'flaky', skipped:'skip' };
+  const CHIP_LABEL   = { expected:'Passed', unexpected:'Failed', flaky:'Flaky', skipped:'Skipped' };
+  const OUTCOME_ICON = { expected:'✓', unexpected:'✗', flaky:'⚡', skipped:'—' };
+  const fmtD = ms => ms >= 1000 ? (ms/1000).toFixed(2)+'s' : ms+'ms';
+  const esc  = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  let currentTest = null;
+  let currentHist = [];
+  let dpChart     = null;
+
+  function getTestHistory(t) {
+    const src = history[t.projectName] ?? [];
+    return src
+      .filter(e => e.tests)
+      .map(e => {
+        const m = e.tests.find(h => h.title === t.title && h.project === t.project);
+        return m ? { date: e.date, duration: m.duration, outcome: m.outcome } : null;
+      })
+      .filter(Boolean);
+  }
+
+  function openPanel(t) {
+    currentTest = t;
+    currentHist = getTestHistory(t);
+
+    dpTitle.textContent = t.title;
+
+    const cls    = CHIP_CLS[t.outcome] || 'skip';
+    const bColor = browserColor[t.project] || '#888';
+    dpMetaBar.innerHTML =
+        '<span class="chip ' + cls + '">' + OUTCOME_ICON[t.outcome] + ' ' + (CHIP_LABEL[t.outcome] || t.outcome) + '</span>'
+      + '<span class="dp-meta-item">⏱ ' + fmtD(t.duration) + '</span>'
+      + '<span class="bchip"><span class="bdot" style="background:' + bColor + '"></span>' + esc(t.project) + '</span>';
+
+    dpFileBar.innerHTML =
+        '<span class="dp-file-path">' + esc(t.file) + ':' + t.line + '</span>'
+      + '<button class="dp-copy-btn" id="dp-copy" title="Copy path">⧉</button>';
+    document.getElementById('dp-copy').addEventListener('click', () => {
+      navigator.clipboard.writeText(t.file + ':' + t.line).catch(() => {});
+    }, { once: true });
+
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+    backdrop.classList.add('visible');
+    document.body.classList.add('panel-open');
+    setTab('steps');
+  }
+
+  function setTab(tab) {
+    dpTabs.querySelectorAll('.dp-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    if (tab === 'steps') renderSteps();
+    else renderHistory();
+  }
+
+  function renderSteps() {
+    const t = currentTest;
+    if (t.steps && t.steps.length > 0) {
+      let html = '<div class="dp-steps">';
+      t.steps.forEach((s, i) => {
+        const fail = !!s.error;
+        html += '<div class="dp-step' + (fail ? ' dp-step--fail' : '') + '">'
+          + '<span class="step-num">' + (i + 1) + '</span>'
+          + '<span class="step-title" title="' + esc(s.title) + '">' + esc(s.title) + '</span>'
+          + '<span class="step-dur">' + fmtD(s.duration) + '</span>'
+          + '<span class="' + (fail ? 'step-fail' : 'step-pass') + '">' + (fail ? '✗' : '✓') + '</span>'
+          + '</div>';
+        if (fail && s.error) html += '<div class="step-err-row">' + esc(s.error) + '</div>';
+      });
+      dpBody.innerHTML = html + '</div>';
+    } else if (t.error) {
+      dpBody.innerHTML = '<div class="dp-tab-body">'
+        + '<div class="dp-section"><div class="dp-section-title">Error</div><pre class="dp-error">' + esc(t.error) + '</pre></div>'
+        + (t.errorStack ? '<details class="dp-details"><summary class="dp-section-title">Stack Trace</summary><pre class="dp-stack">' + esc(t.errorStack) + '</pre></details>' : '')
+        + '</div>';
+    } else {
+      dpBody.innerHTML = '<div class="dp-empty-tab">No steps recorded for this test</div>';
+    }
+  }
+
+  function renderHistory() {
+    if (dpChart) { dpChart.destroy(); dpChart = null; }
+    const hist = currentHist;
+    if (hist.length < 2) {
+      dpBody.innerHTML = '<div class="dp-empty-tab">Not enough history yet.<br>Run the tests a few more times to see trends.</div>';
+      return;
+    }
+    const avgDur = Math.round(hist.reduce((s, r) => s + r.duration, 0) / hist.length);
+    const passed = hist.filter(r => r.outcome === 'expected').length;
+    const failed = hist.filter(r => r.outcome !== 'expected' && r.outcome !== 'skipped').length;
+    dpBody.innerHTML = '<div class="dp-tab-body">'
+      + '<div class="dp-hist-hdr">'
+      + '<div><div class="dp-hist-title">Test Execution History</div><div class="dp-hist-sub">Track test duration and status trends over time</div></div>'
+      + '<div class="dp-hist-stats">'
+      + '<div><div class="dp-hist-stat-lbl">Avg Duration</div><div class="dp-hist-stat-val">' + fmtD(avgDur) + '</div></div>'
+      + '<div><div class="dp-hist-stat-lbl">Passed</div><div class="dp-hist-stat-val pass">' + passed + '</div></div>'
+      + '<div><div class="dp-hist-stat-lbl">Failed</div><div class="dp-hist-stat-val fail">' + failed + '</div></div>'
+      + '</div></div>'
+      + '<canvas id="dp-hist-canvas" height="180"></canvas>'
+      + '</div>';
+    if (typeof Chart !== 'undefined') {
+      const labels      = hist.map(r => new Date(r.date).toLocaleDateString('en-US', { month:'short', day:'numeric' }));
+      const pointColors = hist.map(r => r.outcome === 'expected' ? '#2d6a3f' : '#8b2020');
+      dpChart = new Chart(document.getElementById('dp-hist-canvas'), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{ data: hist.map(r => r.duration),
+            borderColor: '#1a56a0', backgroundColor: '#1a56a010',
+            pointBackgroundColor: pointColors, pointBorderColor: pointColors,
+            tension: 0.3, pointRadius: 4, fill: true }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: '#e4dfd7' }, ticks: { maxTicksLimit: 8, font: { size: 9 } } },
+            y: { grid: { color: '#e4dfd7' }, beginAtZero: false,
+              ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(1)+'s' : v+'ms', font: { size: 9 } } },
+          },
+        },
+      });
+    }
+  }
+
+  function closePanel() {
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    backdrop.classList.remove('visible');
+    document.body.classList.remove('panel-open');
+    if (dpChart) { dpChart.destroy(); dpChart = null; }
+  }
+
+  dpTabs.addEventListener('click', e => {
+    const btn = e.target.closest('.dp-tab');
+    if (btn) setTab(btn.dataset.tab);
+  });
+  document.getElementById('dp-close').addEventListener('click', closePanel);
+  backdrop.addEventListener('click', closePanel);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+  document.getElementById('tbody').addEventListener('click', e => {
+    const row = e.target.closest('tr[data-idx]');
+    if (!row) return;
+    const t = allTests[Number(row.dataset.idx)];
+    if (t) openPanel(t);
+  });
+})();
+
+// ── Charts ────────────────────────────────────────────────────────────────────
+
+function initCharts() {
+  if (typeof Chart === 'undefined') return;
+
+  Chart.defaults.font.family = "'DM Mono', 'Courier New', monospace";
+  Chart.defaults.font.size   = 10;
+  Chart.defaults.color       = '#6b6560';
+
+  const gridColor = '#e4dfd7';
+  const baseScales = {
+    x: { grid: { color: gridColor }, ticks: { maxTicksLimit: 8 } },
+    y: { grid: { color: gridColor }, beginAtZero: true },
+  };
+  const fmt = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const palette = ['#1a56a0','#2d6a3f','#b54800','#5c3080','#7a5c10','#8b2020'];
+
+  // ── Trend charts (only when history has ≥ 2 data points for any project) ────
+  const histKeys = history ? Object.keys(history).filter(k => (history[k]?.length ?? 0) >= 2) : [];
+  if (histKeys.length > 0) {
+    document.getElementById('trends-sl').style.display = '';
+    document.getElementById('trends-grid').style.display = '';
+
+    // Longest history as x-axis spine
+    const spineKey = histKeys.reduce((a, b) => history[a].length >= history[b].length ? a : b);
+    const labels   = history[spineKey].map(s => fmt(s.date));
+
+    // Pass Rate Trend
+    const prEl = document.getElementById('chart-passrate');
+    if (prEl) {
+      new Chart(prEl, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: histKeys.map((name, i) => ({
+            label: name,
+            data: history[name].map(s => s.stats.total > 0
+              ? +((s.stats.expected / s.stats.total) * 100).toFixed(1) : 0),
+            borderColor: palette[i % palette.length],
+            backgroundColor: palette[i % palette.length] + '18',
+            tension: 0.35, pointRadius: 3, fill: false,
+          })),
+        },
+        options: {
+          responsive: true, maintainAspectRatio: true,
+          plugins: {
+            legend: { display: histKeys.length > 1, position: 'bottom',
+              labels: { boxWidth: 10, font: { size: 10 } } },
+          },
+          scales: {
+            x: baseScales.x,
+            y: { ...baseScales.y, max: 100, ticks: { callback: v => v + '%' } },
+          },
+        },
+      });
+    }
+
+    // Duration Trend
+    const durEl = document.getElementById('chart-duration');
+    if (durEl) {
+      new Chart(durEl, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: histKeys.map((name, i) => ({
+            label: name,
+            data: history[name].map(s => s.duration),
+            borderColor: palette[i % palette.length],
+            backgroundColor: palette[i % palette.length] + '18',
+            tension: 0.35, pointRadius: 3, fill: false,
+          })),
+        },
+        options: {
+          responsive: true, maintainAspectRatio: true,
+          plugins: {
+            legend: { display: histKeys.length > 1, position: 'bottom',
+              labels: { boxWidth: 10, font: { size: 10 } } },
+          },
+          scales: {
+            x: baseScales.x,
+            y: { ...baseScales.y,
+              ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(1)+'s' : v+'ms' } },
+          },
+        },
+      });
+    }
+  }
+
+  // ── Flaky Tests Ranking ───────────────────────────────────────────────────────
+  const flakyEl = document.getElementById('chart-flaky');
+  if (flakyEl) {
+    const flakyCount = {};
+    for (const p of projects) {
+      for (const t of p.tests) {
+        if (t.outcome === 'flaky') flakyCount[t.title] = (flakyCount[t.title] ?? 0) + 1;
+      }
+    }
+    const top5 = Object.entries(flakyCount).sort((a,b) => b[1]-a[1]).slice(0,5);
+    if (top5.length > 0) {
+      new Chart(flakyEl, {
+        type: 'bar',
+        data: {
+          labels: top5.map(([t]) => t.length > 32 ? t.slice(0,30)+'…' : t),
+          datasets: [{ data: top5.map(([,c]) => c),
+            backgroundColor: '#fdf6e3', borderColor: '#7a5c10', borderWidth: 1 }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: true, indexAxis: 'y',
+          plugins: { legend: { display: false } },
+          scales: { x: { ...baseScales.x, ticks: { stepSize: 1 } },
+            y: { grid: { display: false } } },
+        },
+      });
+    } else {
+      flakyEl.closest('.chart-card').innerHTML =
+        '<div class="chart-title">Top 5 Flaky Tests</div>'
+        + '<div class="chart-empty">No flaky tests detected</div>';
+    }
+  }
+
+  // ── Slowest Tests Ranking ─────────────────────────────────────────────────────
+  const slowEl = document.getElementById('chart-slowest');
+  if (slowEl) {
+    const allTests = projects.flatMap(p => p.tests.filter(t => t.duration > 0));
+    const top5 = [...allTests].sort((a,b) => b.duration - a.duration).slice(0,5);
+    if (top5.length > 0) {
+      new Chart(slowEl, {
+        type: 'bar',
+        data: {
+          labels: top5.map(t => t.title.length > 32 ? t.title.slice(0,30)+'…' : t.title),
+          datasets: [{ data: top5.map(t => t.duration),
+            backgroundColor: '#fdf0f0', borderColor: '#8b2020', borderWidth: 1 }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: true, indexAxis: 'y',
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ...baseScales.x,
+              ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(1)+'s' : v+'ms' } },
+            y: { grid: { display: false } },
+          },
+        },
+      });
+    } else {
+      slowEl.closest('.chart-card').innerHTML =
+        '<div class="chart-title">Top 5 Slowest Tests</div>'
+        + '<div class="chart-empty">No duration data</div>';
+    }
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCharts);
+} else {
+  initCharts();
+}
+
+// ── Reliability Heatmap (project × run) ──────────────────────────────────────
+
+function buildHeatmap() {
+  if (!history) return;
+  const histKeys = Object.keys(history).filter(k => (history[k]?.length ?? 0) >= 2);
+  if (histKeys.length === 0) return;
+
+  document.getElementById('heatmap-sl').style.display = '';
+  const wrap = document.getElementById('heatmap-wrap');
+  wrap.style.display = '';
+
+  // All unique run dates across all projects, sorted ascending (oldest → newest)
+  const allDates = [...new Set(histKeys.flatMap(k => history[k].map(e => e.date)))].sort();
+  const fmtD = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+  let html = '<div class="heatmap-section">';
+  html += `<div class="heatmap-grid" style="grid-template-columns:160px repeat(${allDates.length},13px)">`;
+
+  // Header row: corner + date labels (vertical)
+  html += '<div class="hm-corner"></div>';
+  allDates.forEach(d => {
+    html += '<div class="hm-date-lbl" title="' + fmtD(d) + '">' + fmtD(d) + '</div>';
+  });
+
+  // One row per project
+  histKeys.forEach(name => {
+    const dateMap = new Map(history[name].map(e => [e.date, e]));
+    const trunc = name.length > 28 ? name.slice(0, 26) + '…' : name;
+    html += '<div class="hm-row-label" title="' + name + '">' + trunc + '</div>';
+    allDates.forEach(d => {
+      const e = dateMap.get(d);
+      if (!e) {
+        html += '<div class="hm-cell hm-none" title="' + name + ' · ' + fmtD(d) + ' · No data"></div>';
+        return;
+      }
+      const pct = e.stats.total > 0 ? ((e.stats.expected / e.stats.total) * 100).toFixed(0) : 100;
+      const cls = e.stats.unexpected > 0 ? 'hm-fail' : e.stats.flaky > 0 ? 'hm-flaky' : 'hm-pass';
+      html += '<div class="hm-cell ' + cls + '" title="' + name + ' · ' + fmtD(d) + ' · ' + pct + '% passed"></div>';
+    });
+  });
+
+  html += '</div>'; // heatmap-grid
+  html += '<div class="hm-sub">Each column = one CI run. Newest run on the right.</div>';
+  html += '<div class="hm-legend">'
+    + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-pass"></div>All passed</div>'
+    + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-flaky"></div>Flaky only</div>'
+    + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-fail"></div>Failures</div>'
+    + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-none"></div>No data</div>'
+    + '</div>';
+  html += '</div>'; // heatmap-section
+
+  wrap.innerHTML = html;
+}
+
+buildHeatmap();
 </script>
 </body>
 </html>
