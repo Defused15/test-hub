@@ -997,8 +997,9 @@ body.panel-open { overflow: hidden; }
   gap: 16px;
   animation: up 0.5s 0.14s ease both;
   will-change: opacity, transform;
+  min-width: 0;
 }
-@media (max-width: 720px) { .charts-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .charts-grid { grid-template-columns: minmax(0, 1fr); } }
 
 .chart-card {
   background: #fff;
@@ -1006,6 +1007,12 @@ body.panel-open { overflow: hidden; }
   border-radius: 8px;
   padding: 18px 18px 14px;
   box-shadow: var(--shadow);
+  min-width: 0;
+  position: relative;
+  width: 100%;
+}
+.chart-card canvas {
+  max-width: 100%;
 }
 .chart-title {
   font-size: 9.5px;
@@ -1064,7 +1071,6 @@ body.panel-open { overflow: hidden; }
   width: max-content;
   min-width: 100%;
 }
-.hm-corner { /* empty top-left cell */ }
 .hm-date-lbl {
   font-size: 8.5px;
   font-family: "DM Mono", "DM Mono Fallback", monospace;

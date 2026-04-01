@@ -71,6 +71,7 @@
     <button class="fbtn active all" data-type="all">All</button>
     <button class="fbtn all" data-type="playwright">E2E</button>
     <button class="fbtn all" data-type="jest">Unit</button>
+    <button class="fbtn all" data-type="newman">API</button>
   </div>
   <div class="cards" id="cards"></div>
 
@@ -114,6 +115,7 @@
         <button class="fbtn active all" data-ttype="all" style="display:none">All types</button>
         <button class="fbtn all" data-ttype="playwright" style="display:none">E2E</button>
         <button class="fbtn all" data-ttype="jest" style="display:none">Unit</button>
+        <button class="fbtn all" data-ttype="newman" style="display:none">API</button>
       </div>
     </div>
     <div class="table-scroll">
@@ -169,6 +171,37 @@
 const { projects, global } = /*%%DATA%%*/null;
 const history = /*%%HISTORY%%*/null;
 
+if (history) {
+  for (const k of Object.keys(history)) {
+    const byDay = new Map();
+    for (const r of history[k]) {
+      const d = new Date(r.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      if (!byDay.has(d)) {
+        byDay.set(d, { ...r, _count: 1, stats: { ...r.stats } });
+      } else {
+        const acc = byDay.get(d);
+        acc.duration += r.duration;
+        acc.stats.total += r.stats.total;
+        acc.stats.expected += r.stats.expected;
+        acc.stats.unexpected += r.stats.unexpected;
+        acc.stats.flaky += r.stats.flaky;
+        acc.stats.skipped += r.stats.skipped;
+        acc._count++;
+        if (r.date > acc.date) acc.date = r.date;
+      }
+    }
+    history[k] = Array.from(byDay.values()).map(acc => {
+      acc.duration /= acc._count;
+      acc.stats.total /= acc._count;
+      acc.stats.expected /= acc._count;
+      acc.stats.unexpected /= acc._count;
+      acc.stats.flaky /= acc._count;
+      acc.stats.skipped /= acc._count;
+      return acc;
+    }).sort((a,b) => a.date - b.date);
+  }
+}
+
 const fmtDur  = ms => ms >= 1000 ? (ms/1000).toFixed(2)+'s' : ms+'ms';
 const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
 const timeAgo = ts => {
@@ -180,7 +213,7 @@ const timeAgo = ts => {
   if (m >= 1)  return m + (m===1?' minute':' minutes') + ' ago';
   return 'just now';
 };
-const browserColor = { chromium:'#1a56a0', firefox:'#b54800', webkit:'#5c3080', unit:'#2d7a4f' };
+const browserColor = { chromium:'#1a56a0', firefox:'#b54800', webkit:'#5c3080', unit:'#2d7a4f', api:'#ff6c37' };
 const chipMap   = { expected:'pass', unexpected:'fail', flaky:'flaky', skipped:'skip' };
 const chipLabel = { expected:'Passed', unexpected:'Failed', flaky:'Flaky', skipped:'Skipped' };
 
@@ -213,7 +246,7 @@ if (projects.length === 0) {
       const c = browserColor[b] || '#888';
       return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
     }).join('');
-    const typeLabel = p.type === 'playwright' ? 'E2E' : 'Unit';
+    const typeLabel = p.type === 'playwright' ? 'E2E' : p.type === 'newman' ? 'API' : 'Unit';
     return '<a class="card-link" href="projects/'+encodeURIComponent(p.name)+'.html"><div class="card" data-type="'+p.type+'">'
       + '<div class="card-header">'
       + '<div><div class="card-name">'+p.name+'</div>'
@@ -575,15 +608,24 @@ function initCharts() {
   const fmt = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const palette = ['#1a56a0','#2d6a3f','#b54800','#5c3080','#7a5c10','#8b2020'];
 
-  // ── Trend charts (only when history has ≥ 2 data points for any project) ────
-  const histKeys = history ? Object.keys(history).filter(k => (history[k]?.length ?? 0) >= 2) : [];
+  // ── Trend charts (only when history has ≥ 1 data points for any project) ────
+  const histKeys = history ? Object.keys(history).filter(k => (history[k]?.length ?? 0) >= 1) : [];
   if (histKeys.length > 0) {
     document.getElementById('trends-sl').style.display = '';
     document.getElementById('trends-grid').style.display = '';
 
-    // Longest history as x-axis spine
-    const spineKey = histKeys.reduce((a, b) => history[a].length >= history[b].length ? a : b);
-    const labels   = history[spineKey].map(s => fmt(s.date));
+    // Extract unified sorted string dates for x-axis
+    const strToTs = new Map();
+    histKeys.forEach(k => history[k].forEach(s => {
+      const d = fmt(s.date);
+      if (!strToTs.has(d) || s.date < strToTs.get(d)) strToTs.set(d, s.date);
+    }));
+    const labels = [...strToTs.keys()].sort((a,b) => strToTs.get(a) - strToTs.get(b));
+
+    const getDataMap = (name, extractor) => {
+      const map = new Map(history[name].map(s => [fmt(s.date), extractor(s)]));
+      return labels.map(lbl => map.has(lbl) ? map.get(lbl) : null);
+    };
 
     // Pass Rate Trend
     const prEl = document.getElementById('chart-passrate');
@@ -594,11 +636,11 @@ function initCharts() {
           labels,
           datasets: histKeys.map((name, i) => ({
             label: name,
-            data: history[name].map(s => s.stats.total > 0
-              ? +((s.stats.expected / s.stats.total) * 100).toFixed(1) : 0),
+            data: getDataMap(name, s => s.stats.total > 0 ? +((s.stats.expected / s.stats.total) * 100).toFixed(1) : 0),
             borderColor: palette[i % palette.length],
             backgroundColor: palette[i % palette.length] + '18',
             tension: 0.35, pointRadius: 3, fill: false,
+            spanGaps: true
           })),
         },
         options: {
@@ -624,10 +666,11 @@ function initCharts() {
           labels,
           datasets: histKeys.map((name, i) => ({
             label: name,
-            data: history[name].map(s => s.duration),
+            data: getDataMap(name, s => s.duration),
             borderColor: palette[i % palette.length],
             backgroundColor: palette[i % palette.length] + '18',
             tension: 0.35, pointRadius: 3, fill: false,
+            spanGaps: true
           })),
         },
         options: {
@@ -719,40 +762,44 @@ if (document.readyState === 'loading') {
 
 function buildHeatmap() {
   if (!history) return;
-  const histKeys = Object.keys(history).filter(k => (history[k]?.length ?? 0) >= 2);
+  const histKeys = Object.keys(history).filter(k => (history[k]?.length ?? 0) >= 1);
   if (histKeys.length === 0) return;
 
   document.getElementById('heatmap-sl').style.display = '';
   const wrap = document.getElementById('heatmap-wrap');
   wrap.style.display = '';
 
-  // All unique run dates across all projects, sorted ascending (oldest → newest)
-  const allDates = [...new Set(histKeys.flatMap(k => history[k].map(e => e.date)))].sort();
   const fmtD = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const strToTs = new Map();
+  histKeys.forEach(k => history[k].forEach(s => {
+    const d = fmtD(s.date);
+    if (!strToTs.has(d) || s.date < strToTs.get(d)) strToTs.set(d, s.date);
+  }));
+  const allLabels = [...strToTs.keys()].sort((a,b) => strToTs.get(a) - strToTs.get(b));
 
   let html = '<div class="heatmap-section">';
-  html += `<div class="heatmap-grid" style="grid-template-columns:160px repeat(${allDates.length},13px)">`;
+  html += `<div class="heatmap-grid" style="grid-template-columns:160px repeat(${allLabels.length},13px)">`;
 
   // Header row: corner + date labels (vertical)
   html += '<div class="hm-corner"></div>';
-  allDates.forEach(d => {
-    html += '<div class="hm-date-lbl" title="' + fmtD(d) + '">' + fmtD(d) + '</div>';
+  allLabels.forEach(lbl => {
+    html += '<div class="hm-date-lbl" title="' + lbl + '">' + lbl + '</div>';
   });
 
   // One row per project
   histKeys.forEach(name => {
-    const dateMap = new Map(history[name].map(e => [e.date, e]));
+    const dateMap = new Map(history[name].map(e => [fmtD(e.date), e]));
     const trunc = name.length > 28 ? name.slice(0, 26) + '…' : name;
     html += '<div class="hm-row-label" title="' + name + '">' + trunc + '</div>';
-    allDates.forEach(d => {
-      const e = dateMap.get(d);
+    allLabels.forEach(lbl => {
+      const e = dateMap.get(lbl);
       if (!e) {
-        html += '<div class="hm-cell hm-none" title="' + name + ' · ' + fmtD(d) + ' · No data"></div>';
+        html += '<div class="hm-cell hm-none" title="' + name + ' · ' + lbl + ' · No data"></div>';
         return;
       }
       const pct = e.stats.total > 0 ? ((e.stats.expected / e.stats.total) * 100).toFixed(0) : 100;
       const cls = e.stats.unexpected > 0 ? 'hm-fail' : e.stats.flaky > 0 ? 'hm-flaky' : 'hm-pass';
-      html += '<div class="hm-cell ' + cls + '" title="' + name + ' · ' + fmtD(d) + ' · ' + pct + '% passed"></div>';
+      html += '<div class="hm-cell ' + cls + '" title="' + name + ' · ' + lbl + ' · ' + pct + '% passed"></div>';
     });
   });
 
