@@ -2,7 +2,7 @@ import { fmtDur } from './utils.mjs';
 
 // ── Shared lookup tables ──────────────────────────────────────────────────────
 
-const BROWSER_COLOR = { chromium: '#1a56a0', firefox: '#b54800', webkit: '#5c3080', unit: '#2d7a4f' };
+const BROWSER_COLOR = { chromium: '#1a56a0', firefox: '#b54800', webkit: '#5c3080', unit: '#2d7a4f', api: '#ff6c37' };
 const CHIP_MAP      = { expected: 'pass', unexpected: 'fail', flaky: 'flaky', skipped: 'skip' };
 const CHIP_LABEL    = { expected: 'Passed', unexpected: 'Failed', flaky: 'Flaky', skipped: 'Skipped' };
 
@@ -74,8 +74,9 @@ const INLINE_STYLES = `
   h1{font-size:26px;font-weight:300;letter-spacing:-.02em} h1 strong{font-weight:600}
   .eyebrow{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6b6560;margin-bottom:4px}
   .gstats{grid-template-columns:repeat(6,1fr)}
-  .charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;animation:up .5s .14s ease both;will-change:opacity,transform}
-  .chart-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px 18px 14px;box-shadow:var(--shadow)}
+  .charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px, 100%),1fr));gap:16px;animation:up .5s .14s ease both;will-change:opacity,transform}
+  .chart-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px 18px 14px;box-shadow:var(--shadow);min-width:0;position:relative;width:100%}
+  .chart-card canvas{max-width:100%}
   .chart-title{font-size:9.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
   .chart-empty{font-size:11px;color:var(--ink3);padding:28px 0;text-align:center}
   tr.clickable-row{cursor:pointer} tr.clickable-row:hover td{background:var(--paper2)}
@@ -153,7 +154,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
 
   const statusClass = p.stats.ok ? 'ok' : 'fail';
   const statusText  = p.stats.ok ? 'All passed' : 'Failures detected';
-  const typeLabel   = p.type === 'playwright' ? 'E2E' : 'Unit';
+  const typeLabel   = p.type === 'playwright' ? 'E2E' : p.type === 'newman' ? 'API' : 'Unit';
   const genDate     = new Date().toLocaleDateString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit',
   });
@@ -377,7 +378,7 @@ updateTable();
   const CHIP_CLS      = { expected: 'pass', unexpected: 'fail', flaky: 'flaky', skipped: 'skip' };
   const CHIP_LABEL    = { expected: 'Passed', unexpected: 'Failed', flaky: 'Flaky', skipped: 'Skipped' };
   const OUTCOME_ICON  = { expected: '✓', unexpected: '✗', flaky: '⚡', skipped: '—' };
-  const BROWSER_COLOR = { chromium: '#1a56a0', firefox: '#b54800', webkit: '#5c3080', unit: '#2d7a4f' };
+  const BROWSER_COLOR = { chromium: '#1a56a0', firefox: '#b54800', webkit: '#5c3080', unit: '#2d7a4f', api: '#ff6c37' };
   const fmtD = ms => ms >= 1000 ? (ms / 1000).toFixed(2) + 's' : ms + 'ms';
   const esc  = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -456,7 +457,7 @@ updateTable();
   function renderHistory() {
     if (dpChart) { dpChart.destroy(); dpChart = null; }
     const hist = currentHist;
-    if (hist.length < 2) {
+    if (hist.length < 1) {
       dpBody.innerHTML = '<div class="dp-empty-tab">Not enough history yet.<br>Run the tests a few more times to see trends.</div>';
       return;
     }
@@ -523,6 +524,42 @@ updateTable();
 
 // ── Project charts ────────────────────────────────────────────────────────────
 const projectHistory = ${JSON.stringify(projectHistory)};
+
+(function aggregateProjectHistory() {
+  const byDay = new Map();
+  for (const r of projectHistory) {
+    const d = new Date(r.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    if (!byDay.has(d)) {
+      byDay.set(d, { ...r, _count: 1, stats: { ...r.stats }, tests: r.tests ? [...r.tests] : [] });
+    } else {
+      const acc = byDay.get(d);
+      acc.duration += r.duration;
+      acc.stats.total += r.stats.total;
+      acc.stats.expected += r.stats.expected;
+      acc.stats.unexpected += r.stats.unexpected;
+      acc.stats.flaky += r.stats.flaky;
+      acc.stats.skipped += r.stats.skipped;
+      acc._count++;
+      if (r.date > acc.date) acc.date = r.date;
+      if (r.tests && r.tests.length) {
+        const testMap = new Map();
+        for (const t of acc.tests) testMap.set(t.title + '|' + t.project, t);
+        for (const t of r.tests) testMap.set(t.title + '|' + t.project, t);
+        acc.tests = Array.from(testMap.values());
+      }
+    }
+  }
+  projectHistory.splice(0, projectHistory.length, ...Array.from(byDay.values()).map(acc => {
+    acc.duration /= acc._count;
+    acc.stats.total /= acc._count;
+    acc.stats.expected /= acc._count;
+    acc.stats.unexpected /= acc._count;
+    acc.stats.flaky /= acc._count;
+    acc.stats.skipped /= acc._count;
+    return acc;
+  }).sort((a,b) => a.date - b.date));
+})();
+
 const projBrowsers   = ${JSON.stringify(p.projectNames)};
 const projTests      = ${JSON.stringify(p.tests)};
 
@@ -537,7 +574,7 @@ function initCharts() {
     y: { grid: { color: gridColor }, beginAtZero: true },
   };
 
-  if (projectHistory.length < 2) {
+  if (projectHistory.length < 1) {
     ['proj-chart-passrate', 'proj-chart-duration'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.closest('.chart-card').innerHTML =
@@ -627,7 +664,7 @@ function buildProjectHeatmap() {
   const histWithTests = projectHistory.filter(e => e.tests && e.tests.length > 0);
   const wrap = document.getElementById('heatmap-wrap');
 
-  if (histWithTests.length < 2) return; // keep default "not enough history" message
+  if (histWithTests.length < 1) return; // keep default "not enough history" message
 
   // Build per-test reliability stats across all history entries
   const testMap = new Map(); // key: JSON [title, project] → { title, project, failures, runs }

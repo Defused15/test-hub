@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, copyFileSync, mkdirSync, readdirSync, exis
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-import { detectReportType, parsePlaywrightProject, parseJestProject } from './lib/parsers.mjs';
+import { detectReportType, parsePlaywrightProject, parseJestProject, parseNewmanProject } from './lib/parsers.mjs';
 import { updateHistory } from './lib/history.mjs';
 import { buildProjectPage } from './lib/render.mjs';
 
@@ -52,6 +52,7 @@ const projects = projectDirs.map(name => {
   const type = detectReportType(raw);
   if (type === 'playwright') return parsePlaywrightProject(raw, name);
   if (type === 'jest')       return parseJestProject(raw, name);
+  if (type === 'newman')     return parseNewmanProject(raw, name);
   console.warn(`${name}/latest.json: unknown report format, skipping`);
   return null;
 }).filter(Boolean);

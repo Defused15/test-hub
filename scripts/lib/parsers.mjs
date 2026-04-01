@@ -2,10 +2,11 @@ import { stripAnsi } from './utils.mjs';
 
 // ── Detect report format ──────────────────────────────────────────────────────
 
-/** Returns 'playwright' | 'jest' | 'unknown' based on the raw JSON shape. */
+/** Returns 'playwright' | 'jest' | 'newman' | 'unknown' based on the raw JSON shape. */
 export function detectReportType(raw) {
-  if (Array.isArray(raw.testResults)) return 'jest';
-  if (Array.isArray(raw.suites))      return 'playwright';
+  if (Array.isArray(raw.testResults))        return 'jest';
+  if (Array.isArray(raw.suites))             return 'playwright';
+  if (Array.isArray(raw.run?.executions))    return 'newman';
   return 'unknown';
 }
 
@@ -114,6 +115,7 @@ function flattenJest(testResults = []) {
   return tests;
 }
 
+
 /** Parse a raw Jest JSON report into the normalized project shape. */
 export function parseJestProject(raw, name) {
   const tests      = flattenJest(raw.testResults ?? []);
@@ -136,6 +138,58 @@ export function parseJestProject(raw, name) {
       ok:      unexpected === 0,
     },
     projectNames: ['unit'],
+    tests,
+  };
+}
+
+// ── Newman (Postman) ──────────────────────────────────────────────────────────
+
+/** Parse a raw Newman JSON report into the normalized project shape. */
+export function parseNewmanProject(raw, name) {
+  const stats      = raw.run?.stats ?? {};
+  const timings    = raw.run?.timings ?? {};
+  const executions = raw.run?.executions ?? [];
+
+  const total      = stats.items?.total ?? 0;
+  const unexpected = stats.items?.failed ?? 0;
+  const expected   = total - unexpected;
+
+  const tests = executions.map(e => {
+    // Newman assertions objects have `error` if they failed
+    const failedAssertions = (e.assertions ?? []).filter(a => a.error);
+    const errorMsg = failedAssertions.length > 0
+      ? stripAnsi(failedAssertions.map(a => a.error.message).join('\n'))
+      : null;
+
+    return {
+      title:      e.item?.name ?? 'Request',
+      file:       '',
+      line:       0,
+      project:    'api',
+      outcome:    failedAssertions.length > 0 ? 'unexpected' : 'expected',
+      duration:   e.response?.responseTime ?? 0,
+      retries:    0,
+      error:      errorMsg,
+      errorStack: null,
+      steps:      [],
+    };
+  });
+
+  return {
+    name,
+    type:         'newman',
+    startTime:    timings.started ?? Date.now(),
+    duration:     Math.max(0, (timings.completed ?? timings.started ?? 0) - (timings.started ?? 0)),
+    workers:      1,
+    stats: {
+      total,
+      expected,
+      unexpected,
+      flaky:      0,
+      skipped:    0,
+      ok:         unexpected === 0,
+    },
+    projectNames: ['api'],
     tests,
   };
 }
