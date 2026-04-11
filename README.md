@@ -27,8 +27,8 @@ Tests run on push          push JSON   projects/
   → report.json    ──────────────────► project-name/
                    GitHub API (PUT)       latest.json
                                               │
-                                    workflow triggers on
-                                    projects/*/latest.json
+                                     repository_dispatch
+                                    (test-hub-trigger)
                                               │
                                        scripts/build.mjs
                                     reads all latest.json files
@@ -190,7 +190,9 @@ History files (`history/*.json`) are created automatically on the first build an
 
 ## CI/CD Integration
 
-Each project repo runs its own tests and pushes the resulting JSON report to this repo via the GitHub API. The hub workflow ([`.github/workflows/build-hub.yml`](.github/workflows/build-hub.yml)) then rebuilds and redeploys the dashboard automatically.
+Each project repo runs its own tests and pushes the resulting JSON report to this repo via the GitHub API. Immediately after, it sends a `repository_dispatch` event of type `test-hub-trigger`. The hub workflow ([`.github/workflows/build-hub.yml`](.github/workflows/build-hub.yml)) then rebuilds and redeploys the dashboard automatically.
+
+> **Note:** We use `repository_dispatch` because GitHub Actions does not trigger workflows from events initiated by the `GITHUB_TOKEN` or automated API calls to avoid loops. Explicitly triggering via dispatch ensures the dashboard stays up to date.
 
 > **Quick start:** copy the ready-made upload step from [`docs/hub-upload-step.yml`](docs/hub-upload-step.yml) into your project workflow and update the two env vars (`PROJECT_NAME`, `REPORT_PATH`).
 
