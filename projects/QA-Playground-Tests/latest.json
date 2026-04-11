@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/Defused15/QA-Playground-Tests/commit/45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
         "commitHash": "45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
-        "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24232688623"
+        "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24277388321"
       },
       "gitCommit": {
         "shortHash": "45a176d",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/Defused15/QA-Playground-Tests/commit/45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
             "commitHash": "45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
-            "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24232688623"
+            "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24277388321"
           },
           "gitCommit": {
             "shortHash": "45a176d",
@@ -83,7 +83,7 @@
           "ci": {
             "commitHref": "https://github.com/Defused15/QA-Playground-Tests/commit/45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
             "commitHash": "45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
-            "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24232688623"
+            "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24277388321"
           },
           "gitCommit": {
             "shortHash": "45a176d",
@@ -121,7 +121,7 @@
           "ci": {
             "commitHref": "https://github.com/Defused15/QA-Playground-Tests/commit/45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
             "commitHash": "45a176d6e95b8665e87aa40da93ec2c09f1e5f33",
-            "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24232688623"
+            "buildHref": "https://github.com/Defused15/QA-Playground-Tests/actions/runs/24277388321"
           },
           "gitCommit": {
             "shortHash": "45a176d",
@@ -203,66 +203,8 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 1112,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m100\u001b[39m\nReceived: \u001b[31m20\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m100\u001b[39m\nReceived: \u001b[31m20\u001b[39m\n    at /home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/api.spec.ts:35:19",
-                        "location": {
-                          "file": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/api.spec.ts",
-                          "column": 19,
-                          "line": 35
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 33 |\u001b[39m     expect(data\u001b[33m.\u001b[39mlength)\u001b[33m.\u001b[39mtoBe(\u001b[35m100\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// Verify the data contains 100 items\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mconst\u001b[39m count \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mcard\u001b[33m.\u001b[39mcount()\u001b[33m;\u001b[39m \u001b[90m// Count the number of cards on the page\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 35 |\u001b[39m     expect(count)\u001b[33m.\u001b[39mtoBe(\u001b[35m100\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// Verify the number of cards matches the data length\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 36 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 37 |\u001b[39m\n \u001b[90m 38 |\u001b[39m   \u001b[90m// Test to verify the titles of the cards\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/api.spec.ts",
-                            "column": 19,
-                            "line": 35
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m100\u001b[39m\nReceived: \u001b[31m20\u001b[39m\n\n  33 |     expect(data.length).toBe(100); // Verify the data contains 100 items\n  34 |     const count = await api.card.count(); // Count the number of cards on the page\n> 35 |     expect(count).toBe(100); // Verify the number of cards matches the data length\n     |                   ^\n  36 |   });\n  37 |\n  38 |   // Test to verify the titles of the cards\n    at /home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/api.spec.ts:35:19"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Running test: Fetch Data\n"
-                        },
-                        {
-                          "text": "Finished api.spec.ts > API Test > Fetch Data on chromium with status: failed\n"
-                        },
-                        {
-                          "text": "Did not run as expected, ended up at https://qaplayground.dev/apps/fetch/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-10T07:54:11.676Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/api-API-Test-Fetch-Data-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/api-API-Test-Fetch-Data-chromium/video.webm"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/api.spec.ts",
-                        "column": 19,
-                        "line": 35
-                      }
-                    },
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1031,
+                      "duration": 1136,
                       "errors": [],
                       "stdout": [
                         {
@@ -273,19 +215,13 @@
                         }
                       ],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-04-10T07:54:14.053Z",
+                      "retry": 0,
+                      "startTime": "2026-04-11T07:12:45.017Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/api-API-Test-Fetch-Data-chromium-retry1/trace.zip"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "1ea1b1599cbc08f16936-e1780b4e88d422d953b3",
@@ -306,10 +242,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1292,
+                      "duration": 1296,
                       "errors": [],
                       "stdout": [
                         {
@@ -321,7 +257,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:15.250Z",
+                      "startTime": "2026-04-11T07:12:47.240Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -347,10 +283,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1275,
+                      "duration": 1246,
                       "errors": [],
                       "stdout": [
                         {
@@ -362,7 +298,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:16.559Z",
+                      "startTime": "2026-04-11T07:12:48.554Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -391,7 +327,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1738,
+                      "duration": 1682,
                       "errors": [],
                       "stdout": [
                         {
@@ -403,7 +339,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:52.612Z",
+                      "startTime": "2026-04-11T07:13:56.557Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -432,7 +368,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1823,
+                      "duration": 1785,
                       "errors": [],
                       "stdout": [
                         {
@@ -444,7 +380,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:54.850Z",
+                      "startTime": "2026-04-11T07:13:58.676Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -473,7 +409,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1772,
+                      "duration": 1662,
                       "errors": [],
                       "stdout": [
                         {
@@ -485,7 +421,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:56.688Z",
+                      "startTime": "2026-04-11T07:14:00.474Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -511,10 +447,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3154,
+                      "duration": 2785,
                       "errors": [],
                       "stdout": [
                         {
@@ -526,7 +462,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:36.202Z",
+                      "startTime": "2026-04-11T07:15:40.131Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -552,10 +488,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2251,
+                      "duration": 2465,
                       "errors": [],
                       "stdout": [
                         {
@@ -567,7 +503,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:39.909Z",
+                      "startTime": "2026-04-11T07:15:43.439Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -593,10 +529,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1913,
+                      "duration": 1863,
                       "errors": [],
                       "stdout": [
                         {
@@ -608,7 +544,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:42.183Z",
+                      "startTime": "2026-04-11T07:15:45.927Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -644,10 +580,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 872,
+                  "duration": 839,
                   "errors": [],
                   "stdout": [
                     {
@@ -659,7 +595,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:17.849Z",
+                  "startTime": "2026-04-11T07:12:49.813Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -685,10 +621,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 770,
+                  "duration": 798,
                   "errors": [],
                   "stdout": [
                     {
@@ -700,7 +636,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:18.733Z",
+                  "startTime": "2026-04-11T07:12:50.664Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -726,10 +662,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 960,
+                  "duration": 1015,
                   "errors": [],
                   "stdout": [
                     {
@@ -741,7 +677,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:19.514Z",
+                  "startTime": "2026-04-11T07:12:51.474Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -767,10 +703,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 938,
+                  "duration": 1003,
                   "errors": [],
                   "stdout": [
                     {
@@ -782,7 +718,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:20.486Z",
+                  "startTime": "2026-04-11T07:12:52.502Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -808,10 +744,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 976,
+                  "duration": 1266,
                   "errors": [],
                   "stdout": [
                     {
@@ -823,7 +759,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:21.437Z",
+                  "startTime": "2026-04-11T07:12:53.517Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -849,10 +785,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 927,
+                  "duration": 944,
                   "errors": [],
                   "stdout": [
                     {
@@ -864,7 +800,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:22.426Z",
+                  "startTime": "2026-04-11T07:12:54.794Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -893,7 +829,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 987,
+                  "duration": 967,
                   "errors": [],
                   "stdout": [
                     {
@@ -905,7 +841,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:58.474Z",
+                  "startTime": "2026-04-11T07:14:02.150Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -934,7 +870,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 993,
+                  "duration": 1023,
                   "errors": [],
                   "stdout": [
                     {
@@ -946,7 +882,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:59.473Z",
+                  "startTime": "2026-04-11T07:14:03.129Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -975,7 +911,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1257,
+                  "duration": 1217,
                   "errors": [],
                   "stdout": [
                     {
@@ -987,7 +923,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:00.477Z",
+                  "startTime": "2026-04-11T07:14:04.164Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1016,7 +952,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1230,
+                  "duration": 1260,
                   "errors": [],
                   "stdout": [
                     {
@@ -1028,7 +964,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:01.750Z",
+                  "startTime": "2026-04-11T07:14:05.393Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1057,7 +993,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1359,
+                  "duration": 1383,
                   "errors": [],
                   "stdout": [
                     {
@@ -1069,7 +1005,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:02.992Z",
+                  "startTime": "2026-04-11T07:14:06.665Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1098,7 +1034,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1210,
+                  "duration": 1310,
                   "errors": [],
                   "stdout": [
                     {
@@ -1110,7 +1046,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:04.364Z",
+                  "startTime": "2026-04-11T07:14:08.059Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1136,10 +1072,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1024,
+                  "duration": 1094,
                   "errors": [],
                   "stdout": [
                     {
@@ -1151,7 +1087,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:44.123Z",
+                  "startTime": "2026-04-11T07:15:47.818Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1177,10 +1113,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1147,
+                  "duration": 1149,
                   "errors": [],
                   "stdout": [
                     {
@@ -1192,7 +1128,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:45.167Z",
+                  "startTime": "2026-04-11T07:15:48.932Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1218,10 +1154,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1579,
+                  "duration": 1588,
                   "errors": [],
                   "stdout": [
                     {
@@ -1233,7 +1169,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:46.331Z",
+                  "startTime": "2026-04-11T07:15:50.096Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1259,10 +1195,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1243,
+                  "duration": 1239,
                   "errors": [],
                   "stdout": [
                     {
@@ -1274,7 +1210,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:47.923Z",
+                  "startTime": "2026-04-11T07:15:51.696Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1300,10 +1236,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1257,
+                  "duration": 1302,
                   "errors": [],
                   "stdout": [
                     {
@@ -1315,7 +1251,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:49.179Z",
+                  "startTime": "2026-04-11T07:15:52.949Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1341,10 +1277,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1272,
+                  "duration": 1251,
                   "errors": [],
                   "stdout": [
                     {
@@ -1356,7 +1292,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:50.454Z",
+                  "startTime": "2026-04-11T07:15:54.265Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1397,10 +1333,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1935,
+                      "duration": 1949,
                       "errors": [],
                       "stdout": [
                         {
@@ -1412,7 +1348,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:23.367Z",
+                      "startTime": "2026-04-11T07:12:55.752Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1441,7 +1377,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2102,
+                      "duration": 2156,
                       "errors": [],
                       "stdout": [
                         {
@@ -1453,7 +1389,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:05.588Z",
+                      "startTime": "2026-04-11T07:14:09.383Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1479,10 +1415,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2729,
+                      "duration": 2559,
                       "errors": [],
                       "stdout": [
                         {
@@ -1494,7 +1430,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:51.743Z",
+                      "startTime": "2026-04-11T07:15:55.529Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1537,10 +1473,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 918,
+                      "duration": 861,
                       "errors": [],
                       "stdout": [
                         {
@@ -1552,7 +1488,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:25.319Z",
+                      "startTime": "2026-04-11T07:12:57.719Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1578,10 +1514,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 769,
+                      "duration": 794,
                       "errors": [],
                       "stdout": [
                         {
@@ -1593,7 +1529,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:26.249Z",
+                      "startTime": "2026-04-11T07:12:58.593Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1622,7 +1558,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 971,
+                      "duration": 1019,
                       "errors": [],
                       "stdout": [
                         {
@@ -1634,7 +1570,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:07.706Z",
+                      "startTime": "2026-04-11T07:14:11.554Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1663,7 +1599,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 953,
+                      "duration": 999,
                       "errors": [],
                       "stdout": [
                         {
@@ -1675,7 +1611,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:08.690Z",
+                      "startTime": "2026-04-11T07:14:12.589Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1701,10 +1637,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1014,
+                      "duration": 998,
                       "errors": [],
                       "stdout": [
                         {
@@ -1716,7 +1652,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:54.488Z",
+                      "startTime": "2026-04-11T07:15:58.103Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1742,10 +1678,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 987,
+                      "duration": 1002,
                       "errors": [],
                       "stdout": [
                         {
@@ -1757,7 +1693,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:55.515Z",
+                      "startTime": "2026-04-11T07:15:59.115Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1791,10 +1727,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1148,
+                      "duration": 1232,
                       "errors": [],
                       "stdout": [
                         {
@@ -1806,7 +1742,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:27.030Z",
+                      "startTime": "2026-04-11T07:12:59.398Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1832,10 +1768,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1113,
+                      "duration": 1179,
                       "errors": [],
                       "stdout": [
                         {
@@ -1847,7 +1783,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:28.190Z",
+                      "startTime": "2026-04-11T07:13:00.642Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1876,7 +1812,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1304,
+                      "duration": 1343,
                       "errors": [],
                       "stdout": [
                         {
@@ -1888,7 +1824,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:09.655Z",
+                      "startTime": "2026-04-11T07:14:13.599Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1917,7 +1853,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1334,
+                      "duration": 1398,
                       "errors": [],
                       "stdout": [
                         {
@@ -1929,7 +1865,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:10.972Z",
+                      "startTime": "2026-04-11T07:14:14.955Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1955,10 +1891,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1297,
+                      "duration": 1329,
                       "errors": [],
                       "stdout": [
                         {
@@ -1970,7 +1906,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:56.514Z",
+                      "startTime": "2026-04-11T07:16:00.132Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1996,10 +1932,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1292,
+                      "duration": 1306,
                       "errors": [],
                       "stdout": [
                         {
@@ -2011,7 +1947,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:57.823Z",
+                      "startTime": "2026-04-11T07:16:01.473Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2045,10 +1981,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1114,
+                      "duration": 1126,
                       "errors": [],
                       "stdout": [
                         {
@@ -2060,7 +1996,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:29.314Z",
+                      "startTime": "2026-04-11T07:13:01.832Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2086,10 +2022,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1117,
+                      "duration": 1144,
                       "errors": [],
                       "stdout": [
                         {
@@ -2101,7 +2037,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:30.440Z",
+                      "startTime": "2026-04-11T07:13:02.969Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2130,7 +2066,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1436,
+                      "duration": 1336,
                       "errors": [],
                       "stdout": [
                         {
@@ -2142,7 +2078,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:12.320Z",
+                      "startTime": "2026-04-11T07:14:16.364Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2171,7 +2107,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1312,
+                      "duration": 1319,
                       "errors": [],
                       "stdout": [
                         {
@@ -2183,7 +2119,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:13.768Z",
+                      "startTime": "2026-04-11T07:14:17.712Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2209,10 +2145,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1309,
+                      "duration": 1364,
                       "errors": [],
                       "stdout": [
                         {
@@ -2224,7 +2160,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:59.126Z",
+                      "startTime": "2026-04-11T07:16:02.790Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2250,10 +2186,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1300,
+                      "duration": 1313,
                       "errors": [],
                       "stdout": [
                         {
@@ -2265,7 +2201,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:56:00.447Z",
+                      "startTime": "2026-04-11T07:16:04.166Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2299,10 +2235,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1100,
+                      "duration": 1142,
                       "errors": [],
                       "stdout": [
                         {
@@ -2314,7 +2250,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:31.572Z",
+                      "startTime": "2026-04-11T07:13:04.126Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2340,10 +2276,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1112,
+                      "duration": 1144,
                       "errors": [],
                       "stdout": [
                         {
@@ -2355,7 +2291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:32.683Z",
+                      "startTime": "2026-04-11T07:13:05.281Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2384,7 +2320,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1330,
+                      "duration": 1336,
                       "errors": [],
                       "stdout": [
                         {
@@ -2396,7 +2332,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:15.091Z",
+                      "startTime": "2026-04-11T07:14:19.043Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2425,7 +2361,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1358,
+                      "duration": 1308,
                       "errors": [],
                       "stdout": [
                         {
@@ -2437,7 +2373,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:16.434Z",
+                      "startTime": "2026-04-11T07:14:20.391Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2463,10 +2399,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1318,
+                      "duration": 1326,
                       "errors": [],
                       "stdout": [
                         {
@@ -2478,7 +2414,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:56:01.758Z",
+                      "startTime": "2026-04-11T07:16:05.495Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2504,10 +2440,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1305,
+                      "duration": 1289,
                       "errors": [],
                       "stdout": [
                         {
@@ -2519,7 +2455,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:56:03.089Z",
+                      "startTime": "2026-04-11T07:16:06.832Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2553,10 +2489,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1103,
+                      "duration": 1136,
                       "errors": [],
                       "stdout": [
                         {
@@ -2568,7 +2504,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:33.806Z",
+                      "startTime": "2026-04-11T07:13:06.436Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2594,10 +2530,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1181,
+                      "duration": 1138,
                       "errors": [],
                       "stdout": [
                         {
@@ -2609,7 +2545,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:54:34.921Z",
+                      "startTime": "2026-04-11T07:13:07.583Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2638,7 +2574,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1311,
+                      "duration": 1322,
                       "errors": [],
                       "stdout": [
                         {
@@ -2650,7 +2586,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:17.804Z",
+                      "startTime": "2026-04-11T07:14:21.710Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2679,7 +2615,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1312,
+                      "duration": 1306,
                       "errors": [],
                       "stdout": [
                         {
@@ -2691,7 +2627,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:55:19.129Z",
+                      "startTime": "2026-04-11T07:14:23.045Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2717,10 +2653,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1316,
+                      "duration": 1318,
                       "errors": [],
                       "stdout": [
                         {
@@ -2732,7 +2668,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:56:04.405Z",
+                      "startTime": "2026-04-11T07:16:08.132Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2758,10 +2694,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1301,
+                      "duration": 1288,
                       "errors": [],
                       "stdout": [
                         {
@@ -2773,7 +2709,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-10T07:56:05.732Z",
+                      "startTime": "2026-04-11T07:16:09.461Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2809,10 +2745,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7303,
+                  "duration": 10303,
                   "errors": [],
                   "stdout": [
                     {
@@ -2824,7 +2760,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:54:36.114Z",
+                  "startTime": "2026-04-11T07:13:08.733Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2850,10 +2786,60 @@
               "projectName": "chromium",
               "results": [
                 {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 31016,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/POM/redirect.ts",
+                        "column": 21,
+                        "line": 27
+                      },
+                      "message": "Error: page.waitForURL: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for navigation to \"**/fourth\" until \"load\"\n  navigated to \"https://qaplayground.dev/apps/redirect/sixth\"\n  navigated to \"https://qaplayground.dev/apps/redirect/last\"\n============================================================\n\n   at ../POM/redirect.ts:27\n\n  25 |     await this.page.waitForURL('**/second');\n  26 |     await this.page.waitForURL('**/third');\n> 27 |     await this.page.waitForURL('**/fourth');\n     |                     ^\n  28 |     await this.page.waitForURL('**/fifth');\n  29 |     await this.page.waitForURL('**/sixth');\n  30 |     await this.page.waitForURL('**/last');\n    at Redirect.startRedirectionChain (/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/POM/redirect.ts:27:21)\n    at /home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/redirect.spec.ts:28:3"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "Running test: Go Back button\n"
+                    },
+                    {
+                      "text": "Finished redirect.spec.ts > Go Back button on chromium with status: timedOut\n"
+                    },
+                    {
+                      "text": "Did not run as expected, ended up at https://qaplayground.dev/apps/redirect/last\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-11T07:13:19.048Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Go-Back-button-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Go-Back-button-chromium/video.webm"
+                    }
+                  ]
+                },
+                {
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8142,
+                  "duration": 4335,
                   "errors": [],
                   "stdout": [
                     {
@@ -2864,13 +2850,19 @@
                     }
                   ],
                   "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-04-10T07:54:43.429Z",
+                  "retry": 1,
+                  "startTime": "2026-04-11T07:13:51.074Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Go-Back-button-chromium-retry1/trace.zip"
+                    }
+                  ]
                 }
               ],
-              "status": "expected"
+              "status": "flaky"
             }
           ],
           "id": "923dfd799a6064345760-73a53e7f78765f45dc26",
@@ -2893,8 +2885,113 @@
                 {
                   "workerIndex": 2,
                   "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30124,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/POM/redirect.ts",
+                        "column": 21,
+                        "line": 29
+                      },
+                      "message": "Error: page.waitForURL: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for navigation to \"**/sixth\" until \"load\"\n============================================================\n\n   at ../POM/redirect.ts:29\n\n  27 |     await this.page.waitForURL('**/fourth');\n  28 |     await this.page.waitForURL('**/fifth');\n> 29 |     await this.page.waitForURL('**/sixth');\n     |                     ^\n  30 |     await this.page.waitForURL('**/last');\n  31 |   }\n  32 |\n    at Redirect.startRedirectionChain (/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/POM/redirect.ts:29:21)\n    at /home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/redirect.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "Running test: Redirection\n"
+                    },
+                    {
+                      "text": "Finished redirect.spec.ts > Redirection on firefox with status: timedOut\n"
+                    },
+                    {
+                      "text": "Did not run as expected, ended up at https://qaplayground.dev/apps/redirect/last\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-11T07:14:24.363Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Redirection-firefox/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Redirection-firefox/video.webm"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30292,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/POM/redirect.ts",
+                        "column": 21,
+                        "line": 27
+                      },
+                      "message": "Error: page.waitForURL: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for navigation to \"**/fourth\" until \"load\"\n  navigated to \"https://qaplayground.dev/apps/redirect/sixth\"\n  navigated to \"https://qaplayground.dev/apps/redirect/last\"\n============================================================\n\n   at ../POM/redirect.ts:27\n\n  25 |     await this.page.waitForURL('**/second');\n  26 |     await this.page.waitForURL('**/third');\n> 27 |     await this.page.waitForURL('**/fourth');\n     |                     ^\n  28 |     await this.page.waitForURL('**/fifth');\n  29 |     await this.page.waitForURL('**/sixth');\n  30 |     await this.page.waitForURL('**/last');\n    at Redirect.startRedirectionChain (/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/POM/redirect.ts:27:21)\n    at /home/runner/work/QA-Playground-Tests/QA-Playground-Tests/tests/redirect.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "Running test: Redirection\n"
+                    },
+                    {
+                      "text": "Finished redirect.spec.ts > Redirection on firefox with status: timedOut\n"
+                    },
+                    {
+                      "text": "Did not run as expected, ended up at https://qaplayground.dev/apps/redirect/last\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-04-11T07:14:56.076Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Redirection-firefox-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Redirection-firefox-retry1/video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/QA-Playground-Tests/QA-Playground-Tests/test-results/redirect-Redirection-firefox-retry1/trace.zip"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6510,
+                  "duration": 5107,
                   "errors": [],
                   "stdout": [
                     {
@@ -2905,13 +3002,13 @@
                     }
                   ],
                   "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-04-10T07:55:20.454Z",
+                  "retry": 2,
+                  "startTime": "2026-04-11T07:15:28.470Z",
                   "annotations": [],
                   "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "flaky"
             }
           ],
           "id": "923dfd799a6064345760-fff15ef485fda42e8f3d",
@@ -2932,10 +3029,10 @@
               "projectName": "firefox",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7628,
+                  "duration": 4620,
                   "errors": [],
                   "stdout": [
                     {
@@ -2947,7 +3044,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:55:26.975Z",
+                  "startTime": "2026-04-11T07:15:33.970Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2973,10 +3070,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6570,
+                  "duration": 10530,
                   "errors": [],
                   "stdout": [
                     {
@@ -2988,7 +3085,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:56:07.046Z",
+                  "startTime": "2026-04-11T07:16:10.762Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -3014,10 +3111,10 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5561,
+                  "duration": 7674,
                   "errors": [],
                   "stdout": [
                     {
@@ -3029,7 +3126,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-10T07:56:13.628Z",
+                  "startTime": "2026-04-11T07:16:21.306Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -3047,11 +3144,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-04-10T07:54:10.451Z",
-    "duration": 128785.785,
-    "expected": 65,
+    "startTime": "2026-04-11T07:12:43.840Z",
+    "duration": 225185.715,
+    "expected": 64,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 1
+    "flaky": 2
   }
 }
