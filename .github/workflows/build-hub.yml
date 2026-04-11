@@ -16,7 +16,7 @@ on:
     types: [test-hub-trigger]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -42,6 +42,20 @@ jobs:
       # 3️⃣ Generate the combined dashboard from all projects/*/latest.json files
       - name: Generate combined dashboard
         run: node scripts/build.mjs
+
+      # 4️⃣ Persist history updates in the repository
+      - name: Commit history updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add history/*.json
+          # Check if there are changes to avoid failing the build
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-update test history [skip ci]"
+            git push origin main
+          else
+            echo "No history changes to commit."
+          fi
 
       # 4️⃣ Upload dist/ as a Pages artifact
       - name: Upload Pages artifact
