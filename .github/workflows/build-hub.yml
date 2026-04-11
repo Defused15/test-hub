@@ -11,6 +11,10 @@ on:
   # Allow manual runs from the Actions tab
   workflow_dispatch:
 
+  # Allow remote triggers from other repositories
+  repository_dispatch:
+    types: [test-hub-trigger]
+
 permissions:
   contents: read
   pages: write
