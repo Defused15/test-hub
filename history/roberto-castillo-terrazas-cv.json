@@ -10780,5 +10780,549 @@
         "outcome": "expected"
       }
     ]
+  },
+  {
+    "date": 1776244076280,
+    "stats": {
+      "total": 88,
+      "expected": 88,
+      "unexpected": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "duration": 0,
+    "projectNames": [
+      "unit"
+    ],
+    "tests": [
+      {
+        "title": "RESUME_DATA Personal Info has a non-empty name",
+        "project": "unit",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Personal Info has a valid avatar URL",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Personal Info all URLs are non-empty strings",
+        "project": "unit",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Personal Info has a valid email address",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Personal Info has a valid phone number",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Personal Info has initials matching the name",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Personal Info initials match name for multi-word names",
+        "project": "unit",
+        "duration": 4,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Social Links has at least one social link",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Social Links all social links have a name, url, and icon",
+        "project": "unit",
+        "duration": 4,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Social Links has a GitHub social link pointing to correct profile",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Social Links has a LinkedIn social link",
+        "project": "unit",
+        "duration": 4,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience has exactly 3 work entries",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience all work entries have required fields",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience all work entries have at least one description bullet",
+        "project": "unit",
+        "duration": 11,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience all work entries have at least one badge",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience work entries are sorted from newest to oldest",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience most recent job has null end date (currently employed)",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience end years are null or valid 4-digit years",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience Inetum is the most recent job",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Work Experience all work badges are non-empty strings",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Company Logos all work entries have a logo defined",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Company Logos all logos have a valid src",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Education has at least one education entry",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Education all education entries have required fields",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Skills has at least one skill",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Skills contains core QA tools",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Skills contains Salesforce Marketing Cloud",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Skills contains AI-Powered Testing",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Skills has no duplicate skills",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Skills all skills are non-empty strings",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Certifications has at least one certification",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Certifications all certifications have required fields",
+        "project": "unit",
+        "duration": 8,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Certifications certifications are sorted from newest to oldest",
+        "project": "unit",
+        "duration": 4,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Certifications has at least 3 Anthropic certifications",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects has at least one project",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects all projects have required fields",
+        "project": "unit",
+        "duration": 4,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects optional project links are valid if present",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects has exactly 4 projects",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects QA Playground project exists",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects QA Test Hub project exists with correct fields",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects Minimalist CV project exists with correct fields",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects all projects with a githubLink have a valid GitHub URL",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects all project githubLinks point to the Defused15 account",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "RESUME_DATA Projects project link.href does not point to GitHub when githubLink is also present",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Rendering renders title, description and tags correctly",
+        "project": "unit",
+        "duration": 50,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Rendering renders multiple tags correctly",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Rendering handles empty description gracefully",
+        "project": "unit",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior renders title as a link to the website when link is provided",
+        "project": "unit",
+        "duration": 87,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior renders GitHub repo link with label text when githubLink is provided",
+        "project": "unit",
+        "duration": 35,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior renders 'GitHub repo' label text when githubLink is provided",
+        "project": "unit",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior does not render GitHub repo link when githubLink is not provided",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior renders cleaned link text in small div",
+        "project": "unit",
+        "duration": 11,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior renders title as plain text when no link is provided",
+        "project": "unit",
+        "duration": 9,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior renders both website link and GitHub repo link when both are provided",
+        "project": "unit",
+        "duration": 52,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard Link behavior website link and GitHub repo link point to different URLs",
+        "project": "unit",
+        "duration": 25,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Rendering renders children correctly",
+        "project": "unit",
+        "duration": 32,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Rendering renders as a <section> HTML element",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Rendering renders multiple children",
+        "project": "unit",
+        "duration": 11,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Rendering renders correctly with no children",
+        "project": "unit",
+        "duration": 17,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section ClassName applies default classes",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section ClassName merges custom className with defaults",
+        "project": "unit",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section ClassName keeps default classes even if className is empty",
+        "project": "unit",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section ClassName applies dark mode class",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Props applies id when provided",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Props applies additional styles passed via style prop",
+        "project": "unit",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section Props has role 'region' for accessibility",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Rendering renders the mobile trigger button",
+        "project": "unit",
+        "duration": 150,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Rendering renders the keyboard shortcut hint text",
+        "project": "unit",
+        "duration": 14,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Rendering mobile button has print:hidden class",
+        "project": "unit",
+        "duration": 23,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Dialog interaction opens command dialog when button is clicked",
+        "project": "unit",
+        "duration": 135,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Dialog interaction shows Print action when dialog is open",
+        "project": "unit",
+        "duration": 102,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Dialog interaction renders all provided links in the dialog",
+        "project": "unit",
+        "duration": 63,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Dialog interaction renders empty state when no links are provided",
+        "project": "unit",
+        "duration": 43,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Keyboard shortcut opens dialog on Ctrl+J",
+        "project": "unit",
+        "duration": 44,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Keyboard shortcut opens dialog on Cmd+J (Meta+J)",
+        "project": "unit",
+        "duration": 42,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Keyboard shortcut does not open dialog on J key alone",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Actions calls window.print when Print is selected",
+        "project": "unit",
+        "duration": 67,
+        "outcome": "expected"
+      },
+      {
+        "title": "CommandMenu Actions calls window.open with correct URL when a link is selected",
+        "project": "unit",
+        "duration": 64,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Rendering renders the toggle button",
+        "project": "unit",
+        "duration": 119,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Rendering has sr-only text for accessibility",
+        "project": "unit",
+        "duration": 14,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Rendering button has correct size class",
+        "project": "unit",
+        "duration": 12,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction opens dropdown when button is clicked",
+        "project": "unit",
+        "duration": 131,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction renders exactly three theme options",
+        "project": "unit",
+        "duration": 74,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction calls setTheme with 'light' when Light is selected",
+        "project": "unit",
+        "duration": 78,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction calls setTheme with 'dark' when Dark is selected",
+        "project": "unit",
+        "duration": 68,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction calls setTheme with 'system' when System is selected",
+        "project": "unit",
+        "duration": 64,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction does not change theme when opening the dropdown",
+        "project": "unit",
+        "duration": 53,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle Dropdown interaction each theme option appears only once",
+        "project": "unit",
+        "duration": 54,
+        "outcome": "expected"
+      }
+    ]
   }
 ]
