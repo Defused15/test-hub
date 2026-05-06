@@ -1,419 +1,5 @@
 [
   {
-    "date": 1777189808461,
-    "stats": {
-      "total": 66,
-      "expected": 66,
-      "unexpected": 0,
-      "flaky": 0,
-      "skipped": 0
-    },
-    "duration": 126250.455,
-    "projectNames": [
-      "chromium",
-      "firefox",
-      "webkit"
-    ],
-    "tests": [
-      {
-        "title": "Fetch Data",
-        "project": "chromium",
-        "duration": 1181,
-        "outcome": "expected"
-      },
-      {
-        "title": "Check Card Titles",
-        "project": "chromium",
-        "duration": 1347,
-        "outcome": "expected"
-      },
-      {
-        "title": "Check Card Bodies",
-        "project": "chromium",
-        "duration": 1272,
-        "outcome": "expected"
-      },
-      {
-        "title": "Fetch Data",
-        "project": "firefox",
-        "duration": 1964,
-        "outcome": "expected"
-      },
-      {
-        "title": "Check Card Titles",
-        "project": "firefox",
-        "duration": 1783,
-        "outcome": "expected"
-      },
-      {
-        "title": "Check Card Bodies",
-        "project": "firefox",
-        "duration": 1762,
-        "outcome": "expected"
-      },
-      {
-        "title": "Fetch Data",
-        "project": "webkit",
-        "duration": 1695,
-        "outcome": "expected"
-      },
-      {
-        "title": "Check Card Titles",
-        "project": "webkit",
-        "duration": 2331,
-        "outcome": "expected"
-      },
-      {
-        "title": "Check Card Bodies",
-        "project": "webkit",
-        "duration": 2033,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "chromium",
-        "duration": 924,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "chromium",
-        "duration": 815,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "chromium",
-        "duration": 1037,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "chromium",
-        "duration": 1016,
-        "outcome": "expected"
-      },
-      {
-        "title": "Porfolio button",
-        "project": "chromium",
-        "duration": 1021,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "chromium",
-        "duration": 999,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "firefox",
-        "duration": 985,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "firefox",
-        "duration": 1073,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "firefox",
-        "duration": 1239,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "firefox",
-        "duration": 1235,
-        "outcome": "expected"
-      },
-      {
-        "title": "Porfolio button",
-        "project": "firefox",
-        "duration": 1470,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "firefox",
-        "duration": 1256,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "webkit",
-        "duration": 1027,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "webkit",
-        "duration": 1212,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "webkit",
-        "duration": 1290,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "webkit",
-        "duration": 1331,
-        "outcome": "expected"
-      },
-      {
-        "title": "Porfolio button",
-        "project": "webkit",
-        "duration": 1348,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "webkit",
-        "duration": 1566,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "chromium",
-        "duration": 1965,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "firefox",
-        "duration": 2156,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "webkit",
-        "duration": 2570,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "chromium",
-        "duration": 843,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 832,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "firefox",
-        "duration": 1013,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 999,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "webkit",
-        "duration": 1025,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1006,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 1145,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 1173,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 1323,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1431,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1378,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1311,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 1148,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 1150,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 1338,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1329,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1325,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1310,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 1131,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 1128,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 1330,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1404,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1325,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1311,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 1143,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 1167,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 1321,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1342,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1305,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1301,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "chromium",
-        "duration": 5489,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "chromium",
-        "duration": 6232,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "firefox",
-        "duration": 5574,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "firefox",
-        "duration": 9637,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "webkit",
-        "duration": 4528,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "webkit",
-        "duration": 8765,
-        "outcome": "expected"
-      }
-    ]
-  },
-  {
     "date": 1777279157810,
     "stats": {
       "total": 66,
@@ -12415,6 +12001,420 @@
         "title": "Go Back button",
         "project": "webkit",
         "duration": 7563,
+        "outcome": "expected"
+      }
+    ]
+  },
+  {
+    "date": 1778069119008,
+    "stats": {
+      "total": 66,
+      "expected": 66,
+      "unexpected": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "duration": 119819.717,
+    "projectNames": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "tests": [
+      {
+        "title": "Fetch Data",
+        "project": "chromium",
+        "duration": 1255,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Card Titles",
+        "project": "chromium",
+        "duration": 1383,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Card Bodies",
+        "project": "chromium",
+        "duration": 1346,
+        "outcome": "expected"
+      },
+      {
+        "title": "Fetch Data",
+        "project": "firefox",
+        "duration": 1792,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Card Titles",
+        "project": "firefox",
+        "duration": 1847,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Card Bodies",
+        "project": "firefox",
+        "duration": 1833,
+        "outcome": "expected"
+      },
+      {
+        "title": "Fetch Data",
+        "project": "webkit",
+        "duration": 1518,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Card Titles",
+        "project": "webkit",
+        "duration": 2418,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Card Bodies",
+        "project": "webkit",
+        "duration": 1801,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "chromium",
+        "duration": 852,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "chromium",
+        "duration": 791,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "chromium",
+        "duration": 963,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "chromium",
+        "duration": 957,
+        "outcome": "expected"
+      },
+      {
+        "title": "Porfolio button",
+        "project": "chromium",
+        "duration": 975,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "chromium",
+        "duration": 912,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "firefox",
+        "duration": 1024,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "firefox",
+        "duration": 1049,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "firefox",
+        "duration": 1176,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "firefox",
+        "duration": 1240,
+        "outcome": "expected"
+      },
+      {
+        "title": "Porfolio button",
+        "project": "firefox",
+        "duration": 1372,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "firefox",
+        "duration": 1167,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "webkit",
+        "duration": 990,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "webkit",
+        "duration": 1142,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "webkit",
+        "duration": 1204,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "webkit",
+        "duration": 1240,
+        "outcome": "expected"
+      },
+      {
+        "title": "Porfolio button",
+        "project": "webkit",
+        "duration": 1240,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "webkit",
+        "duration": 1236,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "chromium",
+        "duration": 1982,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "firefox",
+        "duration": 2056,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "webkit",
+        "duration": 2688,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "chromium",
+        "duration": 810,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 765,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "firefox",
+        "duration": 983,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 930,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "webkit",
+        "duration": 973,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 992,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1112,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1119,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1308,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1302,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1267,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1264,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1122,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1102,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1290,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1289,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1303,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1298,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1089,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1085,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1289,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1322,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1276,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1275,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1086,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1132,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1311,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1304,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1313,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1269,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "chromium",
+        "duration": 6193,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "chromium",
+        "duration": 8153,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "firefox",
+        "duration": 5545,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "firefox",
+        "duration": 4504,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "webkit",
+        "duration": 8428,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "webkit",
+        "duration": 4544,
         "outcome": "expected"
       }
     ]
