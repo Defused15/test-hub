@@ -356,184 +356,6 @@
     ]
   },
   {
-    "date": 1779529463307,
-    "stats": {
-      "total": 27,
-      "expected": 27,
-      "unexpected": 0,
-      "flaky": 0,
-      "skipped": 0
-    },
-    "duration": 2468,
-    "projectNames": [
-      "api"
-    ],
-    "tests": [
-      {
-        "title": "Generate Token",
-        "project": "api",
-        "duration": 316,
-        "outcome": "expected"
-      },
-      {
-        "title": "Login valid",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Wrong password",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Wrong username",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Empty body",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "SQL Injection attempt",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "XSS attempt",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get all bookings response time",
-        "project": "api",
-        "duration": 109,
-        "outcome": "expected"
-      },
-      {
-        "title": "Create Booking",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get all bookings",
-        "project": "api",
-        "duration": 57,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get booking by id",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get by name",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get by check dates",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Update booking",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Partial update",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Delete booking",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get booking after delete",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Get booking - invalid ID",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Create booking - missing bookingdates",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Update booking - no auth",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Delete booking - no auth",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Create booking - totalprice zero",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Create booking - special characters in name",
-        "project": "api",
-        "duration": 54,
-        "outcome": "expected"
-      },
-      {
-        "title": "Create booking - totalprice as string",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Update non-existent booking (API returns 405 - semantically should be 404)",
-        "project": "api",
-        "duration": 56,
-        "outcome": "expected"
-      },
-      {
-        "title": "Cleanup - Delete edge booking 1 (totalprice zero)",
-        "project": "api",
-        "duration": 55,
-        "outcome": "expected"
-      },
-      {
-        "title": "Cleanup - Delete edge booking 2 (special characters)",
-        "project": "api",
-        "duration": 54,
-        "outcome": "expected"
-      }
-    ]
-  },
-  {
     "date": 1779616100004,
     "stats": {
       "total": 27,
@@ -4979,6 +4801,184 @@
         "title": "Cleanup - Delete edge booking 2 (special characters)",
         "project": "api",
         "duration": 70,
+        "outcome": "expected"
+      }
+    ]
+  },
+  {
+    "date": 1780401456369,
+    "stats": {
+      "total": 27,
+      "expected": 27,
+      "unexpected": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "duration": 928,
+    "projectNames": [
+      "api"
+    ],
+    "tests": [
+      {
+        "title": "Generate Token",
+        "project": "api",
+        "duration": 66,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login valid",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Wrong password",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Wrong username",
+        "project": "api",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty body",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "SQL Injection attempt",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "XSS attempt",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get all bookings response time",
+        "project": "api",
+        "duration": 13,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create Booking",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get all bookings",
+        "project": "api",
+        "duration": 9,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get booking by id",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get by name",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get by check dates",
+        "project": "api",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "Update booking",
+        "project": "api",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "Partial update",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Delete booking",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get booking after delete",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get booking - invalid ID",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create booking - missing bookingdates",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Update booking - no auth",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Delete booking - no auth",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create booking - totalprice zero",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create booking - special characters in name",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create booking - totalprice as string",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Update non-existent booking (API returns 405 - semantically should be 404)",
+        "project": "api",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cleanup - Delete edge booking 1 (totalprice zero)",
+        "project": "api",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cleanup - Delete edge booking 2 (special characters)",
+        "project": "api",
+        "duration": 4,
         "outcome": "expected"
       }
     ]
