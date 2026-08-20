@@ -1,653 +1,5 @@
 [
   {
-    "date": 1785489214586,
-    "stats": {
-      "total": 105,
-      "expected": 104,
-      "unexpected": 0,
-      "flaky": 1,
-      "skipped": 0
-    },
-    "duration": 141533.22199999998,
-    "projectNames": [
-      "chromium",
-      "firefox",
-      "webkit"
-    ],
-    "tests": [
-      {
-        "title": "API returns 100 posts",
-        "project": "chromium",
-        "duration": 1007,
-        "outcome": "expected"
-      },
-      {
-        "title": "UI renders all cards",
-        "project": "chromium",
-        "duration": 648,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card titles match API data",
-        "project": "chromium",
-        "duration": 1254,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card bodies match API data",
-        "project": "chromium",
-        "duration": 1170,
-        "outcome": "expected"
-      },
-      {
-        "title": "API returns 100 posts",
-        "project": "firefox",
-        "duration": 1706,
-        "outcome": "expected"
-      },
-      {
-        "title": "UI renders all cards",
-        "project": "firefox",
-        "duration": 766,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card titles match API data",
-        "project": "firefox",
-        "duration": 1680,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card bodies match API data",
-        "project": "firefox",
-        "duration": 1638,
-        "outcome": "expected"
-      },
-      {
-        "title": "API returns 100 posts",
-        "project": "webkit",
-        "duration": 9137,
-        "outcome": "expected"
-      },
-      {
-        "title": "UI renders all cards",
-        "project": "webkit",
-        "duration": 1058,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card titles match API data",
-        "project": "webkit",
-        "duration": 2131,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card bodies match API data",
-        "project": "webkit",
-        "duration": 2122,
-        "outcome": "expected"
-      },
-      {
-        "title": "Outer iframe loads with title",
-        "project": "chromium",
-        "duration": 661,
-        "outcome": "expected"
-      },
-      {
-        "title": "Inner iframe loads with title",
-        "project": "chromium",
-        "duration": 434,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me link is visible in inner iframe",
-        "project": "chromium",
-        "duration": 447,
-        "outcome": "expected"
-      },
-      {
-        "title": "Clicked message hidden before interaction",
-        "project": "chromium",
-        "duration": 440,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me shows confirmation message",
-        "project": "chromium",
-        "duration": 538,
-        "outcome": "expected"
-      },
-      {
-        "title": "Outer iframe loads with title",
-        "project": "firefox",
-        "duration": 649,
-        "outcome": "expected"
-      },
-      {
-        "title": "Inner iframe loads with title",
-        "project": "firefox",
-        "duration": 671,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me link is visible in inner iframe",
-        "project": "firefox",
-        "duration": 659,
-        "outcome": "expected"
-      },
-      {
-        "title": "Clicked message hidden before interaction",
-        "project": "firefox",
-        "duration": 714,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me shows confirmation message",
-        "project": "firefox",
-        "duration": 1011,
-        "outcome": "expected"
-      },
-      {
-        "title": "Outer iframe loads with title",
-        "project": "webkit",
-        "duration": 1050,
-        "outcome": "expected"
-      },
-      {
-        "title": "Inner iframe loads with title",
-        "project": "webkit",
-        "duration": 1004,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me link is visible in inner iframe",
-        "project": "webkit",
-        "duration": 956,
-        "outcome": "expected"
-      },
-      {
-        "title": "Clicked message hidden before interaction",
-        "project": "webkit",
-        "duration": 941,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me shows confirmation message",
-        "project": "webkit",
-        "duration": 1040,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "chromium",
-        "duration": 501,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "chromium",
-        "duration": 365,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "chromium",
-        "duration": 463,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "chromium",
-        "duration": 535,
-        "outcome": "expected"
-      },
-      {
-        "title": "Portfolio button",
-        "project": "chromium",
-        "duration": 511,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "chromium",
-        "duration": 476,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from About returns to home",
-        "project": "chromium",
-        "duration": 548,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Blog returns to home",
-        "project": "chromium",
-        "duration": 713,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Portfolio returns to home",
-        "project": "chromium",
-        "duration": 549,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Contact returns to home",
-        "project": "chromium",
-        "duration": 507,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "firefox",
-        "duration": 548,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "firefox",
-        "duration": 643,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "firefox",
-        "duration": 739,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "firefox",
-        "duration": 650,
-        "outcome": "expected"
-      },
-      {
-        "title": "Portfolio button",
-        "project": "firefox",
-        "duration": 702,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "firefox",
-        "duration": 772,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from About returns to home",
-        "project": "firefox",
-        "duration": 868,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Blog returns to home",
-        "project": "firefox",
-        "duration": 1021,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Portfolio returns to home",
-        "project": "firefox",
-        "duration": 835,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Contact returns to home",
-        "project": "firefox",
-        "duration": 871,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "webkit",
-        "duration": 727,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "webkit",
-        "duration": 1782,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "webkit",
-        "duration": 1076,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "webkit",
-        "duration": 1100,
-        "outcome": "expected"
-      },
-      {
-        "title": "Portfolio button",
-        "project": "webkit",
-        "duration": 1114,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "webkit",
-        "duration": 1053,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from About returns to home",
-        "project": "webkit",
-        "duration": 1295,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Blog returns to home",
-        "project": "webkit",
-        "duration": 1254,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Portfolio returns to home",
-        "project": "webkit",
-        "duration": 1196,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Contact returns to home",
-        "project": "webkit",
-        "duration": 1205,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "chromium",
-        "duration": 1397,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code with empty input",
-        "project": "chromium",
-        "duration": 369,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "firefox",
-        "duration": 1594,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code with empty input",
-        "project": "firefox",
-        "duration": 546,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "webkit",
-        "duration": 2509,
-        "outcome": "flaky"
-      },
-      {
-        "title": "Generate QR Code with empty input",
-        "project": "webkit",
-        "duration": 1025,
-        "outcome": "expected"
-      },
-      {
-        "title": "Default slider state on page load",
-        "project": "chromium",
-        "duration": 484,
-        "outcome": "expected"
-      },
-      {
-        "title": "Default slider state on page load",
-        "project": "firefox",
-        "duration": 555,
-        "outcome": "expected"
-      },
-      {
-        "title": "Default slider state on page load",
-        "project": "webkit",
-        "duration": 887,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "chromium",
-        "duration": 384,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 398,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "firefox",
-        "duration": 593,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 597,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "webkit",
-        "duration": 937,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 896,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 726,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 710,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 1035,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 936,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1264,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1271,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 732,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 727,
-        "outcome": "expected"
-      },
-      {
-        "title": "Send Feedback click hides button and shows confirmation",
-        "project": "chromium",
-        "duration": 405,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 907,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 908,
-        "outcome": "expected"
-      },
-      {
-        "title": "Send Feedback click hides button and shows confirmation",
-        "project": "firefox",
-        "duration": 612,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1263,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1256,
-        "outcome": "expected"
-      },
-      {
-        "title": "Send Feedback click hides button and shows confirmation",
-        "project": "webkit",
-        "duration": 1155,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 739,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 718,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 1097,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1180,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1259,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1202,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 709,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 718,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 889,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 909,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1221,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1279,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "chromium",
-        "duration": 3755,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "chromium",
-        "duration": 8626,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "firefox",
-        "duration": 4147,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "firefox",
-        "duration": 7996,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "webkit",
-        "duration": 3431,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "webkit",
-        "duration": 3549,
-        "outcome": "expected"
-      }
-    ]
-  },
-  {
     "date": 1785573073723,
     "stats": {
       "total": 105,
@@ -19435,6 +18787,654 @@
         "title": "Go Back button",
         "project": "webkit",
         "duration": 8557,
+        "outcome": "expected"
+      }
+    ]
+  },
+  {
+    "date": 1787209074131,
+    "stats": {
+      "total": 105,
+      "expected": 104,
+      "unexpected": 0,
+      "flaky": 1,
+      "skipped": 0
+    },
+    "duration": 180429.10700000002,
+    "projectNames": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "tests": [
+      {
+        "title": "API returns 100 posts",
+        "project": "chromium",
+        "duration": 1076,
+        "outcome": "expected"
+      },
+      {
+        "title": "UI renders all cards",
+        "project": "chromium",
+        "duration": 698,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card titles match API data",
+        "project": "chromium",
+        "duration": 1214,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card bodies match API data",
+        "project": "chromium",
+        "duration": 1226,
+        "outcome": "expected"
+      },
+      {
+        "title": "API returns 100 posts",
+        "project": "firefox",
+        "duration": 1582,
+        "outcome": "expected"
+      },
+      {
+        "title": "UI renders all cards",
+        "project": "firefox",
+        "duration": 864,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card titles match API data",
+        "project": "firefox",
+        "duration": 1689,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card bodies match API data",
+        "project": "firefox",
+        "duration": 1734,
+        "outcome": "expected"
+      },
+      {
+        "title": "API returns 100 posts",
+        "project": "webkit",
+        "duration": 19424,
+        "outcome": "expected"
+      },
+      {
+        "title": "UI renders all cards",
+        "project": "webkit",
+        "duration": 4116,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card titles match API data",
+        "project": "webkit",
+        "duration": 1497,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card bodies match API data",
+        "project": "webkit",
+        "duration": 1984,
+        "outcome": "expected"
+      },
+      {
+        "title": "Outer iframe loads with title",
+        "project": "chromium",
+        "duration": 704,
+        "outcome": "expected"
+      },
+      {
+        "title": "Inner iframe loads with title",
+        "project": "chromium",
+        "duration": 491,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me link is visible in inner iframe",
+        "project": "chromium",
+        "duration": 509,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicked message hidden before interaction",
+        "project": "chromium",
+        "duration": 541,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me shows confirmation message",
+        "project": "chromium",
+        "duration": 628,
+        "outcome": "expected"
+      },
+      {
+        "title": "Outer iframe loads with title",
+        "project": "firefox",
+        "duration": 666,
+        "outcome": "expected"
+      },
+      {
+        "title": "Inner iframe loads with title",
+        "project": "firefox",
+        "duration": 645,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me link is visible in inner iframe",
+        "project": "firefox",
+        "duration": 665,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicked message hidden before interaction",
+        "project": "firefox",
+        "duration": 1120,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me shows confirmation message",
+        "project": "firefox",
+        "duration": 837,
+        "outcome": "expected"
+      },
+      {
+        "title": "Outer iframe loads with title",
+        "project": "webkit",
+        "duration": 1043,
+        "outcome": "expected"
+      },
+      {
+        "title": "Inner iframe loads with title",
+        "project": "webkit",
+        "duration": 1047,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me link is visible in inner iframe",
+        "project": "webkit",
+        "duration": 967,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicked message hidden before interaction",
+        "project": "webkit",
+        "duration": 849,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me shows confirmation message",
+        "project": "webkit",
+        "duration": 1103,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "chromium",
+        "duration": 552,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "chromium",
+        "duration": 580,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "chromium",
+        "duration": 594,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "chromium",
+        "duration": 579,
+        "outcome": "expected"
+      },
+      {
+        "title": "Portfolio button",
+        "project": "chromium",
+        "duration": 502,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "chromium",
+        "duration": 546,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from About returns to home",
+        "project": "chromium",
+        "duration": 590,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Blog returns to home",
+        "project": "chromium",
+        "duration": 827,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Portfolio returns to home",
+        "project": "chromium",
+        "duration": 658,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Contact returns to home",
+        "project": "chromium",
+        "duration": 623,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "firefox",
+        "duration": 578,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "firefox",
+        "duration": 586,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "firefox",
+        "duration": 698,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "firefox",
+        "duration": 757,
+        "outcome": "expected"
+      },
+      {
+        "title": "Portfolio button",
+        "project": "firefox",
+        "duration": 878,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "firefox",
+        "duration": 692,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from About returns to home",
+        "project": "firefox",
+        "duration": 867,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Blog returns to home",
+        "project": "firefox",
+        "duration": 1109,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Portfolio returns to home",
+        "project": "firefox",
+        "duration": 974,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Contact returns to home",
+        "project": "firefox",
+        "duration": 1076,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "webkit",
+        "duration": 840,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "webkit",
+        "duration": 1280,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "webkit",
+        "duration": 1198,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "webkit",
+        "duration": 1224,
+        "outcome": "expected"
+      },
+      {
+        "title": "Portfolio button",
+        "project": "webkit",
+        "duration": 1105,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "webkit",
+        "duration": 1187,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from About returns to home",
+        "project": "webkit",
+        "duration": 1294,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Blog returns to home",
+        "project": "webkit",
+        "duration": 1341,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Portfolio returns to home",
+        "project": "webkit",
+        "duration": 1279,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Contact returns to home",
+        "project": "webkit",
+        "duration": 1342,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "chromium",
+        "duration": 2542,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code with empty input",
+        "project": "chromium",
+        "duration": 383,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "firefox",
+        "duration": 1750,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code with empty input",
+        "project": "firefox",
+        "duration": 574,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "webkit",
+        "duration": 2006,
+        "outcome": "flaky"
+      },
+      {
+        "title": "Generate QR Code with empty input",
+        "project": "webkit",
+        "duration": 1052,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default slider state on page load",
+        "project": "chromium",
+        "duration": 558,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default slider state on page load",
+        "project": "firefox",
+        "duration": 586,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default slider state on page load",
+        "project": "webkit",
+        "duration": 905,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "chromium",
+        "duration": 461,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 492,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "firefox",
+        "duration": 641,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 877,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "webkit",
+        "duration": 926,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 921,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 774,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 752,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 931,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 937,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1304,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1263,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 762,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 831,
+        "outcome": "expected"
+      },
+      {
+        "title": "Send Feedback click hides button and shows confirmation",
+        "project": "chromium",
+        "duration": 444,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 899,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1006,
+        "outcome": "expected"
+      },
+      {
+        "title": "Send Feedback click hides button and shows confirmation",
+        "project": "firefox",
+        "duration": 882,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1280,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1329,
+        "outcome": "expected"
+      },
+      {
+        "title": "Send Feedback click hides button and shows confirmation",
+        "project": "webkit",
+        "duration": 1207,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 786,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 768,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 970,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 991,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1262,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1278,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 759,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 760,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 955,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 995,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1275,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1258,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "chromium",
+        "duration": 9893,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "chromium",
+        "duration": 10635,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "firefox",
+        "duration": 3415,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "firefox",
+        "duration": 7340,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "webkit",
+        "duration": 10228,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "webkit",
+        "duration": 8428,
         "outcome": "expected"
       }
     ]
