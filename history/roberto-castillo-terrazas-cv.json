@@ -11248,598 +11248,6 @@
     ]
   },
   {
-    "date": 1786352544833,
-    "stats": {
-      "total": 96,
-      "expected": 96,
-      "unexpected": 0,
-      "flaky": 0,
-      "skipped": 0
-    },
-    "duration": 0,
-    "projectNames": [
-      "unit"
-    ],
-    "tests": [
-      {
-        "title": "RESUME_DATA Personal Info has a non-empty name",
-        "project": "unit",
-        "duration": 13,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Personal Info has a valid avatar URL",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Personal Info all URLs are non-empty strings",
-        "project": "unit",
-        "duration": 11,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Personal Info has a valid email address",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Personal Info has a valid phone number",
-        "project": "unit",
-        "duration": 2,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Personal Info has initials matching the name",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Personal Info initials match name for multi-word names",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Social Links has at least one social link",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Social Links all social links have a name, url, and icon",
-        "project": "unit",
-        "duration": 9,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Social Links has a GitHub social link pointing to correct profile",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Social Links has a LinkedIn social link",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience has exactly 3 work entries",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience all work entries have required fields",
-        "project": "unit",
-        "duration": 12,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience all work entries have at least one description bullet",
-        "project": "unit",
-        "duration": 19,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience all work entries have at least one badge",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience work entries are sorted from newest to oldest",
-        "project": "unit",
-        "duration": 2,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience most recent job has null end date (currently employed)",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience end years are null or valid 4-digit years",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience Inetum is the most recent job",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Work Experience all work badges are non-empty strings",
-        "project": "unit",
-        "duration": 4,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Company Logos all work entries have a logo defined",
-        "project": "unit",
-        "duration": 2,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Company Logos all logos have a valid src",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Education has at least one education entry",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Education all education entries have required fields",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills has at least one skill group",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills each group has a category and items",
-        "project": "unit",
-        "duration": 3,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills contains core QA tools",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills contains Salesforce Marketing Cloud",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills contains AI-Powered Testing",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills contains ATS-critical skills",
-        "project": "unit",
-        "duration": 2,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills contains performance and security tools",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills contains accessibility tools",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills has no duplicate skills",
-        "project": "unit",
-        "duration": 2,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Skills all skills are non-empty strings",
-        "project": "unit",
-        "duration": 17,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Certifications has at least one certification",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Certifications all certifications have required fields",
-        "project": "unit",
-        "duration": 3,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Certifications certifications are sorted from newest to oldest",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Certifications has at least 3 Anthropic certifications",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Languages has at least one language",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Languages all languages have language and proficiency fields",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Languages includes English and Spanish",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Languages English proficiency is defined",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects has at least one project",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects all projects have required fields",
-        "project": "unit",
-        "duration": 5,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects optional project links are valid if present",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects has exactly 4 projects",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects QA Playground project exists",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects QA Test Hub project exists with correct fields",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects Minimalist CV project exists with correct fields",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects all projects with a githubLink have a valid GitHub URL",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects all project githubLinks point to the Defused15 account",
-        "project": "unit",
-        "duration": 1,
-        "outcome": "expected"
-      },
-      {
-        "title": "RESUME_DATA Projects project link.href does not point to GitHub when githubLink is also present",
-        "project": "unit",
-        "duration": 0,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Rendering renders title, description and tags correctly",
-        "project": "unit",
-        "duration": 64,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Rendering renders multiple tags correctly",
-        "project": "unit",
-        "duration": 15,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Rendering handles empty description gracefully",
-        "project": "unit",
-        "duration": 9,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior renders title as a link to the website when link is provided",
-        "project": "unit",
-        "duration": 87,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior renders GitHub repo link with label text when githubLink is provided",
-        "project": "unit",
-        "duration": 24,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior renders 'GitHub repo' label text when githubLink is provided",
-        "project": "unit",
-        "duration": 5,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior does not render GitHub repo link when githubLink is not provided",
-        "project": "unit",
-        "duration": 5,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior renders cleaned link text in small div",
-        "project": "unit",
-        "duration": 6,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior renders title as plain text when no link is provided",
-        "project": "unit",
-        "duration": 5,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior renders both website link and GitHub repo link when both are provided",
-        "project": "unit",
-        "duration": 20,
-        "outcome": "expected"
-      },
-      {
-        "title": "ProjectCard Link behavior website link and GitHub repo link point to different URLs",
-        "project": "unit",
-        "duration": 41,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Rendering renders children correctly",
-        "project": "unit",
-        "duration": 24,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Rendering renders as a <section> HTML element",
-        "project": "unit",
-        "duration": 4,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Rendering renders multiple children",
-        "project": "unit",
-        "duration": 7,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Rendering renders correctly with no children",
-        "project": "unit",
-        "duration": 3,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section ClassName applies default classes",
-        "project": "unit",
-        "duration": 9,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section ClassName merges custom className with defaults",
-        "project": "unit",
-        "duration": 8,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section ClassName keeps default classes even if className is empty",
-        "project": "unit",
-        "duration": 3,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section ClassName applies dark mode class",
-        "project": "unit",
-        "duration": 4,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Props applies id when provided",
-        "project": "unit",
-        "duration": 3,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Props applies additional styles passed via style prop",
-        "project": "unit",
-        "duration": 8,
-        "outcome": "expected"
-      },
-      {
-        "title": "Section Props has role 'region' for accessibility",
-        "project": "unit",
-        "duration": 3,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Rendering renders the mobile trigger button",
-        "project": "unit",
-        "duration": 119,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Rendering renders the keyboard shortcut hint text",
-        "project": "unit",
-        "duration": 13,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Rendering mobile button has print:hidden class",
-        "project": "unit",
-        "duration": 18,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Dialog interaction opens command dialog when button is clicked",
-        "project": "unit",
-        "duration": 118,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Dialog interaction shows Print action when dialog is open",
-        "project": "unit",
-        "duration": 46,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Dialog interaction renders all provided links in the dialog",
-        "project": "unit",
-        "duration": 40,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Dialog interaction renders empty state when no links are provided",
-        "project": "unit",
-        "duration": 38,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Keyboard shortcut opens dialog on Ctrl+J",
-        "project": "unit",
-        "duration": 41,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Keyboard shortcut opens dialog on Cmd+J (Meta+J)",
-        "project": "unit",
-        "duration": 43,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Keyboard shortcut does not open dialog on J key alone",
-        "project": "unit",
-        "duration": 8,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Actions calls window.print when Print is selected",
-        "project": "unit",
-        "duration": 70,
-        "outcome": "expected"
-      },
-      {
-        "title": "CommandMenu Actions calls window.open with correct URL when a link is selected",
-        "project": "unit",
-        "duration": 66,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Rendering renders the toggle button",
-        "project": "unit",
-        "duration": 94,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Rendering has sr-only text for accessibility",
-        "project": "unit",
-        "duration": 13,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Rendering button has correct size class",
-        "project": "unit",
-        "duration": 10,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction opens dropdown when button is clicked",
-        "project": "unit",
-        "duration": 118,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction renders exactly three theme options",
-        "project": "unit",
-        "duration": 73,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction calls setTheme with 'light' when Light is selected",
-        "project": "unit",
-        "duration": 88,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction calls setTheme with 'dark' when Dark is selected",
-        "project": "unit",
-        "duration": 68,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction calls setTheme with 'system' when System is selected",
-        "project": "unit",
-        "duration": 60,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction does not change theme when opening the dropdown",
-        "project": "unit",
-        "duration": 46,
-        "outcome": "expected"
-      },
-      {
-        "title": "ModeToggle Dropdown interaction each theme option appears only once",
-        "project": "unit",
-        "duration": 46,
-        "outcome": "expected"
-      }
-    ]
-  },
-  {
     "date": 1794951606724,
     "stats": {
       "total": 121,
@@ -19993,6 +19401,874 @@
         "title": "LanguageToggle is hidden when printing",
         "project": "unit",
         "duration": 5,
+        "outcome": "expected"
+      }
+    ]
+  },
+  {
+    "date": 1794955675906,
+    "stats": {
+      "total": 142,
+      "expected": 142,
+      "unexpected": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "duration": 0,
+    "projectNames": [
+      "unit"
+    ],
+    "tests": [
+      {
+        "title": "robots.txt lets every crawler in and points it at the sitemap on the canonical host",
+        "project": "unit",
+        "duration": 8,
+        "outcome": "expected"
+      },
+      {
+        "title": "sitemap.xml lists the home page and only https URLs on the canonical host",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "web manifest is named after the site and only references icons that exist in /public",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata resolves relative URLs against the canonical https host",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata titles pages with the visible name and headline",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata has a description that fits a search snippet",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata is indexable",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata shares as a profile card with an Open Graph locale for every site language",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata only references icons that exist in /public",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "site metadata sets a valid theme colour for both light and dark schemes",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] has no empty or whitespace-only strings",
+        "project": "unit",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] links only to absolute https URLs",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] points the avatar at a self-hosted file in /public",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] derives the initials from the name",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] has a usable email address for mailto: links",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] stores phone numbers in E.164 so tel: links work worldwide",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] lists the primary location first, matching the JSON-LD address country",
+        "project": "unit",
+        "duration": 8,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] gives every rendered list item a unique React key",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] has bullets for every job and items for every skill group",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] never links a project's website to its own repository",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] dates work: years are valid and start <= end",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] dates education: years are valid and start <= end",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] dates work: newest first",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] dates education: newest first",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] dates certifications: newest first",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [en] dates certification years are valid",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] has no empty or whitespace-only strings",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] links only to absolute https URLs",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] points the avatar at a self-hosted file in /public",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] derives the initials from the name",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] has a usable email address for mailto: links",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] stores phone numbers in E.164 so tel: links work worldwide",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] lists the primary location first, matching the JSON-LD address country",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] gives every rendered list item a unique React key",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] has bullets for every job and items for every skill group",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] never links a project's website to its own repository",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] dates work: years are valid and start <= end",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] dates education: years are valid and start <= end",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] dates work: newest first",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] dates education: newest first",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] dates certifications: newest first",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "resume data contract [es] dates certification years are valid",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "EN/ES parity has the same shape in both languages",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "EN/ES parity translates every text field",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "EN/ES parity keeps every non-text field identical",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(\"en\") is true",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(\"es\") is true",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(\"EN\") is false",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(\"fr\") is false",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(\"\") is false",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(null) is false",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(undefined) is false",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "isLang isLang(1) is false",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard renders the title, description and every tag",
+        "project": "unit",
+        "duration": 41,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard links the title to the website in a new tab without leaking the opener",
+        "project": "unit",
+        "duration": 40,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard renders the title as plain text when there is no website",
+        "project": "unit",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard links the repository with the default label",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard links the repository with a localized label",
+        "project": "unit",
+        "duration": 12,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard omits the repository link when there is none",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints the explicit label when one is given",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints https://www.example.com/a as example.com/a when there is no label",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints http://example.com as example.com when there is no label",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints HTTPS://WWW.x.dev as x.dev when there is no label",
+        "project": "unit",
+        "duration": 11,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints https://notwww.example.com as notwww.example.com when there is no label",
+        "project": "unit",
+        "duration": 2,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints https://example.com/www.page as example.com/www.page when there is no label",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints ftp://example.com/https://x as ftp://example.com/https://x when there is no label",
+        "project": "unit",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProjectCard printed address prints nothing when there is no website",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "buildPersonJsonLd describes a schema.org ProfilePage whose main entity is the person",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "buildPersonJsonLd never exposes the email address or phone numbers",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "buildPersonJsonLd lists distinct, non-empty knowsAbout topics",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "buildPersonJsonLd takes the employer from the ongoing job, wherever it is listed",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "buildPersonJsonLd omits the employer when no job is ongoing",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "serializeJsonLd escapes < so a </script> in the data cannot close the script tag",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider works without a provider, defaulting to English",
+        "project": "unit",
+        "duration": 72,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider defaults to English and switches to Spanish, syncing html lang and storage",
+        "project": "unit",
+        "duration": 41,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider restores stored cv-lang=\"es\" as \"Acerca de\"",
+        "project": "unit",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider restores stored cv-lang=\"en\" as \"About\"",
+        "project": "unit",
+        "duration": 5,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider restores stored cv-lang=\"fr\" as \"About\"",
+        "project": "unit",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider restores stored cv-lang=\"ES\" as \"About\"",
+        "project": "unit",
+        "duration": 3,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider restores stored cv-lang=\"\" as \"About\"",
+        "project": "unit",
+        "duration": 4,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider keeps a stored language under StrictMode double effects",
+        "project": "unit",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider keeps working when storage throws (private mode, blocked cookies)",
+        "project": "unit",
+        "duration": 33,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageProvider server-renders English even when Spanish is stored, so hydration matches",
+        "project": "unit",
+        "duration": 11,
+        "outcome": "expected"
+      },
+      {
+        "title": "NotFound page [en] explains the error and links back to the CV",
+        "project": "unit",
+        "duration": 41,
+        "outcome": "expected"
+      },
+      {
+        "title": "NotFound page [es] explains the error and links back to the CV",
+        "project": "unit",
+        "duration": 18,
+        "outcome": "expected"
+      },
+      {
+        "title": "NotFound page follows a language switch",
+        "project": "unit",
+        "duration": 22,
+        "outcome": "expected"
+      },
+      {
+        "title": "NotFound page is titled like its heading and kept out of search indexes",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "NotFound page disables its entrance animation for reduced-motion users",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle lists the light, dark and system options in order",
+        "project": "unit",
+        "duration": 89,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle does not change the theme just by opening the menu",
+        "project": "unit",
+        "duration": 57,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle selecting Light applies the \"light\" theme",
+        "project": "unit",
+        "duration": 75,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle selecting Dark applies the \"dark\" theme",
+        "project": "unit",
+        "duration": 110,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle selecting System applies the \"system\" theme",
+        "project": "unit",
+        "duration": 90,
+        "outcome": "expected"
+      },
+      {
+        "title": "ModeToggle follows a language switch",
+        "project": "unit",
+        "duration": 71,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section is a region landmark named by its own heading",
+        "project": "unit",
+        "duration": 10,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section keeps landmark names unique when several sections are rendered",
+        "project": "unit",
+        "duration": 6,
+        "outcome": "expected"
+      },
+      {
+        "title": "Section forwards HTML attributes, including the print page-break class",
+        "project": "unit",
+        "duration": 7,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageToggle names the target language and marks its label with that language",
+        "project": "unit",
+        "duration": 13,
+        "outcome": "expected"
+      },
+      {
+        "title": "LanguageToggle toggles between English and Spanish",
+        "project": "unit",
+        "duration": 59,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProfileAvatar renders the image with the person's name as alt text",
+        "project": "unit",
+        "duration": 23,
+        "outcome": "expected"
+      },
+      {
+        "title": "ProfileAvatar falls back to the initials when the image fails to load",
+        "project": "unit",
+        "duration": 9,
+        "outcome": "expected"
+      },
+      {
+        "title": "accessibility [en] the CV page has no axe violations",
+        "project": "unit",
+        "duration": 354,
+        "outcome": "expected"
+      },
+      {
+        "title": "accessibility [es] the CV page has no axe violations",
+        "project": "unit",
+        "duration": 232,
+        "outcome": "expected"
+      },
+      {
+        "title": "accessibility the open theme menu has no axe violations",
+        "project": "unit",
+        "duration": 124,
+        "outcome": "expected"
+      },
+      {
+        "title": "accessibility [en] the 404 page has no axe violations",
+        "project": "unit",
+        "duration": 27,
+        "outcome": "expected"
+      },
+      {
+        "title": "accessibility [es] the 404 page has no axe violations",
+        "project": "unit",
+        "duration": 29,
+        "outcome": "expected"
+      },
+      {
+        "title": "formatPhone formats Spain (3-3-3)",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "formatPhone formats Mexico (3-3-4)",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "formatPhone formats a short number drops empty groups",
+        "project": "unit",
+        "duration": 1,
+        "outcome": "expected"
+      },
+      {
+        "title": "formatPhone formats extra digits are kept in a trailing group",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "formatPhone formats an unknown country code falls back to the raw number",
+        "project": "unit",
+        "duration": 0,
+        "outcome": "expected"
+      },
+      {
+        "title": "home page embeds the person's JSON-LD, serialized safely for an inline script",
+        "project": "unit",
+        "duration": 58,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] renders every section as a named region, in CV order",
+        "project": "unit",
+        "duration": 107,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] introduces the person: name, headline, photo and summary",
+        "project": "unit",
+        "duration": 92,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] links every location to its map, primary location first",
+        "project": "unit",
+        "duration": 76,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] shows the email and every phone number in readable form",
+        "project": "unit",
+        "duration": 72,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] offers labelled quick-contact links for email, phone and social profiles",
+        "project": "unit",
+        "duration": 81,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] renders every job with its link, logo, title, dates, badges and bullets",
+        "project": "unit",
+        "duration": 74,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] renders every degree with its school and dates",
+        "project": "unit",
+        "duration": 30,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] renders every skill under its category",
+        "project": "unit",
+        "duration": 78,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] links every certification to its credential, with issuer and year",
+        "project": "unit",
+        "duration": 57,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] renders every language with its proficiency",
+        "project": "unit",
+        "duration": 27,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [en] renders every project with its website, repository, description and stack",
+        "project": "unit",
+        "duration": 65,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] renders every section as a named region, in CV order",
+        "project": "unit",
+        "duration": 39,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] introduces the person: name, headline, photo and summary",
+        "project": "unit",
+        "duration": 70,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] links every location to its map, primary location first",
+        "project": "unit",
+        "duration": 56,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] shows the email and every phone number in readable form",
+        "project": "unit",
+        "duration": 70,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] offers labelled quick-contact links for email, phone and social profiles",
+        "project": "unit",
+        "duration": 68,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] renders every job with its link, logo, title, dates, badges and bullets",
+        "project": "unit",
+        "duration": 88,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] renders every degree with its school and dates",
+        "project": "unit",
+        "duration": 32,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] renders every skill under its category",
+        "project": "unit",
+        "duration": 89,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] links every certification to its credential, with issuer and year",
+        "project": "unit",
+        "duration": 46,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] renders every language with its proficiency",
+        "project": "unit",
+        "duration": 32,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent [es] renders every project with its website, repository, description and stack",
+        "project": "unit",
+        "duration": 65,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent › language switch switches the whole page to Spanish and back",
+        "project": "unit",
+        "duration": 68,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent › print hides every interactive control on paper",
+        "project": "unit",
+        "duration": 47,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent › print prints the email address as text",
+        "project": "unit",
+        "duration": 20,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent › print shows +34610831754 once on screen and once on paper",
+        "project": "unit",
+        "duration": 17,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeContent › print shows +528711053221 once on screen and once on paper",
+        "project": "unit",
+        "duration": 17,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeView › optional content omits every email and phone link when the contact has none",
+        "project": "unit",
+        "duration": 21,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeView › optional content shows a single phone without a separator",
+        "project": "unit",
+        "duration": 16,
+        "outcome": "expected"
+      },
+      {
+        "title": "ResumeView › optional content renders a project without a website as a plain title",
+        "project": "unit",
+        "duration": 14,
         "outcome": "expected"
       }
     ]
