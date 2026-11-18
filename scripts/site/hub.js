@@ -367,7 +367,29 @@
     const projectNames = [...new Set(rows.map(r => r.project.name))];
     const showRunner = new Set(rows.map(r => r.test.project)).size > 1;
 
-    const state = { q: '', outcome: 'all', project: 'all', sort: 'status', dir: 1, page: 1, size: 25 };
+    const DEFAULTS = { q: '', outcome: 'all', project: 'all', sort: 'status', dir: 1, page: 1 };
+    const state = { ...DEFAULTS, size: 25 };
+
+    // Table state lives in the URL, so Back restores it and filtered views can be shared.
+    const params = new URLSearchParams(location.search);
+    state.q = params.get('q') || '';
+    if (filters.some(([k]) => k === params.get('result'))) state.outcome = params.get('result');
+    if (projectNames.includes(params.get('project'))) state.project = params.get('project');
+    if (['title', 'project', 'runner', 'status', 'duration'].includes(params.get('sort'))) state.sort = params.get('sort');
+    if (params.get('dir') === 'desc') state.dir = -1;
+    state.page = Math.max(1, parseInt(params.get('page'), 10) || 1);
+
+    function syncUrl() {
+      const u = new URL(location.href);
+      const set = (k, v, d) => (v === d ? u.searchParams.delete(k) : u.searchParams.set(k, v));
+      set('q', state.q.trim(), '');
+      set('result', state.outcome, 'all');
+      set('project', state.project, 'all');
+      set('sort', state.sort, 'status');
+      set('dir', state.dir === -1 ? 'desc' : 'asc', 'asc');
+      set('page', String(state.page), '1');
+      if (u.href !== location.href) history.replaceState(history.state, '', u);
+    }
 
     mount.innerHTML =
         '<div class="tt-bar">'
@@ -375,11 +397,11 @@
       +     '<input type="search" placeholder="Search tests" aria-label="Search tests" autocomplete="off" spellcheck="false">'
       +     '<kbd>/</kbd></label>'
       +   '<div class="seg" role="group" aria-label="Filter by result"><span class="seg-ind" aria-hidden="true"></span>'
-      +     filters.map(([k, l]) => '<button data-outcome="' + k + '" aria-pressed="' + (k === 'all') + '">' + l + ' <span class="count">' + counts[k] + '</span></button>').join('')
+      +     filters.map(([k, l]) => '<button data-outcome="' + k + '" aria-pressed="' + (k === state.outcome) + '">' + l + ' <span class="count">' + counts[k] + '</span></button>').join('')
       +   '</div>'
       +   (showProject && projectNames.length > 1
           ? '<select class="select" aria-label="Filter by project"><option value="all">All projects</option>'
-            + projectNames.map(n => '<option value="' + esc(n) + '">' + esc(n) + '</option>').join('') + '</select>'
+            + projectNames.map(n => '<option value="' + esc(n) + '"' + (n === state.project ? ' selected' : '') + '>' + esc(n) + '</option>').join('') + '</select>'
           : '')
       + '</div>'
       + '<div class="tt-wrap"><table class="tt">'
@@ -387,13 +409,15 @@
       +     '<th><button data-sort="title">Test</button></th>'
       +     (showProject ? '<th class="c-proj"><button data-sort="project">Project</button></th>' : '')
       +     (showRunner ? '<th class="c-run"><button data-sort="runner">Runner</button></th>' : '')
-      +     '<th class="c-status"><button data-sort="status" aria-sort="ascending">Result</button></th>'
+      +     '<th class="c-status"><button data-sort="status">Result</button></th>'
       +     '<th class="c-dur"><button data-sort="duration">Duration</button></th>'
       +   '</tr></thead><tbody></tbody></table></div>'
       + '<div class="tt-foot"><span class="tt-count" aria-live="polite"></span><nav class="pager" aria-label="Pages"></nav></div>';
 
     const $ = s => mount.querySelector(s);
     const input = $('input'), tbody = $('tbody'), seg = $('.seg');
+    input.value = state.q;
+    $('[data-sort="' + state.sort + '"]').setAttribute('aria-sort', state.dir === 1 ? 'ascending' : 'descending');
     requestAnimationFrame(() => moveIndicator(seg));
 
     const sorters = {
@@ -420,6 +444,7 @@
       state.page  = Math.min(state.page, pages);
       const start = (state.page - 1) * state.size;
       const slice = list.slice(start, start + state.size);
+      syncUrl();
 
       tbody.innerHTML = slice.length ? slice.map(r => {
         const t = r.test, o = outcomeOf(t.outcome);
@@ -449,19 +474,32 @@
         + '<button data-page="' + (state.page + 1) + '" aria-label="Next page"' + (state.page === pages ? ' disabled' : '') + '>›</button>';
     }
 
+    /**
+     * Re-render after a filter change without moving the control under the
+     * cursor: keep the table at least as tall as before while filtered (so the
+     * page cannot shrink and drag the view up), and cancel any layout shift.
+     */
+    function refilter(anchor) {
+      const before = anchor.getBoundingClientRect().top;
+      const filtered = state.q.trim() || state.outcome !== 'all' || state.project !== 'all';
+      mount.style.minHeight = filtered ? mount.offsetHeight + 'px' : '';
+      render();
+      window.scrollBy(0, anchor.getBoundingClientRect().top - before);
+    }
+
     let debounce;
     input.addEventListener('input', () => {
       clearTimeout(debounce);
-      debounce = setTimeout(() => { state.q = input.value; state.page = 1; render(); }, 80);
+      debounce = setTimeout(() => { state.q = input.value; state.page = 1; refilter(input); }, 80);
     });
     seg.addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
       seg.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
       moveIndicator(seg);
-      state.outcome = b.dataset.outcome; state.page = 1; render();
+      state.outcome = b.dataset.outcome; state.page = 1; refilter(seg);
     });
     const sel = $('.select');
-    if (sel) sel.addEventListener('change', () => { state.project = sel.value; state.page = 1; render(); });
+    if (sel) sel.addEventListener('change', () => { state.project = sel.value; state.page = 1; refilter(sel); });
     mount.querySelector('thead').addEventListener('click', e => {
       const b = e.target.closest('[data-sort]'); if (!b) return;
       if (state.sort === b.dataset.sort) state.dir *= -1; else { state.sort = b.dataset.sort; state.dir = 1; }
@@ -471,15 +509,23 @@
     });
     $('.pager').addEventListener('click', e => {
       const b = e.target.closest('[data-page]'); if (!b || b.disabled) return;
+      // Keep the pager where it is on screen: no jump to the top of the table,
+      // even when the new page is shorter (e.g. the last page).
+      const pager = $('.pager');
+      const before = pager.getBoundingClientRect().top;
+      const label = b.getAttribute('aria-label');
       state.page = Number(b.dataset.page); render();
-      mount.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      window.scrollBy(0, pager.getBoundingClientRect().top - before);
+      // The buttons were re-rendered; keep keyboard focus on the equivalent one.
+      const again = label ? pager.querySelector('[aria-label="' + label + '"]:not(:disabled)') : pager.querySelector('[aria-current]');
+      (again || pager.querySelector('[aria-current]'))?.focus({ preventScroll: true });
     });
     tbody.addEventListener('click', e => {
       if (e.target.closest('[data-reset]')) {
         input.value = ''; state.q = ''; state.outcome = 'all'; state.project = 'all';
         if (sel) sel.value = 'all';
         seg.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.outcome === 'all')));
-        moveIndicator(seg); render(); return;
+        moveIndicator(seg); refilter(seg); return;
       }
       const tr = e.target.closest('tr[data-i]'); if (!tr) return;
       const r = rows[Number(tr.dataset.i)];

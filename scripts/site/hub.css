@@ -8,12 +8,12 @@
   --line-2:    #d9d9dd;
   --ink:       #18181b;
   --ink-2:     #5b5b63;
-  --ink-3:     #8b8b93;
-  --pass:      #1d7f4e;
+  --ink-3:     #6b6b73;
+  --pass:      #18703f;
   --pass-bg:   #e8f5ee;
-  --fail:      #cf2f3b;
+  --fail:      #c0262f;
   --fail-bg:   #fdecee;
-  --flaky:     #b56f06;
+  --flaky:     #8a5300;
   --flaky-bg:  #fdf3e3;
   --skip:      #a1a1aa;
   --skip-bg:   #f1f1f3;
@@ -34,7 +34,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0e0e10; --surface: #151517; --sunken: #1b1b1e; --line: #26262a; --line-2: #33333a;
-    --ink: #ededef; --ink-2: #a3a3ab; --ink-3: #74747c;
+    --ink: #ededef; --ink-2: #a3a3ab; --ink-3: #8a8a92;
     --pass: #3fb877; --pass-bg: #12291d; --fail: #f2555f; --fail-bg: #331418;
     --flaky: #e4a33a; --flaky-bg: #2e220e; --skip: #6b6b73; --skip-bg: #222226; --none: #222226;
     --focus: #6d9bff; --shadow-lg: 0 1px 2px rgb(0 0 0 / .3), 0 16px 40px -8px rgb(0 0 0 / .6);
@@ -43,7 +43,7 @@
 }
 :root[data-theme="dark"] {
   --bg: #0e0e10; --surface: #151517; --sunken: #1b1b1e; --line: #26262a; --line-2: #33333a;
-  --ink: #ededef; --ink-2: #a3a3ab; --ink-3: #74747c;
+  --ink: #ededef; --ink-2: #a3a3ab; --ink-3: #8a8a92;
   --pass: #3fb877; --pass-bg: #12291d; --fail: #f2555f; --fail-bg: #331418;
   --flaky: #e4a33a; --flaky-bg: #2e220e; --skip: #6b6b73; --skip-bg: #222226; --none: #222226;
   --focus: #6d9bff; --shadow-lg: 0 1px 2px rgb(0 0 0 / .3), 0 16px 40px -8px rgb(0 0 0 / .6);
@@ -189,7 +189,7 @@ html.ready:not(.still) .strip .bar:not(.none) {
 
 /* ── Projects list (dashboard) ────────────────────────────────────────────── */
 
-.projects li + li .proj { border-top: 1px solid var(--line); }
+.projects li + li { border-top: 1px solid var(--line); }
 .proj {
   display: grid;
   grid-template-columns: minmax(180px, 1.1fr) minmax(160px, 1.6fr) 104px 150px;
@@ -524,6 +524,8 @@ html.ready:not(.still) .strip .bar:not(.none) {
   .tt tr.none { display: block; }
   .seg { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
   .tt-bar .select { flex: 1 1 100%; }
+  .seg button { height: 36px; }
+  .pager button, .pager span { min-width: 40px; height: 40px; }
 
   /* Drawer becomes a bottom sheet */
   .drawer {
