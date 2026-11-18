@@ -498,9 +498,11 @@
       mount.offsetHeight; // commit the start height before transitioning
       mount.style.transition = 'min-height .28s cubic-bezier(.23, 1, .32, 1)';
       mount.style.minHeight = to + 'px';
-      const done = () => { mount.style.transition = ''; mount.style.minHeight = ''; mount.removeEventListener('transitionend', done); clearTimeout(timer); collapse = null; };
+      const done = () => { mount.style.transition = ''; mount.style.minHeight = ''; mount.removeEventListener('transitionend', onEnd); clearTimeout(timer); collapse = null; };
       const timer = setTimeout(done, 400);
-      mount.addEventListener('transitionend', done);
+      // Children (the segmented control's indicator) bubble their own transitionend events.
+      const onEnd = e => { if (e.target === mount && e.propertyName === 'min-height') done(); };
+      mount.addEventListener('transitionend', onEnd);
       collapse = done;
     }
 
