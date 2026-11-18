@@ -8,7 +8,6 @@ import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import vm from 'node:vm';
 
 const REPO    = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PAYLOAD = `</script><img src=x onerror=alert(1)> $& $' $\` <!-- \u2028 end`;
@@ -32,17 +31,9 @@ function playwrightReport(title) {
   };
 }
 
-/** Return the bodies of all inline (non-src) <script> blocks. */
+/** Return [attributes, body] for every <script> block without a src. */
 function inlineScripts(html) {
-  return [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m => m[1]);
-}
-
-/** The JSON literal assigned by `marker`, evaluated as JS. */
-function evalLiteral(script, marker) {
-  const start = script.indexOf(marker);
-  assert.ok(start >= 0, `marker not found: ${marker}`);
-  const end = script.indexOf(';\n', start);
-  return vm.runInNewContext('(' + script.slice(start + marker.length, end) + ')');
+  return [...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/gi)].map(m => [m[1], m[2]]);
 }
 
 before(() => {
@@ -55,22 +46,24 @@ before(() => {
 
 after(() => rmSync(work, { recursive: true, force: true }));
 
-for (const [label, rel, marker] of [
-  ['dashboard index.html', 'dist/index.html',                'const { projects, global } = '],
-  ['project detail page',  `dist/projects/${NAME}.html`,      'const projTests      = '],
+for (const [label, rel] of [
+  ['dashboard index.html', 'dist/index.html'],
+  ['project detail page',  `dist/projects/${NAME}.html`],
 ]) {
-  test(`${label}: payload cannot break out of inline script`, () => {
+  test(`${label}: payload cannot break out of the data block`, () => {
     const html = readFileSync(join(work, rel), 'utf8');
 
     assert.ok(!html.includes('</script><img'), 'raw </script><img found in output');
     assert.ok(!html.includes('<!-- \u2028'), 'raw <!-- found in script data');
 
     const scripts = inlineScripts(html);
-    assert.equal(scripts.length, 1, 'expected exactly one inline script block');
-    assert.doesNotThrow(() => new vm.Script(scripts[0]), 'inline script must parse');
+    assert.equal(scripts.length, 1, 'expected exactly one inline script block (the data)');
+    const [attrs, body] = scripts[0];
+    assert.match(attrs, /type="application\/json"/, 'inline data must not be executable');
 
-    const data  = evalLiteral(scripts[0], marker);
-    const tests = Array.isArray(data) ? data : data.projects.flatMap(p => p.tests);
-    assert.equal(tests[0].title, PAYLOAD, 'title must round-trip unchanged (no $& expansion)');
+    const data  = JSON.parse(body);
+    const tests = data.page === 'project' ? data.project.tests : data.projects.flatMap(p => p.tests);
+    const evil  = tests.find(t => t.title.startsWith('</script>'));
+    assert.equal(evil.title, PAYLOAD, 'title must round-trip unchanged (no $& expansion)');
   });
 }

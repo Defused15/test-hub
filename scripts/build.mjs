@@ -1,11 +1,10 @@
-import { readFileSync, writeFileSync, copyFileSync, mkdirSync, readdirSync, existsSync, cpSync } from 'fs';
+import { readFileSync, writeFileSync, copyFileSync, mkdirSync, readdirSync, existsSync, cpSync, rmSync } from 'fs';
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import { parseReport } from './lib/parsers.mjs';
 import { updateHistory } from './lib/history.mjs';
-import { buildProjectPage } from './lib/render.mjs';
-import { safeJson } from './lib/utils.mjs';
+import { buildDashboardPage, buildProjectPage } from './lib/render.mjs';
 
 // ── Paths ─────────────────────────────────────────────────────────────────────
 
@@ -78,20 +77,13 @@ for (const p of projects) {
 
 // ── Write dist/ ───────────────────────────────────────────────────────────────
 
+rmSync(DIST, { recursive: true, force: true }); // drop files from older builds
 mkdirSync(DIST, { recursive: true });
 
-const dataJson    = safeJson({ projects, global });
-const historyJson = safeJson(historyMap);
-const cacheBust   = Date.now().toString(36);
-const htmlTpl     = readFileSync(join(__dirname, 'dashboard.html'), 'utf8');
-const htmlOutput  = htmlTpl
-  // Function replacers: a string replacement would interpret $&, $', $` in the data.
-  .replace('/*%%DATA%%*/null',    () => dataJson)
-  .replace('/*%%HISTORY%%*/null', () => historyJson)
-  .replace('href="style.css"',    `href="style.css?v=${cacheBust}"`);
+const cacheBust = Date.now().toString(36);
 
-writeFileSync(join(DIST, 'index.html'), htmlOutput, 'utf8');
-copyFileSync(join(__dirname, 'dashboard.css'), join(DIST, 'style.css'));
+writeFileSync(join(DIST, 'index.html'), buildDashboardPage({ projects, global, history: historyMap, cacheBust }), 'utf8');
+for (const f of ['hub.js', 'hub.css']) copyFileSync(join(__dirname, 'site', f), join(DIST, f));
 
 // ── Generate per-project detail pages ────────────────────────────────────────
 
