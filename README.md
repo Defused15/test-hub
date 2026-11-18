@@ -41,7 +41,7 @@ Tests run on push          push JSON   projects/
                                     (published to qa.rcastillo.dev)
 ```
 
-Each project repo pushes its `report.json` to `projects/<name>/latest.json` in this repo via the GitHub API. That push triggers the hub workflow, which regenerates and deploys the combined dashboard.
+Each project repo pushes its `report.json` to `projects/<name>/latest.json` in this repo via the GitHub API. It then sends a `repository_dispatch` event, which triggers the hub workflow to regenerate and deploy the combined dashboard.
 
 ---
 
@@ -205,7 +205,7 @@ History files (`history/*.json`) are created automatically on the first build. E
 
 Each project repo runs its own tests and pushes the resulting JSON report to this repo via the GitHub API. Immediately after, it sends a `repository_dispatch` event of type `test-hub-trigger`. The hub workflow ([`.github/workflows/build-hub.yml`](.github/workflows/build-hub.yml)) then rebuilds and redeploys the dashboard automatically.
 
-> **Note:** We use `repository_dispatch` because GitHub Actions does not trigger workflows from events initiated by the `GITHUB_TOKEN` or automated API calls to avoid loops. Explicitly triggering via dispatch ensures the dashboard stays up to date.
+> **Note:** Report uploads are not a push trigger; the dispatch is the single build trigger, so each upload produces exactly one run. Runs queue rather than cancel, so a deploy is never interrupted. Pushes to `scripts/`, `test/`, `package.json` or the workflow itself also rebuild the site.
 
 > **Quick start:** copy the ready-made upload step from [`docs/hub-upload-step.yml`](docs/hub-upload-step.yml) into your project workflow and update the two env vars (`PROJECT_NAME`, `REPORT_PATH`).
 

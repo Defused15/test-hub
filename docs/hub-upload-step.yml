@@ -9,6 +9,9 @@
 #   • A JSON report at the path defined by REPORT_PATH.
 #     Playwright: use the built-in JSON reporter → report.json
 #     Jest:       run with --json --outputFile=jest-report.json
+#     Newman:     use the json reporter → newman-report.json
+#   • Both steps below: the upload stores the report, the dispatch starts the
+#     hub build (uploads alone do not trigger it).
 # ─────────────────────────────────────────────────────────────────────────────
 
 - name: Push report to QA Hub
@@ -85,3 +88,10 @@
       );
       getReq.end();
     "
+
+- name: Trigger QA Hub build
+  if: always()
+  env:
+    GH_TOKEN: ${{ secrets.HUB_TOKEN }}
+    HUB_REPO: Defused15/test-hub
+  run: gh api "repos/$HUB_REPO/dispatches" --method POST -f event_type=test-hub-trigger

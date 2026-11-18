@@ -1,79 +1,85 @@
 name: Build QA Hub Dashboard
 
 on:
-  # Triggers whenever a project pushes its latest.json into projects/
-  push:
-    branches: [ main ]
-    paths:
-      - 'projects/*/latest.json'
-      - 'scripts/**'
-
-  # Allow manual runs from the Actions tab
-  workflow_dispatch:
-
-  # Allow remote triggers from other repositories
+  # Each project uploads projects/<name>/latest.json and then sends this dispatch,
+  # so report uploads are not a push trigger (that only queued a duplicate run).
   repository_dispatch:
     types: [test-hub-trigger]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+  # Changes to the hub itself
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'test/**'
+      - 'package.json'
+      - '.github/workflows/build-hub.yml'
 
-# Only allow one deployment at a time
+  # Manual runs from the Actions tab
+  workflow_dispatch:
+
+# Runs queue instead of cancelling, so a deploy is never cut off halfway.
+# GitHub keeps only the newest pending run, which builds from the latest reports.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write   # commit history/*.json
     steps:
-      # 1️⃣ Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      # 2️⃣ Node
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version: '24'
 
-      # 3️⃣ Test the build scripts, then generate the dashboard from projects/*/latest.json
       - name: Run tests
         run: npm test
 
-      - name: Generate combined dashboard
+      - name: Generate dashboard
         run: node scripts/build.mjs
 
-      # 4️⃣ Persist history updates in the repository
-      - name: Commit history updates
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add history/*.json
-          # Check if there are changes to avoid failing the build
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: auto-update test history [skip ci]"
-            git push origin main
-          else
-            echo "No history changes to commit."
-          fi
-
-      # 4️⃣ Upload dist/ as a Pages artifact
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
+      # A project may upload a new report while this job runs; rebase and retry
+      # so the history commit never fails the deploy.
+      - name: Commit history updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add history/*.json
+          if git diff --cached --quiet; then
+            echo "No history changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: auto-update test history [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            echo "Push attempt $attempt failed, retrying"
+            sleep $((attempt * 5))
+          done
+          echo "::warning::History for this run was not saved; run npm run history:rebuild to recover it."
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # 5️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
