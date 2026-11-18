@@ -1,6 +1,7 @@
 import { safeJson, escHtml } from './utils.mjs';
 
 const SITE_URL  = 'https://qa.rcastillo.dev/';
+const OG_IMAGE  = SITE_URL + 'og.png';
 const FONTS_CSS = 'https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap';
 const TYPE_LABEL = { playwright: 'E2E', jest: 'Unit', newman: 'API' };
 const TYPE_TOOL  = { playwright: 'Playwright', jest: 'Jest', newman: 'Newman' };
@@ -40,8 +41,17 @@ function shell({ title, description, url, root, cacheBust, data, body }) {
 <meta property="og:title" content="${escHtml(title)}">
 <meta property="og:description" content="${escHtml(description)}">
 <meta property="og:type" content="website">
+<link rel="canonical" href="${escHtml(url)}">
+<meta property="og:site_name" content="QA Hub">
 <meta property="og:url" content="${escHtml(url)}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="QA Hub: CI test results for three projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escHtml(title)}">
+<meta name="twitter:description" content="${escHtml(description)}">
+<meta name="twitter:image" content="${OG_IMAGE}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${FONTS_CSS}">
