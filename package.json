@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "dev": "npm run build && npx serve dist"
+    "dev": "npm run build && npx serve dist",
+    "test": "node --test test/*.test.mjs"
   },
   "engines": {
     "node": ">=20"

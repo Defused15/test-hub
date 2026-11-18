@@ -1,4 +1,4 @@
-import { fmtDur } from './utils.mjs';
+import { fmtDur, safeJson, escHtml } from './utils.mjs';
 
 // ── Shared lookup tables ──────────────────────────────────────────────────────
 
@@ -26,7 +26,7 @@ function buildInsightCards(p) {
     '<div class="insight-card">'
     + '<div class="insight-label">' + c.label + '</div>'
     + '<div class="insight-value">' + c.value + '</div>'
-    + '<div class="insight-sub" title="' + c.sub.replace(/"/g, '&quot;') + '">' + c.sub + '</div>'
+    + '<div class="insight-sub" title="' + escHtml(c.sub) + '">' + escHtml(c.sub) + '</div>'
     + '</div>'
   ).join('');
 }
@@ -50,13 +50,13 @@ function buildTableRows(p) {
     const cls    = CHIP_MAP[t.outcome]   || 'skip';
     const lbl    = CHIP_LABEL[t.outcome] || t.outcome;
     return '<tr data-outcome="' + t.outcome
-      + '" data-test="'    + t.title.replace(/"/g, '&quot;')
-      + '" data-browser="' + t.project
+      + '" data-test="'    + escHtml(t.title)
+      + '" data-browser="' + escHtml(t.project)
       + '" data-duration="' + t.duration
       + '" data-idx="'     + idx
       + '" class="clickable-row">'
-      + '<td><div class="tt">' + t.title + '</div><div class="tf">' + t.file + ':' + t.line + '</div></td>'
-      + '<td><span class="bchip"><span class="bdot" style="background:' + bColor + '"></span>' + t.project + '</span></td>'
+      + '<td><div class="tt">' + escHtml(t.title) + '</div><div class="tf">' + escHtml(t.file) + ':' + t.line + '</div></td>'
+      + '<td><span class="bchip"><span class="bdot" style="background:' + bColor + '"></span>' + escHtml(t.project) + '</span></td>'
       + '<td><span class="chip ' + cls + '">' + lbl + '</span></td>'
       + '<td><span class="dur">' + fmtDur(t.duration) + '</span></td>'
       + '</tr>';
@@ -170,7 +170,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${p.name} · QA Hub</title>
+<title>${escHtml(p.name)} · QA Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style"
@@ -193,7 +193,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
   <header class="header">
     <div>
       <div class="eyebrow">QA Hub · ${typeLabel} Report</div>
-      <h1><strong>${p.name}</strong></h1>
+      <h1><strong>${escHtml(p.name)}</strong></h1>
     </div>
     <div class="header-meta" style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
       <span class="mono">generated ${genDate}</span>
@@ -261,7 +261,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
   </div>
 
   <footer class="footer">
-    <span class="ft">${p.stats.total} tests · ${p.projectNames.join(', ')}</span>
+    <span class="ft">${p.stats.total} tests · ${escHtml(p.projectNames.join(', '))}</span>
     <span class="ft">qa hub · auto-generated</span>
   </footer>
 </main>
@@ -282,6 +282,8 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
 </aside>
 
 <script>
+const escHtml = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+
 // ── Table: filter / sort / pagination ─────────────────────────────────────────
 let activeFilter = 'all', sortCol = null, sortDir = 1, currentPage = 1, pageSize = 25;
 
@@ -523,7 +525,7 @@ updateTable();
 })();
 
 // ── Project charts ────────────────────────────────────────────────────────────
-const projectHistory = ${JSON.stringify(projectHistory)};
+const projectHistory = ${safeJson(projectHistory)};
 
 (function aggregateProjectHistory() {
   const byDay = new Map();
@@ -560,8 +562,8 @@ const projectHistory = ${JSON.stringify(projectHistory)};
   }).sort((a,b) => a.date - b.date));
 })();
 
-const projBrowsers   = ${JSON.stringify(p.projectNames)};
-const projTests      = ${JSON.stringify(p.tests)};
+const projBrowsers   = ${safeJson(p.projectNames)};
+const projTests      = ${safeJson(p.tests)};
 
 function initCharts() {
   if (typeof Chart === 'undefined') return;
@@ -712,12 +714,12 @@ function buildProjectHeatmap() {
   // One row per unreliable test
   unreliable.forEach(({ title, project }) => {
     const trunc = title.length > 40 ? title.slice(0, 38) + '…' : title;
-    html += '<div class="hm-row-label" title="' + title.replace(/"/g, '&quot;') + ' (' + project + ')">' + trunc.replace(/</g, '&lt;') + '</div>';
+    html += '<div class="hm-row-label" title="' + escHtml(title + ' (' + project + ')') + '">' + escHtml(trunc) + '</div>';
     dates.forEach(d => {
       const outcome = outcomeLookup.get(JSON.stringify([title, project, d]));
       const cls = outcome ? (clsMap[outcome] || 'hm-skip') : 'hm-none';
       const lbl = outcome ? (lblMap[outcome] || outcome) : 'No data';
-      html += '<div class="hm-cell ' + cls + '" title="' + trunc.replace(/"/g, '') + ' · ' + fmtD(d) + ' · ' + lbl + '"></div>';
+      html += '<div class="hm-cell ' + cls + '" title="' + escHtml(trunc) + ' · ' + fmtD(d) + ' · ' + lbl + '"></div>';
     });
   });
 

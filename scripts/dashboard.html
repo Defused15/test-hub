@@ -170,6 +170,7 @@
 <script>
 const { projects, global } = /*%%DATA%%*/null;
 const history = /*%%HISTORY%%*/null;
+const escHtml = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 
 if (history) {
   for (const k of Object.keys(history)) {
@@ -244,12 +245,12 @@ if (projects.length === 0) {
     const barColor = p.stats.ok ? '#2d6a3f' : '#8b2020';
     const browsers = p.projectNames.map(b => {
       const c = browserColor[b] || '#888';
-      return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+b+'</span>';
+      return '<span class="bchip"><span class="bdot" style="background:'+c+'"></span>'+escHtml(b)+'</span>';
     }).join('');
     const typeLabel = p.type === 'playwright' ? 'E2E' : p.type === 'newman' ? 'API' : 'Unit';
     return '<a class="card-link" href="projects/'+encodeURIComponent(p.name)+'.html"><div class="card" data-type="'+p.type+'">'
       + '<div class="card-header">'
-      + '<div><div class="card-name">'+p.name+'</div>'
+      + '<div><div class="card-name">'+escHtml(p.name)+'</div>'
       + '<div class="card-date" title="'+fmtDate(p.startTime)+'">'+timeAgo(p.startTime)+'<span class="tip-icon">i</span></div></div>'
       + '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="type-badge type-badge--'+p.type+'">'+typeLabel+'</span><span class="pill '+(p.stats.ok?'ok':'fail')+'"><span class="dot"></span>'+(p.stats.ok?'Passed':'Failed')+'</span></div>'
       + '</div>'
@@ -281,10 +282,10 @@ document.getElementById('tbody').innerHTML = allTests.map((t, idx) => {
   const bColor = browserColor[t.project] || '#888';
   const cls    = chipMap[t.outcome]   || 'skip';
   const lbl    = chipLabel[t.outcome] || t.outcome;
-  return '<tr data-outcome="'+t.outcome+'" data-project="'+t.projectName+'" data-test="'+t.title+'" data-browser="'+t.project+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'" data-type="'+t.projectType+'" data-idx="'+idx+'" class="clickable-row">'
-    + '<td><span class="dur">'+t.projectName+'</span></td>'
-    + '<td><div class="tt">'+t.title+'</div><div class="tf">'+t.file+':'+t.line+'</div></td>'
-    + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+t.project+'</span></td>'
+  return '<tr data-outcome="'+t.outcome+'" data-project="'+escHtml(t.projectName)+'" data-test="'+escHtml(t.title)+'" data-browser="'+escHtml(t.project)+'" data-status="'+(chipLabel[t.outcome]||t.outcome)+'" data-duration="'+t.duration+'" data-type="'+t.projectType+'" data-idx="'+idx+'" class="clickable-row">'
+    + '<td><span class="dur">'+escHtml(t.projectName)+'</span></td>'
+    + '<td><div class="tt">'+escHtml(t.title)+'</div><div class="tf">'+escHtml(t.file)+':'+t.line+'</div></td>'
+    + '<td><span class="bchip"><span class="bdot" style="background:'+bColor+'"></span>'+escHtml(t.project)+'</span></td>'
     + '<td><span class="chip '+cls+'">'+lbl+'</span></td>'
     + '<td><span class="dur">'+fmtDur(t.duration)+'</span></td>'
     + '</tr>';
@@ -790,16 +791,16 @@ function buildHeatmap() {
   histKeys.forEach(name => {
     const dateMap = new Map(history[name].map(e => [fmtD(e.date), e]));
     const trunc = name.length > 28 ? name.slice(0, 26) + '…' : name;
-    html += '<div class="hm-row-label" title="' + name + '">' + trunc + '</div>';
+    html += '<div class="hm-row-label" title="' + escHtml(name) + '">' + escHtml(trunc) + '</div>';
     allLabels.forEach(lbl => {
       const e = dateMap.get(lbl);
       if (!e) {
-        html += '<div class="hm-cell hm-none" title="' + name + ' · ' + lbl + ' · No data"></div>';
+        html += '<div class="hm-cell hm-none" title="' + escHtml(name) + ' · ' + lbl + ' · No data"></div>';
         return;
       }
       const pct = e.stats.total > 0 ? ((e.stats.expected / e.stats.total) * 100).toFixed(0) : 100;
       const cls = e.stats.unexpected > 0 ? 'hm-fail' : e.stats.flaky > 0 ? 'hm-flaky' : 'hm-pass';
-      html += '<div class="hm-cell ' + cls + '" title="' + name + ' · ' + lbl + ' · ' + pct + '% passed"></div>';
+      html += '<div class="hm-cell ' + cls + '" title="' + escHtml(name) + ' · ' + lbl + ' · ' + pct + '% passed"></div>';
     });
   });
 

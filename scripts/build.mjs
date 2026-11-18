@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { detectReportType, parsePlaywrightProject, parseJestProject, parseNewmanProject } from './lib/parsers.mjs';
 import { updateHistory } from './lib/history.mjs';
 import { buildProjectPage } from './lib/render.mjs';
+import { safeJson } from './lib/utils.mjs';
 
 // ── Paths ─────────────────────────────────────────────────────────────────────
 
@@ -84,13 +85,14 @@ for (const p of projects) {
 
 mkdirSync(DIST, { recursive: true });
 
-const dataJson    = JSON.stringify({ projects, global });
-const historyJson = JSON.stringify(historyMap);
+const dataJson    = safeJson({ projects, global });
+const historyJson = safeJson(historyMap);
 const cacheBust   = Date.now().toString(36);
 const htmlTpl     = readFileSync(join(__dirname, 'dashboard.html'), 'utf8');
 const htmlOutput  = htmlTpl
-  .replace('/*%%DATA%%*/null',    dataJson)
-  .replace('/*%%HISTORY%%*/null', historyJson)
+  // Function replacers: a string replacement would interpret $&, $', $` in the data.
+  .replace('/*%%DATA%%*/null',    () => dataJson)
+  .replace('/*%%HISTORY%%*/null', () => historyJson)
   .replace('href="style.css"',    `href="style.css?v=${cacheBust}"`);
 
 writeFileSync(join(DIST, 'index.html'), htmlOutput, 'utf8');
