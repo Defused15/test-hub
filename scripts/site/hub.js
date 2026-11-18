@@ -240,7 +240,9 @@
         });
         html += '</ol></section>';
       } else {
-        const hint = current.type === 'playwright'
+        const hint = t.outcome === 'skipped'
+          ? 'This test was skipped, so it did not run any steps.'
+          : current.type === 'playwright'
           ? 'Playwright records steps for each <code>test.step()</code> block; this test has none.'
           : current.type === 'jest' ? 'Jest reports a single result per test, without steps.'
           : 'No assertions were recorded for this request.';
