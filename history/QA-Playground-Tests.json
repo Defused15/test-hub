@@ -1,654 +1,5 @@
 [
   {
-    "id": "t:1791210074074",
-    "date": 1791210074074,
-    "stats": {
-      "total": 105,
-      "expected": 104,
-      "unexpected": 0,
-      "flaky": 1,
-      "skipped": 0
-    },
-    "duration": 148812.794,
-    "projectNames": [
-      "chromium",
-      "firefox",
-      "webkit"
-    ],
-    "tests": [
-      {
-        "title": "API returns 100 posts",
-        "project": "chromium",
-        "duration": 1082,
-        "outcome": "expected"
-      },
-      {
-        "title": "UI renders all cards",
-        "project": "chromium",
-        "duration": 715,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card titles match API data",
-        "project": "chromium",
-        "duration": 1397,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card bodies match API data",
-        "project": "chromium",
-        "duration": 1198,
-        "outcome": "expected"
-      },
-      {
-        "title": "API returns 100 posts",
-        "project": "firefox",
-        "duration": 1687,
-        "outcome": "expected"
-      },
-      {
-        "title": "UI renders all cards",
-        "project": "firefox",
-        "duration": 806,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card titles match API data",
-        "project": "firefox",
-        "duration": 1635,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card bodies match API data",
-        "project": "firefox",
-        "duration": 1472,
-        "outcome": "expected"
-      },
-      {
-        "title": "API returns 100 posts",
-        "project": "webkit",
-        "duration": 6103,
-        "outcome": "expected"
-      },
-      {
-        "title": "UI renders all cards",
-        "project": "webkit",
-        "duration": 1057,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card titles match API data",
-        "project": "webkit",
-        "duration": 2287,
-        "outcome": "expected"
-      },
-      {
-        "title": "Card bodies match API data",
-        "project": "webkit",
-        "duration": 1743,
-        "outcome": "expected"
-      },
-      {
-        "title": "Outer iframe loads with title",
-        "project": "chromium",
-        "duration": 770,
-        "outcome": "expected"
-      },
-      {
-        "title": "Inner iframe loads with title",
-        "project": "chromium",
-        "duration": 584,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me link is visible in inner iframe",
-        "project": "chromium",
-        "duration": 545,
-        "outcome": "expected"
-      },
-      {
-        "title": "Clicked message hidden before interaction",
-        "project": "chromium",
-        "duration": 642,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me shows confirmation message",
-        "project": "chromium",
-        "duration": 637,
-        "outcome": "expected"
-      },
-      {
-        "title": "Outer iframe loads with title",
-        "project": "firefox",
-        "duration": 665,
-        "outcome": "expected"
-      },
-      {
-        "title": "Inner iframe loads with title",
-        "project": "firefox",
-        "duration": 906,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me link is visible in inner iframe",
-        "project": "firefox",
-        "duration": 781,
-        "outcome": "expected"
-      },
-      {
-        "title": "Clicked message hidden before interaction",
-        "project": "firefox",
-        "duration": 699,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me shows confirmation message",
-        "project": "firefox",
-        "duration": 999,
-        "outcome": "expected"
-      },
-      {
-        "title": "Outer iframe loads with title",
-        "project": "webkit",
-        "duration": 1096,
-        "outcome": "expected"
-      },
-      {
-        "title": "Inner iframe loads with title",
-        "project": "webkit",
-        "duration": 1067,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me link is visible in inner iframe",
-        "project": "webkit",
-        "duration": 973,
-        "outcome": "expected"
-      },
-      {
-        "title": "Clicked message hidden before interaction",
-        "project": "webkit",
-        "duration": 1082,
-        "outcome": "expected"
-      },
-      {
-        "title": "Click Me shows confirmation message",
-        "project": "webkit",
-        "duration": 1145,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "chromium",
-        "duration": 558,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "chromium",
-        "duration": 436,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "chromium",
-        "duration": 571,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "chromium",
-        "duration": 603,
-        "outcome": "expected"
-      },
-      {
-        "title": "Portfolio button",
-        "project": "chromium",
-        "duration": 592,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "chromium",
-        "duration": 619,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from About returns to home",
-        "project": "chromium",
-        "duration": 757,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Blog returns to home",
-        "project": "chromium",
-        "duration": 1091,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Portfolio returns to home",
-        "project": "chromium",
-        "duration": 796,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Contact returns to home",
-        "project": "chromium",
-        "duration": 700,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "firefox",
-        "duration": 640,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "firefox",
-        "duration": 616,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "firefox",
-        "duration": 727,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "firefox",
-        "duration": 927,
-        "outcome": "expected"
-      },
-      {
-        "title": "Portfolio button",
-        "project": "firefox",
-        "duration": 730,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "firefox",
-        "duration": 826,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from About returns to home",
-        "project": "firefox",
-        "duration": 908,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Blog returns to home",
-        "project": "firefox",
-        "duration": 1181,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Portfolio returns to home",
-        "project": "firefox",
-        "duration": 935,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Contact returns to home",
-        "project": "firefox",
-        "duration": 1130,
-        "outcome": "expected"
-      },
-      {
-        "title": "navigation buttons display",
-        "project": "webkit",
-        "duration": 801,
-        "outcome": "expected"
-      },
-      {
-        "title": "Home button",
-        "project": "webkit",
-        "duration": 1694,
-        "outcome": "expected"
-      },
-      {
-        "title": "About button",
-        "project": "webkit",
-        "duration": 1137,
-        "outcome": "expected"
-      },
-      {
-        "title": "Blog button",
-        "project": "webkit",
-        "duration": 1119,
-        "outcome": "expected"
-      },
-      {
-        "title": "Portfolio button",
-        "project": "webkit",
-        "duration": 1202,
-        "outcome": "expected"
-      },
-      {
-        "title": "Contact button",
-        "project": "webkit",
-        "duration": 1215,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from About returns to home",
-        "project": "webkit",
-        "duration": 1471,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Blog returns to home",
-        "project": "webkit",
-        "duration": 1432,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Portfolio returns to home",
-        "project": "webkit",
-        "duration": 1312,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button from Contact returns to home",
-        "project": "webkit",
-        "duration": 1438,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "chromium",
-        "duration": 1535,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code with empty input",
-        "project": "chromium",
-        "duration": 455,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "firefox",
-        "duration": 2493,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code with empty input",
-        "project": "firefox",
-        "duration": 586,
-        "outcome": "expected"
-      },
-      {
-        "title": "Generate QR Code",
-        "project": "webkit",
-        "duration": 2020,
-        "outcome": "flaky"
-      },
-      {
-        "title": "Generate QR Code with empty input",
-        "project": "webkit",
-        "duration": 1066,
-        "outcome": "expected"
-      },
-      {
-        "title": "Default slider state on page load",
-        "project": "chromium",
-        "duration": 562,
-        "outcome": "expected"
-      },
-      {
-        "title": "Default slider state on page load",
-        "project": "firefox",
-        "duration": 629,
-        "outcome": "expected"
-      },
-      {
-        "title": "Default slider state on page load",
-        "project": "webkit",
-        "duration": 934,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "chromium",
-        "duration": 437,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 429,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "firefox",
-        "duration": 750,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 610,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar minimum value",
-        "project": "webkit",
-        "duration": 913,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 950,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 802,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 876,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 966,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 959,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1308,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1250,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 872,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 847,
-        "outcome": "expected"
-      },
-      {
-        "title": "Send Feedback click hides button and shows confirmation",
-        "project": "chromium",
-        "duration": 488,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 925,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1040,
-        "outcome": "expected"
-      },
-      {
-        "title": "Send Feedback click hides button and shows confirmation",
-        "project": "firefox",
-        "duration": 654,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1303,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1352,
-        "outcome": "expected"
-      },
-      {
-        "title": "Send Feedback click hides button and shows confirmation",
-        "project": "webkit",
-        "duration": 1197,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 785,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 772,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 936,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 965,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1242,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1230,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "chromium",
-        "duration": 1004,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "chromium",
-        "duration": 752,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "firefox",
-        "duration": 955,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "firefox",
-        "duration": 1261,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar min value",
-        "project": "webkit",
-        "duration": 1255,
-        "outcome": "expected"
-      },
-      {
-        "title": "Range bar max value",
-        "project": "webkit",
-        "duration": 1268,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "chromium",
-        "duration": 7206,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "chromium",
-        "duration": 3156,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "firefox",
-        "duration": 5208,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "firefox",
-        "duration": 6529,
-        "outcome": "expected"
-      },
-      {
-        "title": "Redirection",
-        "project": "webkit",
-        "duration": 6529,
-        "outcome": "expected"
-      },
-      {
-        "title": "Go Back button",
-        "project": "webkit",
-        "duration": 6586,
-        "outcome": "expected"
-      }
-    ]
-  },
-  {
     "id": "t:1791292312775",
     "date": 1791292312775,
     "stats": {
@@ -29869,6 +29220,5857 @@
         "title": "Code set without key events is not verified",
         "project": "webkit",
         "duration": 799,
+        "outcome": "expected"
+      }
+    ]
+  },
+  {
+    "id": "t:1795007040708",
+    "date": 1795007040708,
+    "stats": {
+      "total": 972,
+      "expected": 972,
+      "unexpected": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "duration": 435869.6330566406,
+    "projectNames": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "tests": [
+      {
+        "title": "API returns 100 posts",
+        "project": "chromium",
+        "duration": 668,
+        "outcome": "expected"
+      },
+      {
+        "title": "API returns 100 posts",
+        "project": "firefox",
+        "duration": 1213,
+        "outcome": "expected"
+      },
+      {
+        "title": "API returns 100 posts",
+        "project": "webkit",
+        "duration": 966,
+        "outcome": "expected"
+      },
+      {
+        "title": "UI renders all cards",
+        "project": "chromium",
+        "duration": 562,
+        "outcome": "expected"
+      },
+      {
+        "title": "UI renders all cards",
+        "project": "firefox",
+        "duration": 630,
+        "outcome": "expected"
+      },
+      {
+        "title": "UI renders all cards",
+        "project": "webkit",
+        "duration": 941,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card titles match API data",
+        "project": "chromium",
+        "duration": 916,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card titles match API data",
+        "project": "firefox",
+        "duration": 1121,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card titles match API data",
+        "project": "webkit",
+        "duration": 1648,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card bodies match API data",
+        "project": "chromium",
+        "duration": 873,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card bodies match API data",
+        "project": "firefox",
+        "duration": 1132,
+        "outcome": "expected"
+      },
+      {
+        "title": "Card bodies match API data",
+        "project": "webkit",
+        "duration": 1251,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty tracker shows headers, no entries and a zero total",
+        "project": "chromium",
+        "duration": 360,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty tracker shows headers, no entries and a zero total",
+        "project": "firefox",
+        "duration": 431,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty tracker shows headers, no entries and a zero total",
+        "project": "webkit",
+        "duration": 669,
+        "outcome": "expected"
+      },
+      {
+        "title": "New entry starts with default values",
+        "project": "chromium",
+        "duration": 394,
+        "outcome": "expected"
+      },
+      {
+        "title": "New entry starts with default values",
+        "project": "firefox",
+        "duration": 532,
+        "outcome": "expected"
+      },
+      {
+        "title": "New entry starts with default values",
+        "project": "webkit",
+        "duration": 823,
+        "outcome": "expected"
+      },
+      {
+        "title": "Income entry increases the total",
+        "project": "chromium",
+        "duration": 391,
+        "outcome": "expected"
+      },
+      {
+        "title": "Income entry increases the total",
+        "project": "firefox",
+        "duration": 571,
+        "outcome": "expected"
+      },
+      {
+        "title": "Income entry increases the total",
+        "project": "webkit",
+        "duration": 839,
+        "outcome": "expected"
+      },
+      {
+        "title": "Expense entry decreases the total",
+        "project": "chromium",
+        "duration": 375,
+        "outcome": "expected"
+      },
+      {
+        "title": "Expense entry decreases the total",
+        "project": "firefox",
+        "duration": 619,
+        "outcome": "expected"
+      },
+      {
+        "title": "Expense entry decreases the total",
+        "project": "webkit",
+        "duration": 857,
+        "outcome": "expected"
+      },
+      {
+        "title": "Total sums mixed income and expense entries",
+        "project": "chromium",
+        "duration": 608,
+        "outcome": "expected"
+      },
+      {
+        "title": "Total sums mixed income and expense entries",
+        "project": "firefox",
+        "duration": 794,
+        "outcome": "expected"
+      },
+      {
+        "title": "Total sums mixed income and expense entries",
+        "project": "webkit",
+        "duration": 1333,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting an entry recalculates the total",
+        "project": "chromium",
+        "duration": 627,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting an entry recalculates the total",
+        "project": "firefox",
+        "duration": 1296,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting an entry recalculates the total",
+        "project": "webkit",
+        "duration": 1102,
+        "outcome": "expected"
+      },
+      {
+        "title": "Entries persist after reload",
+        "project": "chromium",
+        "duration": 505,
+        "outcome": "expected"
+      },
+      {
+        "title": "Entries persist after reload",
+        "project": "firefox",
+        "duration": 661,
+        "outcome": "expected"
+      },
+      {
+        "title": "Entries persist after reload",
+        "project": "webkit",
+        "duration": 1229,
+        "outcome": "expected"
+      },
+      {
+        "title": "Decimal amounts are summed without floating point noise",
+        "project": "chromium",
+        "duration": 394,
+        "outcome": "expected"
+      },
+      {
+        "title": "Decimal amounts are summed without floating point noise",
+        "project": "firefox",
+        "duration": 612,
+        "outcome": "expected"
+      },
+      {
+        "title": "Decimal amounts are summed without floating point noise",
+        "project": "webkit",
+        "duration": 919,
+        "outcome": "expected"
+      },
+      {
+        "title": "Large amounts are formatted with separators and rounded to cents",
+        "project": "chromium",
+        "duration": 344,
+        "outcome": "expected"
+      },
+      {
+        "title": "Large amounts are formatted with separators and rounded to cents",
+        "project": "firefox",
+        "duration": 478,
+        "outcome": "expected"
+      },
+      {
+        "title": "Large amounts are formatted with separators and rounded to cents",
+        "project": "webkit",
+        "duration": 845,
+        "outcome": "expected"
+      },
+      {
+        "title": "Switching an entry from income to expense flips the total",
+        "project": "chromium",
+        "duration": 409,
+        "outcome": "expected"
+      },
+      {
+        "title": "Switching an entry from income to expense flips the total",
+        "project": "firefox",
+        "duration": 603,
+        "outcome": "expected"
+      },
+      {
+        "title": "Switching an entry from income to expense flips the total",
+        "project": "webkit",
+        "duration": 940,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting every entry resets the total and storage",
+        "project": "chromium",
+        "duration": 443,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting every entry resets the total and storage",
+        "project": "firefox",
+        "duration": 698,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting every entry resets the total and storage",
+        "project": "webkit",
+        "duration": 1103,
+        "outcome": "expected"
+      },
+      {
+        "title": "Entry can be added and priced using the keyboard",
+        "project": "chromium",
+        "duration": 307,
+        "outcome": "expected"
+      },
+      {
+        "title": "Entry can be added and priced using the keyboard",
+        "project": "firefox",
+        "duration": 478,
+        "outcome": "expected"
+      },
+      {
+        "title": "Entry can be added and priced using the keyboard",
+        "project": "webkit",
+        "duration": 615,
+        "outcome": "expected"
+      },
+      {
+        "title": "Tracker works on a mobile viewport",
+        "project": "chromium",
+        "duration": 356,
+        "outcome": "expected"
+      },
+      {
+        "title": "Tracker works on a mobile viewport",
+        "project": "firefox",
+        "duration": 520,
+        "outcome": "expected"
+      },
+      {
+        "title": "Tracker works on a mobile viewport",
+        "project": "webkit",
+        "duration": 686,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric text cannot be typed into the amount",
+        "project": "chromium",
+        "duration": 445,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric text cannot be typed into the amount",
+        "project": "firefox",
+        "duration": 535,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric text cannot be typed into the amount",
+        "project": "webkit",
+        "duration": 840,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cleared amount counts as zero and reloads as 0",
+        "project": "chromium",
+        "duration": 462,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cleared amount counts as zero and reloads as 0",
+        "project": "firefox",
+        "duration": 624,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cleared amount counts as zero and reloads as 0",
+        "project": "webkit",
+        "duration": 976,
+        "outcome": "expected"
+      },
+      {
+        "title": "Negative income amount is accepted",
+        "project": "chromium",
+        "duration": 357,
+        "outcome": "expected"
+      },
+      {
+        "title": "Negative income amount is accepted",
+        "project": "firefox",
+        "duration": 1159,
+        "outcome": "expected"
+      },
+      {
+        "title": "Negative income amount is accepted",
+        "project": "webkit",
+        "duration": 802,
+        "outcome": "expected"
+      },
+      {
+        "title": "Untouched new entry is not saved across reload",
+        "project": "chromium",
+        "duration": 394,
+        "outcome": "expected"
+      },
+      {
+        "title": "Untouched new entry is not saved across reload",
+        "project": "firefox",
+        "duration": 586,
+        "outcome": "expected"
+      },
+      {
+        "title": "Untouched new entry is not saved across reload",
+        "project": "webkit",
+        "duration": 873,
+        "outcome": "expected"
+      },
+      {
+        "title": "Corrupted saved data throws but leaves the tracker usable",
+        "project": "chromium",
+        "duration": 407,
+        "outcome": "expected"
+      },
+      {
+        "title": "Corrupted saved data throws but leaves the tracker usable",
+        "project": "firefox",
+        "duration": 565,
+        "outcome": "expected"
+      },
+      {
+        "title": "Corrupted saved data throws but leaves the tracker usable",
+        "project": "webkit",
+        "duration": 786,
+        "outcome": "expected"
+      },
+      {
+        "title": "First iframe loads with the registration countdown",
+        "project": "chromium",
+        "duration": 370,
+        "outcome": "expected"
+      },
+      {
+        "title": "First iframe loads with the registration countdown",
+        "project": "firefox",
+        "duration": 438,
+        "outcome": "expected"
+      },
+      {
+        "title": "First iframe loads with the registration countdown",
+        "project": "webkit",
+        "duration": 728,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown ticks down every second",
+        "project": "chromium",
+        "duration": 3366,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown ticks down every second",
+        "project": "firefox",
+        "duration": 3419,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown ticks down every second",
+        "project": "webkit",
+        "duration": 3605,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown reaches 53 seconds remaining",
+        "project": "chromium",
+        "duration": 8340,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown reaches 53 seconds remaining",
+        "project": "firefox",
+        "duration": 8517,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown reaches 53 seconds remaining",
+        "project": "webkit",
+        "duration": 8728,
+        "outcome": "expected"
+      },
+      {
+        "title": "Iframe switches to the end-of-journey message",
+        "project": "chromium",
+        "duration": 10712,
+        "outcome": "expected"
+      },
+      {
+        "title": "Iframe switches to the end-of-journey message",
+        "project": "firefox",
+        "duration": 10560,
+        "outcome": "expected"
+      },
+      {
+        "title": "Iframe switches to the end-of-journey message",
+        "project": "webkit",
+        "duration": 11133,
+        "outcome": "expected"
+      },
+      {
+        "title": "Frame document changes while the iframe src attribute does not",
+        "project": "chromium",
+        "duration": 11156,
+        "outcome": "expected"
+      },
+      {
+        "title": "Frame document changes while the iframe src attribute does not",
+        "project": "firefox",
+        "duration": 11341,
+        "outcome": "expected"
+      },
+      {
+        "title": "Frame document changes while the iframe src attribute does not",
+        "project": "webkit",
+        "duration": 11613,
+        "outcome": "expected"
+      },
+      {
+        "title": "Swap still happens after resizing to a mobile viewport",
+        "project": "chromium",
+        "duration": 10701,
+        "outcome": "expected"
+      },
+      {
+        "title": "Swap still happens after resizing to a mobile viewport",
+        "project": "firefox",
+        "duration": 10563,
+        "outcome": "expected"
+      },
+      {
+        "title": "Swap still happens after resizing to a mobile viewport",
+        "project": "webkit",
+        "duration": 10937,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reloading after the swap restarts the countdown",
+        "project": "chromium",
+        "duration": 10826,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reloading after the swap restarts the countdown",
+        "project": "firefox",
+        "duration": 10718,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reloading after the swap restarts the countdown",
+        "project": "webkit",
+        "duration": 11348,
+        "outcome": "expected"
+      },
+      {
+        "title": "End message is not present while the countdown runs",
+        "project": "chromium",
+        "duration": 282,
+        "outcome": "expected"
+      },
+      {
+        "title": "End message is not present while the countdown runs",
+        "project": "firefox",
+        "duration": 752,
+        "outcome": "expected"
+      },
+      {
+        "title": "End message is not present while the countdown runs",
+        "project": "webkit",
+        "duration": 706,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown timer no longer exists after the swap",
+        "project": "chromium",
+        "duration": 10829,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown timer no longer exists after the swap",
+        "project": "firefox",
+        "duration": 11018,
+        "outcome": "expected"
+      },
+      {
+        "title": "Countdown timer no longer exists after the swap",
+        "project": "webkit",
+        "duration": 11843,
+        "outcome": "expected"
+      },
+      {
+        "title": "Right-click opens the menu at the cursor position",
+        "project": "chromium",
+        "duration": 349,
+        "outcome": "expected"
+      },
+      {
+        "title": "Right-click opens the menu at the cursor position",
+        "project": "firefox",
+        "duration": 491,
+        "outcome": "expected"
+      },
+      {
+        "title": "Right-click opens the menu at the cursor position",
+        "project": "webkit",
+        "duration": 711,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Preview\" reports the item and closes the menu",
+        "project": "chromium",
+        "duration": 393,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Preview\" reports the item and closes the menu",
+        "project": "firefox",
+        "duration": 574,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Preview\" reports the item and closes the menu",
+        "project": "webkit",
+        "duration": 722,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Get Link\" reports the item and closes the menu",
+        "project": "chromium",
+        "duration": 325,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Get Link\" reports the item and closes the menu",
+        "project": "firefox",
+        "duration": 552,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Get Link\" reports the item and closes the menu",
+        "project": "webkit",
+        "duration": 768,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Rename\" reports the item and closes the menu",
+        "project": "chromium",
+        "duration": 329,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Rename\" reports the item and closes the menu",
+        "project": "firefox",
+        "duration": 510,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Rename\" reports the item and closes the menu",
+        "project": "webkit",
+        "duration": 824,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Delete\" reports the item and closes the menu",
+        "project": "chromium",
+        "duration": 356,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Delete\" reports the item and closes the menu",
+        "project": "firefox",
+        "duration": 483,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Delete\" reports the item and closes the menu",
+        "project": "webkit",
+        "duration": 849,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Settings\" reports the item and closes the menu",
+        "project": "chromium",
+        "duration": 311,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Settings\" reports the item and closes the menu",
+        "project": "firefox",
+        "duration": 505,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting \"Settings\" reports the item and closes the menu",
+        "project": "webkit",
+        "duration": 772,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering Share reveals the share submenu",
+        "project": "chromium",
+        "duration": 628,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering Share reveals the share submenu",
+        "project": "firefox",
+        "duration": 785,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering Share reveals the share submenu",
+        "project": "webkit",
+        "duration": 1000,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Twitter\"",
+        "project": "chromium",
+        "duration": 359,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Twitter\"",
+        "project": "firefox",
+        "duration": 603,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Twitter\"",
+        "project": "webkit",
+        "duration": 921,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Instagram\"",
+        "project": "chromium",
+        "duration": 358,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Instagram\"",
+        "project": "firefox",
+        "duration": 1316,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Instagram\"",
+        "project": "webkit",
+        "duration": 982,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Dribble\"",
+        "project": "chromium",
+        "duration": 397,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Dribble\"",
+        "project": "firefox",
+        "duration": 570,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Dribble\"",
+        "project": "webkit",
+        "duration": 920,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Telegram\"",
+        "project": "chromium",
+        "duration": 400,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Telegram\"",
+        "project": "firefox",
+        "duration": 544,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting nested share item \"Telegram\"",
+        "project": "webkit",
+        "duration": 1033,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated right-clicks move the menu to the latest position",
+        "project": "chromium",
+        "duration": 295,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated right-clicks move the menu to the latest position",
+        "project": "firefox",
+        "duration": 437,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated right-clicks move the menu to the latest position",
+        "project": "webkit",
+        "duration": 655,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu is kept inside the viewport near the bottom-right corner",
+        "project": "chromium",
+        "duration": 540,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu is kept inside the viewport near the bottom-right corner",
+        "project": "firefox",
+        "duration": 508,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu is kept inside the viewport near the bottom-right corner",
+        "project": "webkit",
+        "duration": 835,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu adapts to a resized (mobile) viewport",
+        "project": "chromium",
+        "duration": 310,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu adapts to a resized (mobile) viewport",
+        "project": "firefox",
+        "duration": 539,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu adapts to a resized (mobile) viewport",
+        "project": "webkit",
+        "duration": 676,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu can be reopened after selecting an item",
+        "project": "chromium",
+        "duration": 340,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu can be reopened after selecting an item",
+        "project": "firefox",
+        "duration": 742,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu can be reopened after selecting an item",
+        "project": "webkit",
+        "duration": 844,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu is hidden on page load",
+        "project": "chromium",
+        "duration": 290,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu is hidden on page load",
+        "project": "firefox",
+        "duration": 463,
+        "outcome": "expected"
+      },
+      {
+        "title": "Menu is hidden on page load",
+        "project": "webkit",
+        "duration": 632,
+        "outcome": "expected"
+      },
+      {
+        "title": "Left-click does not open the menu",
+        "project": "chromium",
+        "duration": 296,
+        "outcome": "expected"
+      },
+      {
+        "title": "Left-click does not open the menu",
+        "project": "firefox",
+        "duration": 515,
+        "outcome": "expected"
+      },
+      {
+        "title": "Left-click does not open the menu",
+        "project": "webkit",
+        "duration": 588,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking outside dismisses the menu without a selection",
+        "project": "chromium",
+        "duration": 289,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking outside dismisses the menu without a selection",
+        "project": "firefox",
+        "duration": 428,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking outside dismisses the menu without a selection",
+        "project": "webkit",
+        "duration": 587,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not dismiss the menu",
+        "project": "chromium",
+        "duration": 298,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not dismiss the menu",
+        "project": "firefox",
+        "duration": 1206,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not dismiss the menu",
+        "project": "webkit",
+        "duration": 631,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the Share parent closes the menu without a selection",
+        "project": "chromium",
+        "duration": 312,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the Share parent closes the menu without a selection",
+        "project": "firefox",
+        "duration": 516,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the Share parent closes the menu without a selection",
+        "project": "webkit",
+        "duration": 742,
+        "outcome": "expected"
+      },
+      {
+        "title": "Share submenu stays collapsed until Share is hovered",
+        "project": "chromium",
+        "duration": 301,
+        "outcome": "expected"
+      },
+      {
+        "title": "Share submenu stays collapsed until Share is hovered",
+        "project": "firefox",
+        "duration": 437,
+        "outcome": "expected"
+      },
+      {
+        "title": "Share submenu stays collapsed until Share is hovered",
+        "project": "webkit",
+        "duration": 626,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link starts hidden below the scroll container fold",
+        "project": "chromium",
+        "duration": 272,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link starts hidden below the scroll container fold",
+        "project": "firefox",
+        "duration": 386,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link starts hidden below the scroll container fold",
+        "project": "webkit",
+        "duration": 638,
+        "outcome": "expected"
+      },
+      {
+        "title": "Scrolling the container with the mouse wheel reveals the link",
+        "project": "chromium",
+        "duration": 364,
+        "outcome": "expected"
+      },
+      {
+        "title": "Scrolling the container with the mouse wheel reveals the link",
+        "project": "firefox",
+        "duration": 561,
+        "outcome": "expected"
+      },
+      {
+        "title": "Scrolling the container with the mouse wheel reveals the link",
+        "project": "webkit",
+        "duration": 1006,
+        "outcome": "expected"
+      },
+      {
+        "title": "Scroll into view and click shows the success message",
+        "project": "chromium",
+        "duration": 359,
+        "outcome": "expected"
+      },
+      {
+        "title": "Scroll into view and click shows the success message",
+        "project": "firefox",
+        "duration": 530,
+        "outcome": "expected"
+      },
+      {
+        "title": "Scroll into view and click shows the success message",
+        "project": "webkit",
+        "duration": 776,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link can be found and activated with the keyboard only",
+        "project": "chromium",
+        "duration": 319,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link can be found and activated with the keyboard only",
+        "project": "firefox",
+        "duration": 520,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link can be found and activated with the keyboard only",
+        "project": "webkit",
+        "duration": 696,
+        "outcome": "expected"
+      },
+      {
+        "title": "Double-clicking the link keeps the success message",
+        "project": "chromium",
+        "duration": 338,
+        "outcome": "expected"
+      },
+      {
+        "title": "Double-clicking the link keeps the success message",
+        "project": "firefox",
+        "duration": 546,
+        "outcome": "expected"
+      },
+      {
+        "title": "Double-clicking the link keeps the success message",
+        "project": "webkit",
+        "duration": 778,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link is hidden and reachable at a mobile viewport",
+        "project": "chromium",
+        "duration": 362,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link is hidden and reachable at a mobile viewport",
+        "project": "firefox",
+        "duration": 598,
+        "outcome": "expected"
+      },
+      {
+        "title": "Link is hidden and reachable at a mobile viewport",
+        "project": "webkit",
+        "duration": 780,
+        "outcome": "expected"
+      },
+      {
+        "title": "A short scroll is not enough to reveal the link",
+        "project": "chromium",
+        "duration": 415,
+        "outcome": "expected"
+      },
+      {
+        "title": "A short scroll is not enough to reveal the link",
+        "project": "firefox",
+        "duration": 621,
+        "outcome": "expected"
+      },
+      {
+        "title": "A short scroll is not enough to reveal the link",
+        "project": "webkit",
+        "duration": 774,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking where the link sits before scrolling does nothing",
+        "project": "chromium",
+        "duration": 310,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking where the link sits before scrolling does nothing",
+        "project": "firefox",
+        "duration": 1153,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking where the link sits before scrolling does nothing",
+        "project": "webkit",
+        "duration": 718,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the instruction text does not complete the mission",
+        "project": "chromium",
+        "duration": 293,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the instruction text does not complete the mission",
+        "project": "firefox",
+        "duration": 426,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the instruction text does not complete the mission",
+        "project": "webkit",
+        "duration": 806,
+        "outcome": "expected"
+      },
+      {
+        "title": "Revealing the link without clicking does not change the message",
+        "project": "chromium",
+        "duration": 474,
+        "outcome": "expected"
+      },
+      {
+        "title": "Revealing the link without clicking does not change the message",
+        "project": "firefox",
+        "duration": 489,
+        "outcome": "expected"
+      },
+      {
+        "title": "Revealing the link without clicking does not change the message",
+        "project": "webkit",
+        "duration": 1012,
+        "outcome": "expected"
+      },
+      {
+        "title": "Page shows the download prompt and button",
+        "project": "chromium",
+        "duration": 263,
+        "outcome": "expected"
+      },
+      {
+        "title": "Page shows the download prompt and button",
+        "project": "firefox",
+        "duration": 407,
+        "outcome": "expected"
+      },
+      {
+        "title": "Page shows the download prompt and button",
+        "project": "webkit",
+        "duration": 583,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download link points to the sample PDF",
+        "project": "chromium",
+        "duration": 276,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download link points to the sample PDF",
+        "project": "firefox",
+        "duration": 451,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download link points to the sample PDF",
+        "project": "webkit",
+        "duration": 749,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking Download saves sample.pdf",
+        "project": "chromium",
+        "duration": 342,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking Download saves sample.pdf",
+        "project": "firefox",
+        "duration": 545,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking Download saves sample.pdf",
+        "project": "webkit",
+        "duration": 1920,
+        "outcome": "expected"
+      },
+      {
+        "title": "Downloading keeps the user on the same page",
+        "project": "chromium",
+        "duration": 310,
+        "outcome": "expected"
+      },
+      {
+        "title": "Downloading keeps the user on the same page",
+        "project": "firefox",
+        "duration": 498,
+        "outcome": "expected"
+      },
+      {
+        "title": "Downloading keeps the user on the same page",
+        "project": "webkit",
+        "duration": 876,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download works using the keyboard only",
+        "project": "chromium",
+        "duration": 328,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download works using the keyboard only",
+        "project": "firefox",
+        "duration": 495,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download works using the keyboard only",
+        "project": "webkit",
+        "duration": 677,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated downloads each produce an identical file",
+        "project": "chromium",
+        "duration": 923,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated downloads each produce an identical file",
+        "project": "firefox",
+        "duration": 1044,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated downloads each produce an identical file",
+        "project": "webkit",
+        "duration": 1638,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid double click triggers two downloads",
+        "project": "chromium",
+        "duration": 424,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid double click triggers two downloads",
+        "project": "firefox",
+        "duration": 565,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid double click triggers two downloads",
+        "project": "webkit",
+        "duration": 1050,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download works on a mobile-sized viewport",
+        "project": "chromium",
+        "duration": 310,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download works on a mobile-sized viewport",
+        "project": "firefox",
+        "duration": 1238,
+        "outcome": "expected"
+      },
+      {
+        "title": "Download works on a mobile-sized viewport",
+        "project": "webkit",
+        "duration": 706,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the prompt text does not start a download",
+        "project": "chromium",
+        "duration": 314,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the prompt text does not start a download",
+        "project": "firefox",
+        "duration": 599,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the prompt text does not start a download",
+        "project": "webkit",
+        "duration": 1279,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle opens the main menu",
+        "project": "chromium",
+        "duration": 343,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle opens the main menu",
+        "project": "firefox",
+        "duration": 553,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle opens the main menu",
+        "project": "webkit",
+        "duration": 965,
+        "outcome": "expected"
+      },
+      {
+        "title": "Settings opens the tutorial submenu",
+        "project": "chromium",
+        "duration": 1320,
+        "outcome": "expected"
+      },
+      {
+        "title": "Settings opens the tutorial submenu",
+        "project": "firefox",
+        "duration": 1400,
+        "outcome": "expected"
+      },
+      {
+        "title": "Settings opens the tutorial submenu",
+        "project": "webkit",
+        "duration": 1857,
+        "outcome": "expected"
+      },
+      {
+        "title": "Animals opens the animals submenu",
+        "project": "chromium",
+        "duration": 1223,
+        "outcome": "expected"
+      },
+      {
+        "title": "Animals opens the animals submenu",
+        "project": "firefox",
+        "duration": 1453,
+        "outcome": "expected"
+      },
+      {
+        "title": "Animals opens the animals submenu",
+        "project": "webkit",
+        "duration": 1536,
+        "outcome": "expected"
+      },
+      {
+        "title": "Back from Settings returns to the main menu",
+        "project": "chromium",
+        "duration": 2346,
+        "outcome": "expected"
+      },
+      {
+        "title": "Back from Settings returns to the main menu",
+        "project": "firefox",
+        "duration": 2349,
+        "outcome": "expected"
+      },
+      {
+        "title": "Back from Settings returns to the main menu",
+        "project": "webkit",
+        "duration": 2475,
+        "outcome": "expected"
+      },
+      {
+        "title": "Back from Animals returns to the main menu",
+        "project": "chromium",
+        "duration": 2141,
+        "outcome": "expected"
+      },
+      {
+        "title": "Back from Animals returns to the main menu",
+        "project": "firefox",
+        "duration": 2364,
+        "outcome": "expected"
+      },
+      {
+        "title": "Back from Animals returns to the main menu",
+        "project": "webkit",
+        "duration": 2578,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle closes an open dropdown",
+        "project": "chromium",
+        "duration": 373,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle closes an open dropdown",
+        "project": "firefox",
+        "duration": 573,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle closes an open dropdown",
+        "project": "webkit",
+        "duration": 1062,
+        "outcome": "expected"
+      },
+      {
+        "title": "Walking every level in sequence keeps menus consistent",
+        "project": "chromium",
+        "duration": 3900,
+        "outcome": "expected"
+      },
+      {
+        "title": "Walking every level in sequence keeps menus consistent",
+        "project": "firefox",
+        "duration": 4182,
+        "outcome": "expected"
+      },
+      {
+        "title": "Walking every level in sequence keeps menus consistent",
+        "project": "webkit",
+        "duration": 3639,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid toggling ends in the state given by click parity",
+        "project": "chromium",
+        "duration": 521,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid toggling ends in the state given by click parity",
+        "project": "firefox",
+        "duration": 802,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid toggling ends in the state given by click parity",
+        "project": "webkit",
+        "duration": 1216,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reopening the dropdown resets to the main menu",
+        "project": "chromium",
+        "duration": 538,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reopening the dropdown resets to the main menu",
+        "project": "firefox",
+        "duration": 1260,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reopening the dropdown resets to the main menu",
+        "project": "webkit",
+        "duration": 1438,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropdown is operable with the keyboard",
+        "project": "chromium",
+        "duration": 1152,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropdown is operable with the keyboard",
+        "project": "firefox",
+        "duration": 1331,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropdown is operable with the keyboard",
+        "project": "webkit",
+        "duration": 1639,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropdown remains usable on a mobile viewport",
+        "project": "chromium",
+        "duration": 581,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropdown remains usable on a mobile viewport",
+        "project": "firefox",
+        "duration": 596,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropdown remains usable on a mobile viewport",
+        "project": "webkit",
+        "duration": 660,
+        "outcome": "expected"
+      },
+      {
+        "title": "Other navbar icons do not open a dropdown",
+        "project": "chromium",
+        "duration": 378,
+        "outcome": "expected"
+      },
+      {
+        "title": "Other navbar icons do not open a dropdown",
+        "project": "firefox",
+        "duration": 602,
+        "outcome": "expected"
+      },
+      {
+        "title": "Other navbar icons do not open a dropdown",
+        "project": "webkit",
+        "duration": 1314,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not close the dropdown",
+        "project": "chromium",
+        "duration": 355,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not close the dropdown",
+        "project": "firefox",
+        "duration": 511,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not close the dropdown",
+        "project": "webkit",
+        "duration": 912,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking outside does not close the dropdown",
+        "project": "chromium",
+        "duration": 330,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking outside does not close the dropdown",
+        "project": "firefox",
+        "duration": 519,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking outside does not close the dropdown",
+        "project": "webkit",
+        "duration": 798,
+        "outcome": "expected"
+      },
+      {
+        "title": "\"My Profile\" has no submenu",
+        "project": "chromium",
+        "duration": 482,
+        "outcome": "expected"
+      },
+      {
+        "title": "\"My Profile\" has no submenu",
+        "project": "firefox",
+        "duration": 579,
+        "outcome": "expected"
+      },
+      {
+        "title": "\"My Profile\" has no submenu",
+        "project": "webkit",
+        "duration": 1128,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting a leaf item leaves an empty panel",
+        "project": "chromium",
+        "duration": 2098,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting a leaf item leaves an empty panel",
+        "project": "firefox",
+        "duration": 2258,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting a leaf item leaves an empty panel",
+        "project": "webkit",
+        "duration": 2554,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table shows the expected column headers",
+        "project": "chromium",
+        "duration": 483,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table shows the expected column headers",
+        "project": "firefox",
+        "duration": 496,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table shows the expected column headers",
+        "project": "webkit",
+        "duration": 646,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table loads one row per superhero",
+        "project": "chromium",
+        "duration": 542,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table loads one row per superhero",
+        "project": "firefox",
+        "duration": 651,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table loads one row per superhero",
+        "project": "webkit",
+        "duration": 839,
+        "outcome": "expected"
+      },
+      {
+        "title": "Spider-Man's real name is Peter Parker",
+        "project": "chromium",
+        "duration": 495,
+        "outcome": "expected"
+      },
+      {
+        "title": "Spider-Man's real name is Peter Parker",
+        "project": "firefox",
+        "duration": 1420,
+        "outcome": "expected"
+      },
+      {
+        "title": "Spider-Man's real name is Peter Parker",
+        "project": "webkit",
+        "duration": 928,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero row shows the matching email and real name",
+        "project": "chromium",
+        "duration": 513,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero row shows the matching email and real name",
+        "project": "firefox",
+        "duration": 725,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero row shows the matching email and real name",
+        "project": "webkit",
+        "duration": 869,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero has Active status",
+        "project": "chromium",
+        "duration": 515,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero has Active status",
+        "project": "firefox",
+        "duration": 664,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero has Active status",
+        "project": "webkit",
+        "duration": 867,
+        "outcome": "expected"
+      },
+      {
+        "title": "Row order is shuffled between page loads",
+        "project": "chromium",
+        "duration": 865,
+        "outcome": "expected"
+      },
+      {
+        "title": "Row order is shuffled between page loads",
+        "project": "firefox",
+        "duration": 1062,
+        "outcome": "expected"
+      },
+      {
+        "title": "Row order is shuffled between page loads",
+        "project": "webkit",
+        "duration": 1428,
+        "outcome": "expected"
+      },
+      {
+        "title": "Real name lookup is stable after reload",
+        "project": "chromium",
+        "duration": 598,
+        "outcome": "expected"
+      },
+      {
+        "title": "Real name lookup is stable after reload",
+        "project": "firefox",
+        "duration": 875,
+        "outcome": "expected"
+      },
+      {
+        "title": "Real name lookup is stable after reload",
+        "project": "webkit",
+        "duration": 1051,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero avatar image loads",
+        "project": "chromium",
+        "duration": 524,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero avatar image loads",
+        "project": "firefox",
+        "duration": 732,
+        "outcome": "expected"
+      },
+      {
+        "title": "Every superhero avatar image loads",
+        "project": "webkit",
+        "duration": 968,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table is usable on a mobile viewport",
+        "project": "chromium",
+        "duration": 547,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table is usable on a mobile viewport",
+        "project": "firefox",
+        "duration": 697,
+        "outcome": "expected"
+      },
+      {
+        "title": "Table is usable on a mobile viewport",
+        "project": "webkit",
+        "duration": 908,
+        "outcome": "expected"
+      },
+      {
+        "title": "Unknown superhero is not listed",
+        "project": "chromium",
+        "duration": 604,
+        "outcome": "expected"
+      },
+      {
+        "title": "Unknown superhero is not listed",
+        "project": "firefox",
+        "duration": 685,
+        "outcome": "expected"
+      },
+      {
+        "title": "Unknown superhero is not listed",
+        "project": "webkit",
+        "duration": 935,
+        "outcome": "expected"
+      },
+      {
+        "title": "Superhero names are not duplicated",
+        "project": "chromium",
+        "duration": 525,
+        "outcome": "expected"
+      },
+      {
+        "title": "Superhero names are not duplicated",
+        "project": "firefox",
+        "duration": 650,
+        "outcome": "expected"
+      },
+      {
+        "title": "Superhero names are not duplicated",
+        "project": "webkit",
+        "duration": 943,
+        "outcome": "expected"
+      },
+      {
+        "title": "Failed data request leaves the table empty",
+        "project": "chromium",
+        "duration": 591,
+        "outcome": "expected"
+      },
+      {
+        "title": "Failed data request leaves the table empty",
+        "project": "firefox",
+        "duration": 808,
+        "outcome": "expected"
+      },
+      {
+        "title": "Failed data request leaves the table empty",
+        "project": "webkit",
+        "duration": 1042,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty data response renders no rows",
+        "project": "chromium",
+        "duration": 610,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty data response renders no rows",
+        "project": "firefox",
+        "duration": 1547,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty data response renders no rows",
+        "project": "webkit",
+        "duration": 1117,
+        "outcome": "expected"
+      },
+      {
+        "title": "Single-row data response renders exactly that row",
+        "project": "chromium",
+        "duration": 541,
+        "outcome": "expected"
+      },
+      {
+        "title": "Single-row data response renders exactly that row",
+        "project": "firefox",
+        "duration": 752,
+        "outcome": "expected"
+      },
+      {
+        "title": "Single-row data response renders exactly that row",
+        "project": "webkit",
+        "duration": 984,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state prompts the user to click the button",
+        "project": "chromium",
+        "duration": 257,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state prompts the user to click the button",
+        "project": "firefox",
+        "duration": 370,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state prompts the user to click the button",
+        "project": "webkit",
+        "duration": 610,
+        "outcome": "expected"
+      },
+      {
+        "title": "Shows city and country for the current position",
+        "project": "chromium",
+        "duration": 316,
+        "outcome": "expected"
+      },
+      {
+        "title": "Shows city and country for the current position",
+        "project": "firefox",
+        "duration": 483,
+        "outcome": "expected"
+      },
+      {
+        "title": "Shows city and country for the current position",
+        "project": "webkit",
+        "duration": 3782,
+        "outcome": "expected"
+      },
+      {
+        "title": "Updated position is used on the next request",
+        "project": "chromium",
+        "duration": 396,
+        "outcome": "expected"
+      },
+      {
+        "title": "Updated position is used on the next request",
+        "project": "firefox",
+        "duration": 476,
+        "outcome": "expected"
+      },
+      {
+        "title": "Updated position is used on the next request",
+        "project": "webkit",
+        "duration": 862,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get location using the keyboard only",
+        "project": "chromium",
+        "duration": 267,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get location using the keyboard only",
+        "project": "firefox",
+        "duration": 462,
+        "outcome": "expected"
+      },
+      {
+        "title": "Get location using the keyboard only",
+        "project": "webkit",
+        "duration": 610,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid repeated clicks settle on the same location",
+        "project": "chromium",
+        "duration": 312,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid repeated clicks settle on the same location",
+        "project": "firefox",
+        "duration": 484,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid repeated clicks settle on the same location",
+        "project": "webkit",
+        "duration": 820,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boundary coordinates are passed through unchanged",
+        "project": "chromium",
+        "duration": 384,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boundary coordinates are passed through unchanged",
+        "project": "firefox",
+        "duration": 498,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boundary coordinates are passed through unchanged",
+        "project": "webkit",
+        "duration": 927,
+        "outcome": "expected"
+      },
+      {
+        "title": "Address without a city shows \"undefined\"",
+        "project": "chromium",
+        "duration": 289,
+        "outcome": "expected"
+      },
+      {
+        "title": "Address without a city shows \"undefined\"",
+        "project": "firefox",
+        "duration": 471,
+        "outcome": "expected"
+      },
+      {
+        "title": "Address without a city shows \"undefined\"",
+        "project": "webkit",
+        "duration": 1131,
+        "outcome": "expected"
+      },
+      {
+        "title": "Location works on a mobile-sized viewport",
+        "project": "chromium",
+        "duration": 317,
+        "outcome": "expected"
+      },
+      {
+        "title": "Location works on a mobile-sized viewport",
+        "project": "firefox",
+        "duration": 473,
+        "outcome": "expected"
+      },
+      {
+        "title": "Location works on a mobile-sized viewport",
+        "project": "webkit",
+        "duration": 707,
+        "outcome": "expected"
+      },
+      {
+        "title": "Permission not granted shows an allow-access message",
+        "project": "chromium",
+        "duration": 400,
+        "outcome": "expected"
+      },
+      {
+        "title": "Permission not granted shows an allow-access message",
+        "project": "firefox",
+        "duration": 1150,
+        "outcome": "expected"
+      },
+      {
+        "title": "Permission not granted shows an allow-access message",
+        "project": "webkit",
+        "duration": 909,
+        "outcome": "expected"
+      },
+      {
+        "title": "Permission denied error shows an allow-access message",
+        "project": "chromium",
+        "duration": 336,
+        "outcome": "expected"
+      },
+      {
+        "title": "Permission denied error shows an allow-access message",
+        "project": "firefox",
+        "duration": 1317,
+        "outcome": "expected"
+      },
+      {
+        "title": "Permission denied error shows an allow-access message",
+        "project": "webkit",
+        "duration": 914,
+        "outcome": "expected"
+      },
+      {
+        "title": "Position unavailable error shows an unavailable message",
+        "project": "chromium",
+        "duration": 396,
+        "outcome": "expected"
+      },
+      {
+        "title": "Position unavailable error shows an unavailable message",
+        "project": "firefox",
+        "duration": 562,
+        "outcome": "expected"
+      },
+      {
+        "title": "Position unavailable error shows an unavailable message",
+        "project": "webkit",
+        "duration": 775,
+        "outcome": "expected"
+      },
+      {
+        "title": "Timeout error shows a timed-out message",
+        "project": "chromium",
+        "duration": 321,
+        "outcome": "expected"
+      },
+      {
+        "title": "Timeout error shows a timed-out message",
+        "project": "firefox",
+        "duration": 498,
+        "outcome": "expected"
+      },
+      {
+        "title": "Timeout error shows a timed-out message",
+        "project": "webkit",
+        "duration": 1022,
+        "outcome": "expected"
+      },
+      {
+        "title": "Missing Geolocation API shows an unsupported message",
+        "project": "chromium",
+        "duration": 328,
+        "outcome": "expected"
+      },
+      {
+        "title": "Missing Geolocation API shows an unsupported message",
+        "project": "firefox",
+        "duration": 479,
+        "outcome": "expected"
+      },
+      {
+        "title": "Missing Geolocation API shows an unsupported message",
+        "project": "webkit",
+        "duration": 1010,
+        "outcome": "expected"
+      },
+      {
+        "title": "Network error leaves the initial prompt",
+        "project": "chromium",
+        "duration": 308,
+        "outcome": "expected"
+      },
+      {
+        "title": "Network error leaves the initial prompt",
+        "project": "firefox",
+        "duration": 439,
+        "outcome": "expected"
+      },
+      {
+        "title": "Network error leaves the initial prompt",
+        "project": "webkit",
+        "duration": 842,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid JSON response leaves the initial prompt",
+        "project": "chromium",
+        "duration": 293,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid JSON response leaves the initial prompt",
+        "project": "firefox",
+        "duration": 455,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid JSON response leaves the initial prompt",
+        "project": "webkit",
+        "duration": 814,
+        "outcome": "expected"
+      },
+      {
+        "title": "Outer iframe loads with title",
+        "project": "chromium",
+        "duration": 371,
+        "outcome": "expected"
+      },
+      {
+        "title": "Outer iframe loads with title",
+        "project": "firefox",
+        "duration": 478,
+        "outcome": "expected"
+      },
+      {
+        "title": "Outer iframe loads with title",
+        "project": "webkit",
+        "duration": 2737,
+        "outcome": "expected"
+      },
+      {
+        "title": "Inner iframe loads with title",
+        "project": "chromium",
+        "duration": 335,
+        "outcome": "expected"
+      },
+      {
+        "title": "Inner iframe loads with title",
+        "project": "firefox",
+        "duration": 490,
+        "outcome": "expected"
+      },
+      {
+        "title": "Inner iframe loads with title",
+        "project": "webkit",
+        "duration": 802,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me link is visible in inner iframe",
+        "project": "chromium",
+        "duration": 346,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me link is visible in inner iframe",
+        "project": "firefox",
+        "duration": 479,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me link is visible in inner iframe",
+        "project": "webkit",
+        "duration": 914,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicked message hidden before interaction",
+        "project": "chromium",
+        "duration": 354,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicked message hidden before interaction",
+        "project": "firefox",
+        "duration": 488,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicked message hidden before interaction",
+        "project": "webkit",
+        "duration": 763,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me shows confirmation message",
+        "project": "chromium",
+        "duration": 415,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me shows confirmation message",
+        "project": "firefox",
+        "duration": 1515,
+        "outcome": "expected"
+      },
+      {
+        "title": "Click Me shows confirmation message",
+        "project": "webkit",
+        "duration": 974,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default board shows eight issues across four columns",
+        "project": "chromium",
+        "duration": 346,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default board shows eight issues across four columns",
+        "project": "firefox",
+        "duration": 615,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default board shows eight issues across four columns",
+        "project": "webkit",
+        "duration": 700,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create an issue with every field filled",
+        "project": "chromium",
+        "duration": 385,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create an issue with every field filled",
+        "project": "firefox",
+        "duration": 590,
+        "outcome": "expected"
+      },
+      {
+        "title": "Create an issue with every field filled",
+        "project": "webkit",
+        "duration": 2211,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking a card opens its details",
+        "project": "chromium",
+        "duration": 393,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking a card opens its details",
+        "project": "firefox",
+        "duration": 553,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking a card opens its details",
+        "project": "webkit",
+        "duration": 1036,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging an issue moves it to another column",
+        "project": "chromium",
+        "duration": 420,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging an issue moves it to another column",
+        "project": "firefox",
+        "duration": 587,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging an issue moves it to another column",
+        "project": "webkit",
+        "duration": 1192,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting an issue asks for confirmation then removes it",
+        "project": "chromium",
+        "duration": 339,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting an issue asks for confirmation then removes it",
+        "project": "firefox",
+        "duration": 548,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleting an issue asks for confirmation then removes it",
+        "project": "webkit",
+        "duration": 1189,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filtering by assignee shows only their issues",
+        "project": "chromium",
+        "duration": 278,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filtering by assignee shows only their issues",
+        "project": "firefox",
+        "duration": 506,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filtering by assignee shows only their issues",
+        "project": "webkit",
+        "duration": 607,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filtering by priority and assignee combines both filters",
+        "project": "chromium",
+        "duration": 287,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filtering by priority and assignee combines both filters",
+        "project": "firefox",
+        "duration": 541,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filtering by priority and assignee combines both filters",
+        "project": "webkit",
+        "duration": 684,
+        "outcome": "expected"
+      },
+      {
+        "title": "Board changes persist after reload",
+        "project": "chromium",
+        "duration": 549,
+        "outcome": "expected"
+      },
+      {
+        "title": "Board changes persist after reload",
+        "project": "firefox",
+        "duration": 884,
+        "outcome": "expected"
+      },
+      {
+        "title": "Board changes persist after reload",
+        "project": "webkit",
+        "duration": 1276,
+        "outcome": "expected"
+      },
+      {
+        "title": "Issue created with only a title uses default values",
+        "project": "chromium",
+        "duration": 379,
+        "outcome": "expected"
+      },
+      {
+        "title": "Issue created with only a title uses default values",
+        "project": "firefox",
+        "duration": 645,
+        "outcome": "expected"
+      },
+      {
+        "title": "Issue created with only a title uses default values",
+        "project": "webkit",
+        "duration": 965,
+        "outcome": "expected"
+      },
+      {
+        "title": "Title is trimmed and HTML is shown as plain text",
+        "project": "chromium",
+        "duration": 338,
+        "outcome": "expected"
+      },
+      {
+        "title": "Title is trimmed and HTML is shown as plain text",
+        "project": "firefox",
+        "duration": 1549,
+        "outcome": "expected"
+      },
+      {
+        "title": "Title is trimmed and HTML is shown as plain text",
+        "project": "webkit",
+        "duration": 935,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape and clicking outside close the dialogs",
+        "project": "chromium",
+        "duration": 486,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape and clicking outside close the dialogs",
+        "project": "firefox",
+        "duration": 771,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape and clicking outside close the dialogs",
+        "project": "webkit",
+        "duration": 1342,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropping an issue into its own column changes nothing",
+        "project": "chromium",
+        "duration": 384,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropping an issue into its own column changes nothing",
+        "project": "firefox",
+        "duration": 563,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropping an issue into its own column changes nothing",
+        "project": "webkit",
+        "duration": 903,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filters with no match show a placeholder in every column",
+        "project": "chromium",
+        "duration": 309,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filters with no match show a placeholder in every column",
+        "project": "firefox",
+        "duration": 451,
+        "outcome": "expected"
+      },
+      {
+        "title": "Filters with no match show a placeholder in every column",
+        "project": "webkit",
+        "duration": 579,
+        "outcome": "expected"
+      },
+      {
+        "title": "Emptying a column shows a No issues placeholder",
+        "project": "chromium",
+        "duration": 383,
+        "outcome": "expected"
+      },
+      {
+        "title": "Emptying a column shows a No issues placeholder",
+        "project": "firefox",
+        "duration": 657,
+        "outcome": "expected"
+      },
+      {
+        "title": "Emptying a column shows a No issues placeholder",
+        "project": "webkit",
+        "duration": 1079,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleted issue ids are not reused",
+        "project": "chromium",
+        "duration": 394,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleted issue ids are not reused",
+        "project": "firefox",
+        "duration": 671,
+        "outcome": "expected"
+      },
+      {
+        "title": "Deleted issue ids are not reused",
+        "project": "webkit",
+        "duration": 1175,
+        "outcome": "expected"
+      },
+      {
+        "title": "Issue can be created with the keyboard only",
+        "project": "chromium",
+        "duration": 325,
+        "outcome": "expected"
+      },
+      {
+        "title": "Issue can be created with the keyboard only",
+        "project": "firefox",
+        "duration": 557,
+        "outcome": "expected"
+      },
+      {
+        "title": "Issue can be created with the keyboard only",
+        "project": "webkit",
+        "duration": 590,
+        "outcome": "expected"
+      },
+      {
+        "title": "Board scrolls horizontally inside its container on mobile",
+        "project": "chromium",
+        "duration": 799,
+        "outcome": "expected"
+      },
+      {
+        "title": "Board scrolls horizontally inside its container on mobile",
+        "project": "firefox",
+        "duration": 851,
+        "outcome": "expected"
+      },
+      {
+        "title": "Board scrolls horizontally inside its container on mobile",
+        "project": "webkit",
+        "duration": 902,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty title shows an error and keeps the dialog open",
+        "project": "chromium",
+        "duration": 362,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty title shows an error and keeps the dialog open",
+        "project": "firefox",
+        "duration": 567,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty title shows an error and keeps the dialog open",
+        "project": "webkit",
+        "duration": 967,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only title is rejected",
+        "project": "chromium",
+        "duration": 368,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only title is rejected",
+        "project": "firefox",
+        "duration": 570,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only title is rejected",
+        "project": "webkit",
+        "duration": 925,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reopening the create dialog clears the previous error and input",
+        "project": "chromium",
+        "duration": 457,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reopening the create dialog clears the previous error and input",
+        "project": "firefox",
+        "duration": 1595,
+        "outcome": "expected"
+      },
+      {
+        "title": "Reopening the create dialog clears the previous error and input",
+        "project": "webkit",
+        "duration": 1244,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cancelling a delete keeps the issue",
+        "project": "chromium",
+        "duration": 326,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cancelling a delete keeps the issue",
+        "project": "firefox",
+        "duration": 590,
+        "outcome": "expected"
+      },
+      {
+        "title": "Cancelling a delete keeps the issue",
+        "project": "webkit",
+        "duration": 1061,
+        "outcome": "expected"
+      },
+      {
+        "title": "Delete button does not open the issue details",
+        "project": "chromium",
+        "duration": 328,
+        "outcome": "expected"
+      },
+      {
+        "title": "Delete button does not open the issue details",
+        "project": "firefox",
+        "duration": 474,
+        "outcome": "expected"
+      },
+      {
+        "title": "Delete button does not open the issue details",
+        "project": "webkit",
+        "duration": 792,
+        "outcome": "expected"
+      },
+      {
+        "title": "Corrupted saved data falls back to the default board",
+        "project": "chromium",
+        "duration": 308,
+        "outcome": "expected"
+      },
+      {
+        "title": "Corrupted saved data falls back to the default board",
+        "project": "firefox",
+        "duration": 505,
+        "outcome": "expected"
+      },
+      {
+        "title": "Corrupted saved data falls back to the default board",
+        "project": "webkit",
+        "duration": 943,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "chromium",
+        "duration": 276,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "firefox",
+        "duration": 417,
+        "outcome": "expected"
+      },
+      {
+        "title": "navigation buttons display",
+        "project": "webkit",
+        "duration": 697,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "chromium",
+        "duration": 275,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "firefox",
+        "duration": 596,
+        "outcome": "expected"
+      },
+      {
+        "title": "Home button",
+        "project": "webkit",
+        "duration": 773,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "chromium",
+        "duration": 328,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "firefox",
+        "duration": 600,
+        "outcome": "expected"
+      },
+      {
+        "title": "About button",
+        "project": "webkit",
+        "duration": 897,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "chromium",
+        "duration": 357,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "firefox",
+        "duration": 606,
+        "outcome": "expected"
+      },
+      {
+        "title": "Blog button",
+        "project": "webkit",
+        "duration": 1072,
+        "outcome": "expected"
+      },
+      {
+        "title": "Portfolio button",
+        "project": "chromium",
+        "duration": 530,
+        "outcome": "expected"
+      },
+      {
+        "title": "Portfolio button",
+        "project": "firefox",
+        "duration": 562,
+        "outcome": "expected"
+      },
+      {
+        "title": "Portfolio button",
+        "project": "webkit",
+        "duration": 880,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "chromium",
+        "duration": 343,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "firefox",
+        "duration": 536,
+        "outcome": "expected"
+      },
+      {
+        "title": "Contact button",
+        "project": "webkit",
+        "duration": 910,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from About returns to home",
+        "project": "chromium",
+        "duration": 521,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from About returns to home",
+        "project": "firefox",
+        "duration": 1689,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from About returns to home",
+        "project": "webkit",
+        "duration": 1159,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Blog returns to home",
+        "project": "chromium",
+        "duration": 497,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Blog returns to home",
+        "project": "firefox",
+        "duration": 1012,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Blog returns to home",
+        "project": "webkit",
+        "duration": 1074,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Portfolio returns to home",
+        "project": "chromium",
+        "duration": 508,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Portfolio returns to home",
+        "project": "firefox",
+        "duration": 694,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Portfolio returns to home",
+        "project": "webkit",
+        "duration": 1409,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Contact returns to home",
+        "project": "chromium",
+        "duration": 477,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Contact returns to home",
+        "project": "firefox",
+        "duration": 681,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button from Contact returns to home",
+        "project": "webkit",
+        "duration": 1104,
+        "outcome": "expected"
+      },
+      {
+        "title": "Poster is shown and movie details are transparent on load",
+        "project": "chromium",
+        "duration": 278,
+        "outcome": "expected"
+      },
+      {
+        "title": "Poster is shown and movie details are transparent on load",
+        "project": "firefox",
+        "duration": 369,
+        "outcome": "expected"
+      },
+      {
+        "title": "Poster is shown and movie details are transparent on load",
+        "project": "webkit",
+        "duration": 673,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering the poster reveals the movie price",
+        "project": "chromium",
+        "duration": 1107,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering the poster reveals the movie price",
+        "project": "firefox",
+        "duration": 1230,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering the poster reveals the movie price",
+        "project": "webkit",
+        "duration": 1293,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover shows the full movie card content",
+        "project": "chromium",
+        "duration": 1097,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover shows the full movie card content",
+        "project": "firefox",
+        "duration": 1258,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover shows the full movie card content",
+        "project": "webkit",
+        "duration": 1310,
+        "outcome": "expected"
+      },
+      {
+        "title": "Moving the pointer away hides the details again",
+        "project": "chromium",
+        "duration": 1106,
+        "outcome": "expected"
+      },
+      {
+        "title": "Moving the pointer away hides the details again",
+        "project": "firefox",
+        "duration": 1237,
+        "outcome": "expected"
+      },
+      {
+        "title": "Moving the pointer away hides the details again",
+        "project": "webkit",
+        "duration": 1211,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated hover in and out toggles the details each time",
+        "project": "chromium",
+        "duration": 2791,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated hover in and out toggles the details each time",
+        "project": "firefox",
+        "duration": 2879,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated hover in and out toggles the details each time",
+        "project": "webkit",
+        "duration": 2349,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering the area below the poster also reveals the details",
+        "project": "chromium",
+        "duration": 1198,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering the area below the poster also reveals the details",
+        "project": "firefox",
+        "duration": 1311,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering the area below the poster also reveals the details",
+        "project": "webkit",
+        "duration": 1943,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover reveals the price at a mobile viewport",
+        "project": "chromium",
+        "duration": 1117,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover reveals the price at a mobile viewport",
+        "project": "firefox",
+        "duration": 1866,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover reveals the price at a mobile viewport",
+        "project": "webkit",
+        "duration": 1480,
+        "outcome": "expected"
+      },
+      {
+        "title": "Keyboard focus on the poster link does not reveal the details",
+        "project": "chromium",
+        "duration": 329,
+        "outcome": "expected"
+      },
+      {
+        "title": "Keyboard focus on the poster link does not reveal the details",
+        "project": "firefox",
+        "duration": 477,
+        "outcome": "expected"
+      },
+      {
+        "title": "Keyboard focus on the poster link does not reveal the details",
+        "project": "webkit",
+        "duration": 637,
+        "outcome": "expected"
+      },
+      {
+        "title": "Buy now can receive keyboard focus while invisible",
+        "project": "chromium",
+        "duration": 324,
+        "outcome": "expected"
+      },
+      {
+        "title": "Buy now can receive keyboard focus while invisible",
+        "project": "firefox",
+        "duration": 456,
+        "outcome": "expected"
+      },
+      {
+        "title": "Buy now can receive keyboard focus while invisible",
+        "project": "webkit",
+        "duration": 634,
+        "outcome": "expected"
+      },
+      {
+        "title": "Buy now has no purchase action",
+        "project": "chromium",
+        "duration": 1130,
+        "outcome": "expected"
+      },
+      {
+        "title": "Buy now has no purchase action",
+        "project": "firefox",
+        "duration": 1265,
+        "outcome": "expected"
+      },
+      {
+        "title": "Buy now has no purchase action",
+        "project": "webkit",
+        "duration": 1480,
+        "outcome": "expected"
+      },
+      {
+        "title": "Page shows the Open New Tab button",
+        "project": "chromium",
+        "duration": 253,
+        "outcome": "expected"
+      },
+      {
+        "title": "Page shows the Open New Tab button",
+        "project": "firefox",
+        "duration": 398,
+        "outcome": "expected"
+      },
+      {
+        "title": "Page shows the Open New Tab button",
+        "project": "webkit",
+        "duration": 742,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the button opens the new page in a new tab",
+        "project": "chromium",
+        "duration": 400,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the button opens the new page in a new tab",
+        "project": "firefox",
+        "duration": 618,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the button opens the new page in a new tab",
+        "project": "webkit",
+        "duration": 1272,
+        "outcome": "expected"
+      },
+      {
+        "title": "Original tab stays on the same page",
+        "project": "chromium",
+        "duration": 403,
+        "outcome": "expected"
+      },
+      {
+        "title": "Original tab stays on the same page",
+        "project": "firefox",
+        "duration": 662,
+        "outcome": "expected"
+      },
+      {
+        "title": "Original tab stays on the same page",
+        "project": "webkit",
+        "duration": 1209,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the new tab returns control to the original",
+        "project": "chromium",
+        "duration": 640,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the new tab returns control to the original",
+        "project": "firefox",
+        "duration": 777,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the new tab returns control to the original",
+        "project": "webkit",
+        "duration": 1458,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open the new tab using the keyboard only",
+        "project": "chromium",
+        "duration": 352,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open the new tab using the keyboard only",
+        "project": "firefox",
+        "duration": 525,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open the new tab using the keyboard only",
+        "project": "webkit",
+        "duration": 973,
+        "outcome": "expected"
+      },
+      {
+        "title": "Each click opens a separate tab",
+        "project": "chromium",
+        "duration": 522,
+        "outcome": "expected"
+      },
+      {
+        "title": "Each click opens a separate tab",
+        "project": "firefox",
+        "duration": 832,
+        "outcome": "expected"
+      },
+      {
+        "title": "Each click opens a separate tab",
+        "project": "webkit",
+        "duration": 1604,
+        "outcome": "expected"
+      },
+      {
+        "title": "New tab works on a mobile-sized viewport",
+        "project": "chromium",
+        "duration": 390,
+        "outcome": "expected"
+      },
+      {
+        "title": "New tab works on a mobile-sized viewport",
+        "project": "firefox",
+        "duration": 1454,
+        "outcome": "expected"
+      },
+      {
+        "title": "New tab works on a mobile-sized viewport",
+        "project": "webkit",
+        "duration": 1680,
+        "outcome": "expected"
+      },
+      {
+        "title": "Old .html URL redirects to the clean new page URL",
+        "project": "chromium",
+        "duration": 391,
+        "outcome": "expected"
+      },
+      {
+        "title": "Old .html URL redirects to the clean new page URL",
+        "project": "firefox",
+        "duration": 621,
+        "outcome": "expected"
+      },
+      {
+        "title": "Old .html URL redirects to the clean new page URL",
+        "project": "webkit",
+        "duration": 1175,
+        "outcome": "expected"
+      },
+      {
+        "title": "New tab has no access to the opener window",
+        "project": "chromium",
+        "duration": 376,
+        "outcome": "expected"
+      },
+      {
+        "title": "New tab has no access to the opener window",
+        "project": "firefox",
+        "duration": 577,
+        "outcome": "expected"
+      },
+      {
+        "title": "New tab has no access to the opener window",
+        "project": "webkit",
+        "duration": 1166,
+        "outcome": "expected"
+      },
+      {
+        "title": "New page has no link back to the original page",
+        "project": "chromium",
+        "duration": 405,
+        "outcome": "expected"
+      },
+      {
+        "title": "New page has no link back to the original page",
+        "project": "firefox",
+        "duration": 605,
+        "outcome": "expected"
+      },
+      {
+        "title": "New page has no link back to the original page",
+        "project": "webkit",
+        "duration": 1203,
+        "outcome": "expected"
+      },
+      {
+        "title": "Random initial state is internally consistent",
+        "project": "chromium",
+        "duration": 369,
+        "outcome": "expected"
+      },
+      {
+        "title": "Random initial state is internally consistent",
+        "project": "firefox",
+        "duration": 433,
+        "outcome": "expected"
+      },
+      {
+        "title": "Random initial state is internally consistent",
+        "project": "webkit",
+        "duration": 647,
+        "outcome": "expected"
+      },
+      {
+        "title": "Welcome modal is displayed",
+        "project": "chromium",
+        "duration": 455,
+        "outcome": "expected"
+      },
+      {
+        "title": "Welcome modal is displayed",
+        "project": "firefox",
+        "duration": 504,
+        "outcome": "expected"
+      },
+      {
+        "title": "Welcome modal is displayed",
+        "project": "webkit",
+        "duration": 1359,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle button closes the modal",
+        "project": "chromium",
+        "duration": 1167,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle button closes the modal",
+        "project": "firefox",
+        "duration": 510,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle button closes the modal",
+        "project": "webkit",
+        "duration": 2922,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be reopened after closing",
+        "project": "chromium",
+        "duration": 525,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be reopened after closing",
+        "project": "firefox",
+        "duration": 589,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be reopened after closing",
+        "project": "webkit",
+        "duration": 937,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid toggling ends in the state given by click parity",
+        "project": "chromium",
+        "duration": 1259,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid toggling ends in the state given by click parity",
+        "project": "firefox",
+        "duration": 775,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid toggling ends in the state given by click parity",
+        "project": "webkit",
+        "duration": 1243,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be closed on a mobile viewport",
+        "project": "chromium",
+        "duration": 406,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be closed on a mobile viewport",
+        "project": "firefox",
+        "duration": 595,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be closed on a mobile viewport",
+        "project": "webkit",
+        "duration": 1111,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the welcome link keeps the modal open",
+        "project": "chromium",
+        "duration": 482,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the welcome link keeps the modal open",
+        "project": "firefox",
+        "duration": 1501,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the welcome link keeps the modal open",
+        "project": "webkit",
+        "duration": 1007,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closed state is not persisted across reloads",
+        "project": "chromium",
+        "duration": 551,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closed state is not persisted across reloads",
+        "project": "firefox",
+        "duration": 647,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closed state is not persisted across reloads",
+        "project": "webkit",
+        "duration": 1005,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not dismiss the modal",
+        "project": "chromium",
+        "duration": 425,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not dismiss the modal",
+        "project": "firefox",
+        "duration": 471,
+        "outcome": "expected"
+      },
+      {
+        "title": "Escape key does not dismiss the modal",
+        "project": "webkit",
+        "duration": 777,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the overlay background does not dismiss the modal",
+        "project": "chromium",
+        "duration": 480,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the overlay background does not dismiss the modal",
+        "project": "firefox",
+        "duration": 496,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking the overlay background does not dismiss the modal",
+        "project": "webkit",
+        "duration": 692,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle cannot receive keyboard focus",
+        "project": "chromium",
+        "duration": 458,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle cannot receive keyboard focus",
+        "project": "firefox",
+        "duration": 511,
+        "outcome": "expected"
+      },
+      {
+        "title": "Toggle cannot receive keyboard focus",
+        "project": "webkit",
+        "duration": 750,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the modal does not restore the default title",
+        "project": "chromium",
+        "duration": 518,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the modal does not restore the default title",
+        "project": "firefox",
+        "duration": 531,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the modal does not restore the default title",
+        "project": "webkit",
+        "duration": 941,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default launch screen is displayed",
+        "project": "chromium",
+        "duration": 350,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default launch screen is displayed",
+        "project": "firefox",
+        "duration": 509,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default launch screen is displayed",
+        "project": "webkit",
+        "duration": 815,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be opened manually",
+        "project": "chromium",
+        "duration": 1290,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be opened manually",
+        "project": "firefox",
+        "duration": 613,
+        "outcome": "expected"
+      },
+      {
+        "title": "Modal can be opened manually",
+        "project": "webkit",
+        "duration": 818,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows the prompt and Open button",
+        "project": "chromium",
+        "duration": 238,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows the prompt and Open button",
+        "project": "firefox",
+        "duration": 368,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows the prompt and Open button",
+        "project": "webkit",
+        "duration": 554,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open launches the pop-up window",
+        "project": "chromium",
+        "duration": 389,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open launches the pop-up window",
+        "project": "firefox",
+        "duration": 692,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open launches the pop-up window",
+        "project": "webkit",
+        "duration": 1154,
+        "outcome": "expected"
+      },
+      {
+        "title": "Submit closes the pop-up and updates the opener",
+        "project": "chromium",
+        "duration": 369,
+        "outcome": "expected"
+      },
+      {
+        "title": "Submit closes the pop-up and updates the opener",
+        "project": "firefox",
+        "duration": 1749,
+        "outcome": "expected"
+      },
+      {
+        "title": "Submit closes the pop-up and updates the opener",
+        "project": "webkit",
+        "duration": 1189,
+        "outcome": "expected"
+      },
+      {
+        "title": "Full flow works with the keyboard only",
+        "project": "chromium",
+        "duration": 325,
+        "outcome": "expected"
+      },
+      {
+        "title": "Full flow works with the keyboard only",
+        "project": "firefox",
+        "duration": 666,
+        "outcome": "expected"
+      },
+      {
+        "title": "Full flow works with the keyboard only",
+        "project": "webkit",
+        "duration": 823,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open and submit can be repeated",
+        "project": "chromium",
+        "duration": 490,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open and submit can be repeated",
+        "project": "firefox",
+        "duration": 1073,
+        "outcome": "expected"
+      },
+      {
+        "title": "Open and submit can be repeated",
+        "project": "webkit",
+        "duration": 1408,
+        "outcome": "expected"
+      },
+      {
+        "title": "Any click inside the pop-up updates the opener",
+        "project": "chromium",
+        "duration": 359,
+        "outcome": "expected"
+      },
+      {
+        "title": "Any click inside the pop-up updates the opener",
+        "project": "firefox",
+        "duration": 748,
+        "outcome": "expected"
+      },
+      {
+        "title": "Any click inside the pop-up updates the opener",
+        "project": "webkit",
+        "duration": 1170,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking Open again reuses the existing pop-up window",
+        "project": "chromium",
+        "duration": 588,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking Open again reuses the existing pop-up window",
+        "project": "firefox",
+        "duration": 860,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking Open again reuses the existing pop-up window",
+        "project": "webkit",
+        "duration": 1416,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the pop-up without submitting changes nothing",
+        "project": "chromium",
+        "duration": 432,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the pop-up without submitting changes nothing",
+        "project": "firefox",
+        "duration": 736,
+        "outcome": "expected"
+      },
+      {
+        "title": "Closing the pop-up without submitting changes nothing",
+        "project": "webkit",
+        "duration": 1092,
+        "outcome": "expected"
+      },
+      {
+        "title": "Submit after re-opening an already open pop-up is not reported",
+        "project": "chromium",
+        "duration": 459,
+        "outcome": "expected"
+      },
+      {
+        "title": "Submit after re-opening an already open pop-up is not reported",
+        "project": "firefox",
+        "duration": 843,
+        "outcome": "expected"
+      },
+      {
+        "title": "Submit after re-opening an already open pop-up is not reported",
+        "project": "webkit",
+        "duration": 1260,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "chromium",
+        "duration": 1289,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "firefox",
+        "duration": 1397,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code",
+        "project": "webkit",
+        "duration": 1312,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code with empty input",
+        "project": "chromium",
+        "duration": 267,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code with empty input",
+        "project": "firefox",
+        "duration": 407,
+        "outcome": "expected"
+      },
+      {
+        "title": "Generate QR Code with empty input",
+        "project": "webkit",
+        "duration": 773,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default slider state on page load",
+        "project": "chromium",
+        "duration": 286,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default slider state on page load",
+        "project": "firefox",
+        "duration": 408,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default slider state on page load",
+        "project": "webkit",
+        "duration": 691,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "chromium",
+        "duration": 294,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "firefox",
+        "duration": 1422,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar minimum value",
+        "project": "webkit",
+        "duration": 972,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 276,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 440,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 616,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1055,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1186,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1187,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1241,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1242,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1040,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1066,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 695,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1525,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1092,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 706,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1210,
+        "outcome": "expected"
+      },
+      {
+        "title": "Send Feedback click hides button and shows confirmation",
+        "project": "chromium",
+        "duration": 335,
+        "outcome": "expected"
+      },
+      {
+        "title": "Send Feedback click hides button and shows confirmation",
+        "project": "firefox",
+        "duration": 494,
+        "outcome": "expected"
+      },
+      {
+        "title": "Send Feedback click hides button and shows confirmation",
+        "project": "webkit",
+        "duration": 828,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1077,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1206,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 966,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1066,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 1194,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1030,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "chromium",
+        "duration": 1115,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "firefox",
+        "duration": 1228,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar min value",
+        "project": "webkit",
+        "duration": 1102,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "chromium",
+        "duration": 1061,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "firefox",
+        "duration": 2011,
+        "outcome": "expected"
+      },
+      {
+        "title": "Range bar max value",
+        "project": "webkit",
+        "duration": 1715,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default state has no rating selected",
+        "project": "chromium",
+        "duration": 309,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default state has no rating selected",
+        "project": "firefox",
+        "duration": 488,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default state has no rating selected",
+        "project": "webkit",
+        "duration": 765,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 1 star(s) shows \"I just hate it\"",
+        "project": "chromium",
+        "duration": 335,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 1 star(s) shows \"I just hate it\"",
+        "project": "firefox",
+        "duration": 468,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 1 star(s) shows \"I just hate it\"",
+        "project": "webkit",
+        "duration": 891,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 2 star(s) shows \"I don't like it\"",
+        "project": "chromium",
+        "duration": 1162,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 2 star(s) shows \"I don't like it\"",
+        "project": "firefox",
+        "duration": 948,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 2 star(s) shows \"I don't like it\"",
+        "project": "webkit",
+        "duration": 1237,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 3 star(s) shows \"This is awesome\"",
+        "project": "chromium",
+        "duration": 1119,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 3 star(s) shows \"This is awesome\"",
+        "project": "firefox",
+        "duration": 792,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 3 star(s) shows \"This is awesome\"",
+        "project": "webkit",
+        "duration": 1134,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 4 star(s) shows \"I just like it\"",
+        "project": "chromium",
+        "duration": 1142,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 4 star(s) shows \"I just like it\"",
+        "project": "firefox",
+        "duration": 792,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 4 star(s) shows \"I just like it\"",
+        "project": "webkit",
+        "duration": 1223,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 5 star(s) shows \"I just love it\"",
+        "project": "chromium",
+        "duration": 1157,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 5 star(s) shows \"I just love it\"",
+        "project": "firefox",
+        "duration": 800,
+        "outcome": "expected"
+      },
+      {
+        "title": "Selecting 5 star(s) shows \"I just love it\"",
+        "project": "webkit",
+        "duration": 1123,
+        "outcome": "expected"
+      },
+      {
+        "title": "Changing from 5 stars to 1 star updates everything",
+        "project": "chromium",
+        "duration": 1922,
+        "outcome": "expected"
+      },
+      {
+        "title": "Changing from 5 stars to 1 star updates everything",
+        "project": "firefox",
+        "duration": 1618,
+        "outcome": "expected"
+      },
+      {
+        "title": "Changing from 5 stars to 1 star updates everything",
+        "project": "webkit",
+        "duration": 1539,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering a star previews the highlight without changing the rating",
+        "project": "chromium",
+        "duration": 1188,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering a star previews the highlight without changing the rating",
+        "project": "firefox",
+        "duration": 884,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering a star previews the highlight without changing the rating",
+        "project": "webkit",
+        "duration": 1431,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid clicks across all stars settle on the last one",
+        "project": "chromium",
+        "duration": 1259,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid clicks across all stars settle on the last one",
+        "project": "firefox",
+        "duration": 997,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid clicks across all stars settle on the last one",
+        "project": "webkit",
+        "duration": 1799,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rating works on a mobile viewport",
+        "project": "chromium",
+        "duration": 1090,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rating works on a mobile viewport",
+        "project": "firefox",
+        "duration": 1341,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rating works on a mobile viewport",
+        "project": "webkit",
+        "duration": 1163,
+        "outcome": "expected"
+      },
+      {
+        "title": "Re-clicking the selected star does not clear the rating",
+        "project": "chromium",
+        "duration": 661,
+        "outcome": "expected"
+      },
+      {
+        "title": "Re-clicking the selected star does not clear the rating",
+        "project": "firefox",
+        "duration": 857,
+        "outcome": "expected"
+      },
+      {
+        "title": "Re-clicking the selected star does not clear the rating",
+        "project": "webkit",
+        "duration": 1229,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover alone does not select a rating",
+        "project": "chromium",
+        "duration": 347,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover alone does not select a rating",
+        "project": "firefox",
+        "duration": 500,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hover alone does not select a rating",
+        "project": "webkit",
+        "duration": 1003,
+        "outcome": "expected"
+      },
+      {
+        "title": "Star inputs are hidden from keyboard and assistive tech",
+        "project": "chromium",
+        "duration": 295,
+        "outcome": "expected"
+      },
+      {
+        "title": "Star inputs are hidden from keyboard and assistive tech",
+        "project": "firefox",
+        "duration": 410,
+        "outcome": "expected"
+      },
+      {
+        "title": "Star inputs are hidden from keyboard and assistive tech",
+        "project": "webkit",
+        "duration": 736,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "chromium",
+        "duration": 4945,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "firefox",
+        "duration": 8149,
+        "outcome": "expected"
+      },
+      {
+        "title": "Redirection",
+        "project": "webkit",
+        "duration": 8918,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "chromium",
+        "duration": 4786,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "firefox",
+        "duration": 5250,
+        "outcome": "expected"
+      },
+      {
+        "title": "Go Back button",
+        "project": "webkit",
+        "duration": 9936,
+        "outcome": "expected"
+      },
+      {
+        "title": "Register view is shown by default",
+        "project": "chromium",
+        "duration": 305,
+        "outcome": "expected"
+      },
+      {
+        "title": "Register view is shown by default",
+        "project": "firefox",
+        "duration": 411,
+        "outcome": "expected"
+      },
+      {
+        "title": "Register view is shown by default",
+        "project": "webkit",
+        "duration": 605,
+        "outcome": "expected"
+      },
+      {
+        "title": "Successful registration redirects to login with success message",
+        "project": "chromium",
+        "duration": 456,
+        "outcome": "expected"
+      },
+      {
+        "title": "Successful registration redirects to login with success message",
+        "project": "firefox",
+        "duration": 507,
+        "outcome": "expected"
+      },
+      {
+        "title": "Successful registration redirects to login with success message",
+        "project": "webkit",
+        "duration": 799,
+        "outcome": "expected"
+      },
+      {
+        "title": "Registered user can log in and sees the dashboard",
+        "project": "chromium",
+        "duration": 389,
+        "outcome": "expected"
+      },
+      {
+        "title": "Registered user can log in and sees the dashboard",
+        "project": "firefox",
+        "duration": 614,
+        "outcome": "expected"
+      },
+      {
+        "title": "Registered user can log in and sees the dashboard",
+        "project": "webkit",
+        "duration": 900,
+        "outcome": "expected"
+      },
+      {
+        "title": "Log Out returns to an empty login view",
+        "project": "chromium",
+        "duration": 420,
+        "outcome": "expected"
+      },
+      {
+        "title": "Log Out returns to an empty login view",
+        "project": "firefox",
+        "duration": 651,
+        "outcome": "expected"
+      },
+      {
+        "title": "Log Out returns to an empty login view",
+        "project": "webkit",
+        "duration": 1025,
+        "outcome": "expected"
+      },
+      {
+        "title": "Log In and Sign Up links switch between views",
+        "project": "chromium",
+        "duration": 345,
+        "outcome": "expected"
+      },
+      {
+        "title": "Log In and Sign Up links switch between views",
+        "project": "firefox",
+        "duration": 1115,
+        "outcome": "expected"
+      },
+      {
+        "title": "Log In and Sign Up links switch between views",
+        "project": "webkit",
+        "duration": 1154,
+        "outcome": "expected"
+      },
+      {
+        "title": "Show/Hide toggles password visibility",
+        "project": "chromium",
+        "duration": 362,
+        "outcome": "expected"
+      },
+      {
+        "title": "Show/Hide toggles password visibility",
+        "project": "firefox",
+        "duration": 567,
+        "outcome": "expected"
+      },
+      {
+        "title": "Show/Hide toggles password visibility",
+        "project": "webkit",
+        "duration": 916,
+        "outcome": "expected"
+      },
+      {
+        "title": "Password of exactly 8 characters is accepted",
+        "project": "chromium",
+        "duration": 319,
+        "outcome": "expected"
+      },
+      {
+        "title": "Password of exactly 8 characters is accepted",
+        "project": "firefox",
+        "duration": 504,
+        "outcome": "expected"
+      },
+      {
+        "title": "Password of exactly 8 characters is accepted",
+        "project": "webkit",
+        "duration": 773,
+        "outcome": "expected"
+      },
+      {
+        "title": "Name and email are trimmed on register and login",
+        "project": "chromium",
+        "duration": 374,
+        "outcome": "expected"
+      },
+      {
+        "title": "Name and email are trimmed on register and login",
+        "project": "firefox",
+        "duration": 610,
+        "outcome": "expected"
+      },
+      {
+        "title": "Name and email are trimmed on register and login",
+        "project": "webkit",
+        "duration": 915,
+        "outcome": "expected"
+      },
+      {
+        "title": "Register form is reset after a successful registration",
+        "project": "chromium",
+        "duration": 345,
+        "outcome": "expected"
+      },
+      {
+        "title": "Register form is reset after a successful registration",
+        "project": "firefox",
+        "duration": 552,
+        "outcome": "expected"
+      },
+      {
+        "title": "Register form is reset after a successful registration",
+        "project": "webkit",
+        "duration": 1006,
+        "outcome": "expected"
+      },
+      {
+        "title": "Switching views clears validation errors",
+        "project": "chromium",
+        "duration": 362,
+        "outcome": "expected"
+      },
+      {
+        "title": "Switching views clears validation errors",
+        "project": "firefox",
+        "duration": 565,
+        "outcome": "expected"
+      },
+      {
+        "title": "Switching views clears validation errors",
+        "project": "webkit",
+        "duration": 984,
+        "outcome": "expected"
+      },
+      {
+        "title": "Pressing Enter submits the registration form",
+        "project": "chromium",
+        "duration": 304,
+        "outcome": "expected"
+      },
+      {
+        "title": "Pressing Enter submits the registration form",
+        "project": "firefox",
+        "duration": 496,
+        "outcome": "expected"
+      },
+      {
+        "title": "Pressing Enter submits the registration form",
+        "project": "webkit",
+        "duration": 741,
+        "outcome": "expected"
+      },
+      {
+        "title": "Full flow works on a mobile viewport",
+        "project": "chromium",
+        "duration": 692,
+        "outcome": "expected"
+      },
+      {
+        "title": "Full flow works on a mobile viewport",
+        "project": "firefox",
+        "duration": 864,
+        "outcome": "expected"
+      },
+      {
+        "title": "Full flow works on a mobile viewport",
+        "project": "webkit",
+        "duration": 940,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty registration shows all required errors",
+        "project": "chromium",
+        "duration": 323,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty registration shows all required errors",
+        "project": "firefox",
+        "duration": 484,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty registration shows all required errors",
+        "project": "webkit",
+        "duration": 817,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only name is rejected",
+        "project": "chromium",
+        "duration": 338,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only name is rejected",
+        "project": "firefox",
+        "duration": 525,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only name is rejected",
+        "project": "webkit",
+        "duration": 833,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john\" is rejected",
+        "project": "chromium",
+        "duration": 321,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john\" is rejected",
+        "project": "firefox",
+        "duration": 1328,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john\" is rejected",
+        "project": "webkit",
+        "duration": 857,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john@example\" is rejected",
+        "project": "chromium",
+        "duration": 310,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john@example\" is rejected",
+        "project": "firefox",
+        "duration": 556,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john@example\" is rejected",
+        "project": "webkit",
+        "duration": 999,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john @example.com\" is rejected",
+        "project": "chromium",
+        "duration": 311,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john @example.com\" is rejected",
+        "project": "firefox",
+        "duration": 507,
+        "outcome": "expected"
+      },
+      {
+        "title": "Invalid email format \"john @example.com\" is rejected",
+        "project": "webkit",
+        "duration": 867,
+        "outcome": "expected"
+      },
+      {
+        "title": "Password shorter than 8 characters is rejected",
+        "project": "chromium",
+        "duration": 342,
+        "outcome": "expected"
+      },
+      {
+        "title": "Password shorter than 8 characters is rejected",
+        "project": "firefox",
+        "duration": 521,
+        "outcome": "expected"
+      },
+      {
+        "title": "Password shorter than 8 characters is rejected",
+        "project": "webkit",
+        "duration": 872,
+        "outcome": "expected"
+      },
+      {
+        "title": "Mismatched confirmation is rejected",
+        "project": "chromium",
+        "duration": 321,
+        "outcome": "expected"
+      },
+      {
+        "title": "Mismatched confirmation is rejected",
+        "project": "firefox",
+        "duration": 498,
+        "outcome": "expected"
+      },
+      {
+        "title": "Mismatched confirmation is rejected",
+        "project": "webkit",
+        "duration": 872,
+        "outcome": "expected"
+      },
+      {
+        "title": "Confirmation is not compared when password is empty",
+        "project": "chromium",
+        "duration": 629,
+        "outcome": "expected"
+      },
+      {
+        "title": "Confirmation is not compared when password is empty",
+        "project": "firefox",
+        "duration": 509,
+        "outcome": "expected"
+      },
+      {
+        "title": "Confirmation is not compared when password is empty",
+        "project": "webkit",
+        "duration": 803,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate email cannot be registered twice",
+        "project": "chromium",
+        "duration": 400,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate email cannot be registered twice",
+        "project": "firefox",
+        "duration": 677,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate email cannot be registered twice",
+        "project": "webkit",
+        "duration": 1062,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty login shows required errors",
+        "project": "chromium",
+        "duration": 361,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty login shows required errors",
+        "project": "firefox",
+        "duration": 564,
+        "outcome": "expected"
+      },
+      {
+        "title": "Empty login shows required errors",
+        "project": "webkit",
+        "duration": 879,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login with unregistered email is rejected",
+        "project": "chromium",
+        "duration": 336,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login with unregistered email is rejected",
+        "project": "firefox",
+        "duration": 532,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login with unregistered email is rejected",
+        "project": "webkit",
+        "duration": 994,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login with wrong-case password is rejected",
+        "project": "chromium",
+        "duration": 355,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login with wrong-case password is rejected",
+        "project": "firefox",
+        "duration": 577,
+        "outcome": "expected"
+      },
+      {
+        "title": "Login with wrong-case password is rejected",
+        "project": "webkit",
+        "duration": 954,
+        "outcome": "expected"
+      },
+      {
+        "title": "Progress bar renders at 5 percent with a Boost button",
+        "project": "chromium",
+        "duration": 268,
+        "outcome": "expected"
+      },
+      {
+        "title": "Progress bar renders at 5 percent with a Boost button",
+        "project": "firefox",
+        "duration": 1202,
+        "outcome": "expected"
+      },
+      {
+        "title": "Progress bar renders at 5 percent with a Boost button",
+        "project": "webkit",
+        "duration": 533,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost fills the progress bar to 95 percent",
+        "project": "chromium",
+        "duration": 6566,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost fills the progress bar to 95 percent",
+        "project": "firefox",
+        "duration": 6801,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost fills the progress bar to 95 percent",
+        "project": "webkit",
+        "duration": 6904,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost updates the percent attribute to 95",
+        "project": "chromium",
+        "duration": 6584,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost updates the percent attribute to 95",
+        "project": "firefox",
+        "duration": 6754,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost updates the percent attribute to 95",
+        "project": "webkit",
+        "duration": 6737,
+        "outcome": "expected"
+      },
+      {
+        "title": "Fill width updates before the percent attribute does",
+        "project": "chromium",
+        "duration": 290,
+        "outcome": "expected"
+      },
+      {
+        "title": "Fill width updates before the percent attribute does",
+        "project": "firefox",
+        "duration": 460,
+        "outcome": "expected"
+      },
+      {
+        "title": "Fill width updates before the percent attribute does",
+        "project": "webkit",
+        "duration": 701,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid repeated boosts never exceed 95 percent",
+        "project": "chromium",
+        "duration": 6692,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid repeated boosts never exceed 95 percent",
+        "project": "firefox",
+        "duration": 6492,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid repeated boosts never exceed 95 percent",
+        "project": "webkit",
+        "duration": 6792,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost can be triggered with the keyboard only",
+        "project": "chromium",
+        "duration": 6592,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost can be triggered with the keyboard only",
+        "project": "firefox",
+        "duration": 6866,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost can be triggered with the keyboard only",
+        "project": "webkit",
+        "duration": 6719,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost works at a mobile viewport",
+        "project": "chromium",
+        "duration": 6554,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost works at a mobile viewport",
+        "project": "firefox",
+        "duration": 6806,
+        "outcome": "expected"
+      },
+      {
+        "title": "Boost works at a mobile viewport",
+        "project": "webkit",
+        "duration": 6897,
+        "outcome": "expected"
+      },
+      {
+        "title": "Percent attribute is clamped to the 0-100 range",
+        "project": "chromium",
+        "duration": 272,
+        "outcome": "expected"
+      },
+      {
+        "title": "Percent attribute is clamped to the 0-100 range",
+        "project": "firefox",
+        "duration": 459,
+        "outcome": "expected"
+      },
+      {
+        "title": "Percent attribute is clamped to the 0-100 range",
+        "project": "webkit",
+        "duration": 514,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric percent falls back to 0%",
+        "project": "chromium",
+        "duration": 268,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric percent falls back to 0%",
+        "project": "firefox",
+        "duration": 405,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric percent falls back to 0%",
+        "project": "webkit",
+        "duration": 554,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering Boost without clicking does not start progress",
+        "project": "chromium",
+        "duration": 301,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering Boost without clicking does not start progress",
+        "project": "firefox",
+        "duration": 436,
+        "outcome": "expected"
+      },
+      {
+        "title": "Hovering Boost without clicking does not start progress",
+        "project": "webkit",
+        "duration": 674,
+        "outcome": "expected"
+      },
+      {
+        "title": "XPath cannot reach the button inside the shadow root",
+        "project": "chromium",
+        "duration": 234,
+        "outcome": "expected"
+      },
+      {
+        "title": "XPath cannot reach the button inside the shadow root",
+        "project": "firefox",
+        "duration": 937,
+        "outcome": "expected"
+      },
+      {
+        "title": "XPath cannot reach the button inside the shadow root",
+        "project": "webkit",
+        "duration": 553,
+        "outcome": "expected"
+      },
+      {
+        "title": "Displays heading, instructions and ten numbered items",
+        "project": "chromium",
+        "duration": 385,
+        "outcome": "expected"
+      },
+      {
+        "title": "Displays heading, instructions and ten numbered items",
+        "project": "firefox",
+        "duration": 511,
+        "outcome": "expected"
+      },
+      {
+        "title": "Displays heading, instructions and ten numbered items",
+        "project": "webkit",
+        "duration": 713,
+        "outcome": "expected"
+      },
+      {
+        "title": "List contains each of the richest people exactly once",
+        "project": "chromium",
+        "duration": 297,
+        "outcome": "expected"
+      },
+      {
+        "title": "List contains each of the richest people exactly once",
+        "project": "firefox",
+        "duration": 435,
+        "outcome": "expected"
+      },
+      {
+        "title": "List contains each of the richest people exactly once",
+        "project": "webkit",
+        "duration": 643,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging an item onto another swaps their positions",
+        "project": "chromium",
+        "duration": 328,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging an item onto another swaps their positions",
+        "project": "firefox",
+        "duration": 543,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging an item onto another swaps their positions",
+        "project": "webkit",
+        "duration": 744,
+        "outcome": "expected"
+      },
+      {
+        "title": "Sorting into the correct order marks every item as right",
+        "project": "chromium",
+        "duration": 636,
+        "outcome": "expected"
+      },
+      {
+        "title": "Sorting into the correct order marks every item as right",
+        "project": "firefox",
+        "duration": 906,
+        "outcome": "expected"
+      },
+      {
+        "title": "Sorting into the correct order marks every item as right",
+        "project": "webkit",
+        "duration": 1279,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order marks each item right or wrong by its position",
+        "project": "chromium",
+        "duration": 325,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order marks each item right or wrong by its position",
+        "project": "firefox",
+        "duration": 695,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order marks each item right or wrong by its position",
+        "project": "webkit",
+        "duration": 790,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropping an item onto itself leaves the order unchanged",
+        "project": "chromium",
+        "duration": 331,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropping an item onto itself leaves the order unchanged",
+        "project": "firefox",
+        "duration": 542,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dropping an item onto itself leaves the order unchanged",
+        "project": "webkit",
+        "duration": 813,
+        "outcome": "expected"
+      },
+      {
+        "title": "Swapping the same pair twice restores the original order",
+        "project": "chromium",
+        "duration": 371,
+        "outcome": "expected"
+      },
+      {
+        "title": "Swapping the same pair twice restores the original order",
+        "project": "firefox",
+        "duration": 544,
+        "outcome": "expected"
+      },
+      {
+        "title": "Swapping the same pair twice restores the original order",
+        "project": "webkit",
+        "duration": 821,
+        "outcome": "expected"
+      },
+      {
+        "title": "Position numbers stay fixed while names move",
+        "project": "chromium",
+        "duration": 426,
+        "outcome": "expected"
+      },
+      {
+        "title": "Position numbers stay fixed while names move",
+        "project": "firefox",
+        "duration": 626,
+        "outcome": "expected"
+      },
+      {
+        "title": "Position numbers stay fixed while names move",
+        "project": "webkit",
+        "duration": 857,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial order is shuffled on every load",
+        "project": "chromium",
+        "duration": 445,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial order is shuffled on every load",
+        "project": "firefox",
+        "duration": 675,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial order is shuffled on every load",
+        "project": "webkit",
+        "duration": 973,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order can be triggered with the keyboard",
+        "project": "chromium",
+        "duration": 313,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order can be triggered with the keyboard",
+        "project": "firefox",
+        "duration": 1278,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order can be triggered with the keyboard",
+        "project": "webkit",
+        "duration": 676,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging works on a mobile viewport",
+        "project": "chromium",
+        "duration": 323,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging works on a mobile viewport",
+        "project": "firefox",
+        "duration": 544,
+        "outcome": "expected"
+      },
+      {
+        "title": "Dragging works on a mobile viewport",
+        "project": "webkit",
+        "duration": 655,
+        "outcome": "expected"
+      },
+      {
+        "title": "Items are not marked before Check Order is clicked",
+        "project": "chromium",
+        "duration": 377,
+        "outcome": "expected"
+      },
+      {
+        "title": "Items are not marked before Check Order is clicked",
+        "project": "firefox",
+        "duration": 526,
+        "outcome": "expected"
+      },
+      {
+        "title": "Items are not marked before Check Order is clicked",
+        "project": "webkit",
+        "duration": 735,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking an item without dragging does not reorder",
+        "project": "chromium",
+        "duration": 344,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking an item without dragging does not reorder",
+        "project": "firefox",
+        "duration": 563,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking an item without dragging does not reorder",
+        "project": "webkit",
+        "duration": 815,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order does not reorder the list",
+        "project": "chromium",
+        "duration": 356,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order does not reorder the list",
+        "project": "firefox",
+        "duration": 562,
+        "outcome": "expected"
+      },
+      {
+        "title": "Check Order does not reorder the list",
+        "project": "webkit",
+        "duration": 865,
+        "outcome": "expected"
+      },
+      {
+        "title": "Item moved out of place after a correct check keeps both classes",
+        "project": "chromium",
+        "duration": 673,
+        "outcome": "expected"
+      },
+      {
+        "title": "Item moved out of place after a correct check keeps both classes",
+        "project": "firefox",
+        "duration": 971,
+        "outcome": "expected"
+      },
+      {
+        "title": "Item moved out of place after a correct check keeps both classes",
+        "project": "webkit",
+        "duration": 1372,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default state shows two preset tags",
+        "project": "chromium",
+        "duration": 352,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default state shows two preset tags",
+        "project": "firefox",
+        "duration": 455,
+        "outcome": "expected"
+      },
+      {
+        "title": "Default state shows two preset tags",
+        "project": "webkit",
+        "duration": 626,
+        "outcome": "expected"
+      },
+      {
+        "title": "Enter adds a tag and clears the input",
+        "project": "chromium",
+        "duration": 293,
+        "outcome": "expected"
+      },
+      {
+        "title": "Enter adds a tag and clears the input",
+        "project": "firefox",
+        "duration": 515,
+        "outcome": "expected"
+      },
+      {
+        "title": "Enter adds a tag and clears the input",
+        "project": "webkit",
+        "duration": 593,
+        "outcome": "expected"
+      },
+      {
+        "title": "Comma-separated value adds several tags at once",
+        "project": "chromium",
+        "duration": 375,
+        "outcome": "expected"
+      },
+      {
+        "title": "Comma-separated value adds several tags at once",
+        "project": "firefox",
+        "duration": 440,
+        "outcome": "expected"
+      },
+      {
+        "title": "Comma-separated value adds several tags at once",
+        "project": "webkit",
+        "duration": 644,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking x removes a single tag",
+        "project": "chromium",
+        "duration": 347,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking x removes a single tag",
+        "project": "firefox",
+        "duration": 479,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clicking x removes a single tag",
+        "project": "webkit",
+        "duration": 795,
+        "outcome": "expected"
+      },
+      {
+        "title": "Remove All clears every tag",
+        "project": "chromium",
+        "duration": 323,
+        "outcome": "expected"
+      },
+      {
+        "title": "Remove All clears every tag",
+        "project": "firefox",
+        "duration": 1370,
+        "outcome": "expected"
+      },
+      {
+        "title": "Remove All clears every tag",
+        "project": "webkit",
+        "duration": 763,
+        "outcome": "expected"
+      },
+      {
+        "title": "Two characters is the minimum accepted tag length",
+        "project": "chromium",
+        "duration": 309,
+        "outcome": "expected"
+      },
+      {
+        "title": "Two characters is the minimum accepted tag length",
+        "project": "firefox",
+        "duration": 481,
+        "outcome": "expected"
+      },
+      {
+        "title": "Two characters is the minimum accepted tag length",
+        "project": "webkit",
+        "duration": 626,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated whitespace inside a tag is collapsed",
+        "project": "chromium",
+        "duration": 259,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated whitespace inside a tag is collapsed",
+        "project": "firefox",
+        "duration": 448,
+        "outcome": "expected"
+      },
+      {
+        "title": "Repeated whitespace inside a tag is collapsed",
+        "project": "webkit",
+        "duration": 636,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate check is case-sensitive",
+        "project": "chromium",
+        "duration": 262,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate check is case-sensitive",
+        "project": "firefox",
+        "duration": 440,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate check is case-sensitive",
+        "project": "webkit",
+        "duration": 698,
+        "outcome": "expected"
+      },
+      {
+        "title": "Limit of 10 tags blocks further additions",
+        "project": "chromium",
+        "duration": 393,
+        "outcome": "expected"
+      },
+      {
+        "title": "Limit of 10 tags blocks further additions",
+        "project": "firefox",
+        "duration": 579,
+        "outcome": "expected"
+      },
+      {
+        "title": "Limit of 10 tags blocks further additions",
+        "project": "webkit",
+        "duration": 866,
+        "outcome": "expected"
+      },
+      {
+        "title": "Comma list can exceed the 10-tag limit",
+        "project": "chromium",
+        "duration": 343,
+        "outcome": "expected"
+      },
+      {
+        "title": "Comma list can exceed the 10-tag limit",
+        "project": "firefox",
+        "duration": 571,
+        "outcome": "expected"
+      },
+      {
+        "title": "Comma list can exceed the 10-tag limit",
+        "project": "webkit",
+        "duration": 715,
+        "outcome": "expected"
+      },
+      {
+        "title": "Trailing comma adds an empty tag",
+        "project": "chromium",
+        "duration": 292,
+        "outcome": "expected"
+      },
+      {
+        "title": "Trailing comma adds an empty tag",
+        "project": "firefox",
+        "duration": 451,
+        "outcome": "expected"
+      },
+      {
+        "title": "Trailing comma adds an empty tag",
+        "project": "webkit",
+        "duration": 602,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid successive additions keep order",
+        "project": "chromium",
+        "duration": 339,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid successive additions keep order",
+        "project": "firefox",
+        "duration": 571,
+        "outcome": "expected"
+      },
+      {
+        "title": "Rapid successive additions keep order",
+        "project": "webkit",
+        "duration": 873,
+        "outcome": "expected"
+      },
+      {
+        "title": "Removed tag can be added again",
+        "project": "chromium",
+        "duration": 290,
+        "outcome": "expected"
+      },
+      {
+        "title": "Removed tag can be added again",
+        "project": "firefox",
+        "duration": 481,
+        "outcome": "expected"
+      },
+      {
+        "title": "Removed tag can be added again",
+        "project": "webkit",
+        "duration": 812,
+        "outcome": "expected"
+      },
+      {
+        "title": "Adding and removing works on a mobile viewport",
+        "project": "chromium",
+        "duration": 644,
+        "outcome": "expected"
+      },
+      {
+        "title": "Adding and removing works on a mobile viewport",
+        "project": "firefox",
+        "duration": 1379,
+        "outcome": "expected"
+      },
+      {
+        "title": "Adding and removing works on a mobile viewport",
+        "project": "webkit",
+        "duration": 1535,
+        "outcome": "expected"
+      },
+      {
+        "title": "Single-character tag is rejected",
+        "project": "chromium",
+        "duration": 298,
+        "outcome": "expected"
+      },
+      {
+        "title": "Single-character tag is rejected",
+        "project": "firefox",
+        "duration": 1263,
+        "outcome": "expected"
+      },
+      {
+        "title": "Single-character tag is rejected",
+        "project": "webkit",
+        "duration": 620,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate tag is rejected",
+        "project": "chromium",
+        "duration": 373,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate tag is rejected",
+        "project": "firefox",
+        "duration": 505,
+        "outcome": "expected"
+      },
+      {
+        "title": "Duplicate tag is rejected",
+        "project": "webkit",
+        "duration": 616,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only tag is rejected",
+        "project": "chromium",
+        "duration": 292,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only tag is rejected",
+        "project": "firefox",
+        "duration": 578,
+        "outcome": "expected"
+      },
+      {
+        "title": "Whitespace-only tag is rejected",
+        "project": "webkit",
+        "duration": 641,
+        "outcome": "expected"
+      },
+      {
+        "title": "Typing a comma alone does not commit a tag",
+        "project": "chromium",
+        "duration": 292,
+        "outcome": "expected"
+      },
+      {
+        "title": "Typing a comma alone does not commit a tag",
+        "project": "firefox",
+        "duration": 424,
+        "outcome": "expected"
+      },
+      {
+        "title": "Typing a comma alone does not commit a tag",
+        "project": "webkit",
+        "duration": 806,
+        "outcome": "expected"
+      },
+      {
+        "title": "Remove All on an empty list keeps the counter at 10",
+        "project": "chromium",
+        "duration": 347,
+        "outcome": "expected"
+      },
+      {
+        "title": "Remove All on an empty list keeps the counter at 10",
+        "project": "firefox",
+        "duration": 538,
+        "outcome": "expected"
+      },
+      {
+        "title": "Remove All on an empty list keeps the counter at 10",
+        "project": "webkit",
+        "duration": 974,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows no file selected",
+        "project": "chromium",
+        "duration": 260,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows no file selected",
+        "project": "firefox",
+        "duration": 416,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows no file selected",
+        "project": "webkit",
+        "duration": 778,
+        "outcome": "expected"
+      },
+      {
+        "title": "File input accepts multiple PNG and JPEG images",
+        "project": "chromium",
+        "duration": 254,
+        "outcome": "expected"
+      },
+      {
+        "title": "File input accepts multiple PNG and JPEG images",
+        "project": "firefox",
+        "duration": 428,
+        "outcome": "expected"
+      },
+      {
+        "title": "File input accepts multiple PNG and JPEG images",
+        "project": "webkit",
+        "duration": 596,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a single PNG image shows its preview",
+        "project": "chromium",
+        "duration": 322,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a single PNG image shows its preview",
+        "project": "firefox",
+        "duration": 484,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a single PNG image shows its preview",
+        "project": "webkit",
+        "duration": 645,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a single JPEG image shows its preview",
+        "project": "chromium",
+        "duration": 311,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a single JPEG image shows its preview",
+        "project": "firefox",
+        "duration": 446,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a single JPEG image shows its preview",
+        "project": "webkit",
+        "duration": 672,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload multiple images shows a preview for each",
+        "project": "chromium",
+        "duration": 275,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload multiple images shows a preview for each",
+        "project": "firefox",
+        "duration": 413,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload multiple images shows a preview for each",
+        "project": "webkit",
+        "duration": 644,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload through the native file chooser",
+        "project": "chromium",
+        "duration": 314,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload through the native file chooser",
+        "project": "firefox",
+        "duration": 1298,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload through the native file chooser",
+        "project": "webkit",
+        "duration": 817,
+        "outcome": "expected"
+      },
+      {
+        "title": "New selection replaces the previous previews",
+        "project": "chromium",
+        "duration": 308,
+        "outcome": "expected"
+      },
+      {
+        "title": "New selection replaces the previous previews",
+        "project": "firefox",
+        "duration": 451,
+        "outcome": "expected"
+      },
+      {
+        "title": "New selection replaces the previous previews",
+        "project": "webkit",
+        "duration": 642,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clearing the selection removes all previews",
+        "project": "chromium",
+        "duration": 255,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clearing the selection removes all previews",
+        "project": "firefox",
+        "duration": 402,
+        "outcome": "expected"
+      },
+      {
+        "title": "Clearing the selection removes all previews",
+        "project": "webkit",
+        "duration": 733,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload many images at once",
+        "project": "chromium",
+        "duration": 276,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload many images at once",
+        "project": "firefox",
+        "duration": 430,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload many images at once",
+        "project": "webkit",
+        "duration": 647,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a large file",
+        "project": "chromium",
+        "duration": 1071,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a large file",
+        "project": "firefox",
+        "duration": 965,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload a large file",
+        "project": "webkit",
+        "duration": 1374,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload an empty image file",
+        "project": "chromium",
+        "duration": 298,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload an empty image file",
+        "project": "firefox",
+        "duration": 467,
+        "outcome": "expected"
+      },
+      {
+        "title": "Upload an empty image file",
+        "project": "webkit",
+        "duration": 742,
+        "outcome": "expected"
+      },
+      {
+        "title": "File names with spaces and unicode are shown as-is",
+        "project": "chromium",
+        "duration": 274,
+        "outcome": "expected"
+      },
+      {
+        "title": "File names with spaces and unicode are shown as-is",
+        "project": "firefox",
+        "duration": 439,
+        "outcome": "expected"
+      },
+      {
+        "title": "File names with spaces and unicode are shown as-is",
+        "project": "webkit",
+        "duration": 706,
+        "outcome": "expected"
+      },
+      {
+        "title": "Unsupported file type is still accepted with a broken preview",
+        "project": "chromium",
+        "duration": 276,
+        "outcome": "expected"
+      },
+      {
+        "title": "Unsupported file type is still accepted with a broken preview",
+        "project": "firefox",
+        "duration": 436,
+        "outcome": "expected"
+      },
+      {
+        "title": "Unsupported file type is still accepted with a broken preview",
+        "project": "webkit",
+        "duration": 805,
+        "outcome": "expected"
+      },
+      {
+        "title": "Image extension with non-image content does not render",
+        "project": "chromium",
+        "duration": 274,
+        "outcome": "expected"
+      },
+      {
+        "title": "Image extension with non-image content does not render",
+        "project": "firefox",
+        "duration": 418,
+        "outcome": "expected"
+      },
+      {
+        "title": "Image extension with non-image content does not render",
+        "project": "webkit",
+        "duration": 731,
+        "outcome": "expected"
+      },
+      {
+        "title": "Native file input is hidden behind the styled label",
+        "project": "chromium",
+        "duration": 258,
+        "outcome": "expected"
+      },
+      {
+        "title": "Native file input is hidden behind the styled label",
+        "project": "firefox",
+        "duration": 380,
+        "outcome": "expected"
+      },
+      {
+        "title": "Native file input is hidden behind the styled label",
+        "project": "webkit",
+        "duration": 751,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows six empty boxes with the first focused",
+        "project": "chromium",
+        "duration": 370,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows six empty boxes with the first focused",
+        "project": "firefox",
+        "duration": 1281,
+        "outcome": "expected"
+      },
+      {
+        "title": "Initial state shows six empty boxes with the first focused",
+        "project": "webkit",
+        "duration": 615,
+        "outcome": "expected"
+      },
+      {
+        "title": "Correct code shows Success and hides the form",
+        "project": "chromium",
+        "duration": 478,
+        "outcome": "expected"
+      },
+      {
+        "title": "Correct code shows Success and hides the form",
+        "project": "firefox",
+        "duration": 568,
+        "outcome": "expected"
+      },
+      {
+        "title": "Correct code shows Success and hides the form",
+        "project": "webkit",
+        "duration": 925,
+        "outcome": "expected"
+      },
+      {
+        "title": "Keyboard-only entry advances focus box by box",
+        "project": "chromium",
+        "duration": 478,
+        "outcome": "expected"
+      },
+      {
+        "title": "Keyboard-only entry advances focus box by box",
+        "project": "firefox",
+        "duration": 620,
+        "outcome": "expected"
+      },
+      {
+        "title": "Keyboard-only entry advances focus box by box",
+        "project": "webkit",
+        "duration": 757,
+        "outcome": "expected"
+      },
+      {
+        "title": "Typing into a filled box replaces its digit",
+        "project": "chromium",
+        "duration": 352,
+        "outcome": "expected"
+      },
+      {
+        "title": "Typing into a filled box replaces its digit",
+        "project": "firefox",
+        "duration": 474,
+        "outcome": "expected"
+      },
+      {
+        "title": "Typing into a filled box replaces its digit",
+        "project": "webkit",
+        "duration": 649,
+        "outcome": "expected"
+      },
+      {
+        "title": "Focus stays on the last box after typing in it",
+        "project": "chromium",
+        "duration": 339,
+        "outcome": "expected"
+      },
+      {
+        "title": "Focus stays on the last box after typing in it",
+        "project": "firefox",
+        "duration": 458,
+        "outcome": "expected"
+      },
+      {
+        "title": "Focus stays on the last box after typing in it",
+        "project": "webkit",
+        "duration": 3294,
+        "outcome": "expected"
+      },
+      {
+        "title": "Backspace moves focus to the previous box",
+        "project": "chromium",
+        "duration": 411,
+        "outcome": "expected"
+      },
+      {
+        "title": "Backspace moves focus to the previous box",
+        "project": "firefox",
+        "duration": 587,
+        "outcome": "expected"
+      },
+      {
+        "title": "Backspace moves focus to the previous box",
+        "project": "webkit",
+        "duration": 810,
+        "outcome": "expected"
+      },
+      {
+        "title": "Backspace on the first box keeps focus there",
+        "project": "chromium",
+        "duration": 328,
+        "outcome": "expected"
+      },
+      {
+        "title": "Backspace on the first box keeps focus there",
+        "project": "firefox",
+        "duration": 482,
+        "outcome": "expected"
+      },
+      {
+        "title": "Backspace on the first box keeps focus there",
+        "project": "webkit",
+        "duration": 643,
+        "outcome": "expected"
+      },
+      {
+        "title": "Correcting a wrong last digit completes verification",
+        "project": "chromium",
+        "duration": 498,
+        "outcome": "expected"
+      },
+      {
+        "title": "Correcting a wrong last digit completes verification",
+        "project": "firefox",
+        "duration": 591,
+        "outcome": "expected"
+      },
+      {
+        "title": "Correcting a wrong last digit completes verification",
+        "project": "webkit",
+        "duration": 897,
+        "outcome": "expected"
+      },
+      {
+        "title": "Verification works on a mobile viewport",
+        "project": "chromium",
+        "duration": 481,
+        "outcome": "expected"
+      },
+      {
+        "title": "Verification works on a mobile viewport",
+        "project": "firefox",
+        "duration": 598,
+        "outcome": "expected"
+      },
+      {
+        "title": "Verification works on a mobile viewport",
+        "project": "webkit",
+        "duration": 663,
+        "outcome": "expected"
+      },
+      {
+        "title": "Space key advances focus without entering a value",
+        "project": "chromium",
+        "duration": 332,
+        "outcome": "expected"
+      },
+      {
+        "title": "Space key advances focus without entering a value",
+        "project": "firefox",
+        "duration": 461,
+        "outcome": "expected"
+      },
+      {
+        "title": "Space key advances focus without entering a value",
+        "project": "webkit",
+        "duration": 616,
+        "outcome": "expected"
+      },
+      {
+        "title": "Wrong code does not verify",
+        "project": "chromium",
+        "duration": 493,
+        "outcome": "expected"
+      },
+      {
+        "title": "Wrong code does not verify",
+        "project": "firefox",
+        "duration": 1442,
+        "outcome": "expected"
+      },
+      {
+        "title": "Wrong code does not verify",
+        "project": "webkit",
+        "duration": 1630,
+        "outcome": "expected"
+      },
+      {
+        "title": "Incomplete code does not verify",
+        "project": "chromium",
+        "duration": 489,
+        "outcome": "expected"
+      },
+      {
+        "title": "Incomplete code does not verify",
+        "project": "firefox",
+        "duration": 611,
+        "outcome": "expected"
+      },
+      {
+        "title": "Incomplete code does not verify",
+        "project": "webkit",
+        "duration": 936,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric key is ignored and does not advance focus",
+        "project": "chromium",
+        "duration": 330,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric key is ignored and does not advance focus",
+        "project": "firefox",
+        "duration": 444,
+        "outcome": "expected"
+      },
+      {
+        "title": "Non-numeric key is ignored and does not advance focus",
+        "project": "webkit",
+        "duration": 633,
+        "outcome": "expected"
+      },
+      {
+        "title": "Code set without key events is not verified",
+        "project": "chromium",
+        "duration": 361,
+        "outcome": "expected"
+      },
+      {
+        "title": "Code set without key events is not verified",
+        "project": "firefox",
+        "duration": 499,
+        "outcome": "expected"
+      },
+      {
+        "title": "Code set without key events is not verified",
+        "project": "webkit",
+        "duration": 693,
         "outcome": "expected"
       }
     ]
