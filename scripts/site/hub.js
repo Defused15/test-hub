@@ -475,16 +475,33 @@
     }
 
     /**
-     * Re-render after a filter change without moving the control under the
-     * cursor: keep the table at least as tall as before while filtered (so the
-     * page cannot shrink and drag the view up), and cancel any layout shift.
+     * Re-render after a filter change. The control under the cursor stays put,
+     * and when the table gets shorter it collapses with a short transition
+     * instead of the page snapping up.
      */
+    let collapse = null;
     function refilter(anchor) {
+      if (collapse) collapse();
       const before = anchor.getBoundingClientRect().top;
-      const filtered = state.q.trim() || state.outcome !== 'all' || state.project !== 'all';
-      mount.style.minHeight = filtered ? mount.offsetHeight + 'px' : '';
+      const from = mount.offsetHeight;
+      mount.style.minHeight = from + 'px';          // hold the height while re-rendering
       render();
       window.scrollBy(0, anchor.getBoundingClientRect().top - before);
+      // Measure the new natural height, then restore the held height and the
+      // scroll position in the same frame, so nothing is painted in between.
+      const y = window.scrollY;
+      mount.style.minHeight = '';
+      const to = mount.offsetHeight;
+      if (reduceMotion || to >= from) return;
+      mount.style.minHeight = from + 'px';
+      window.scrollTo(0, y);
+      mount.offsetHeight; // commit the start height before transitioning
+      mount.style.transition = 'min-height .28s cubic-bezier(.23, 1, .32, 1)';
+      mount.style.minHeight = to + 'px';
+      const done = () => { mount.style.transition = ''; mount.style.minHeight = ''; mount.removeEventListener('transitionend', done); clearTimeout(timer); collapse = null; };
+      const timer = setTimeout(done, 400);
+      mount.addEventListener('transitionend', done);
+      collapse = done;
     }
 
     let debounce;
