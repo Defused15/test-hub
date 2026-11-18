@@ -52,6 +52,11 @@ const projects = projectDirs.map(name => {
   return p;
 }).filter(Boolean);
 
+// Optional per-project links (source repo, full report, live site)
+const LINKS_PATH = join(__dirname, 'project-links.json');
+const projectLinks = existsSync(LINKS_PATH) ? JSON.parse(readFileSync(LINKS_PATH, 'utf8')) : {};
+for (const p of projects) p.links = projectLinks[p.name] ?? {};
+
 // ── Global aggregates ─────────────────────────────────────────────────────────
 
 const global = projects.reduce((acc, p) => {

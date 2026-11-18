@@ -10,6 +10,17 @@ const THEME_TOGGLE = `<button class="icon-btn theme-toggle" id="theme-toggle" ar
       <svg class="i-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/></svg>
     </button>`;
 
+const LINK_LABELS = [['report', 'Full report'], ['site', 'Live site'], ['repo', 'Source code']];
+const EXTERNAL = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5H3.5v9h9V10M9 3.5h3.5V7M12.5 3.5L7 9"/></svg>';
+
+/** External links for a project; only http(s) URLs are rendered. */
+function projectLinksHtml(links = {}) {
+  const items = LINK_LABELS
+    .filter(([k]) => /^https?:\/\//.test(links[k] ?? ''))
+    .map(([k, label]) => `<a class="ext" href="${escHtml(links[k])}" rel="noopener">${label}${EXTERNAL}</a>`);
+  return items.length ? `<p class="links">${items.join('')}</p>` : '';
+}
+
 const ARROW_LEFT = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8 10 12.5"/></svg>';
 
 /**
@@ -110,6 +121,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
     <p class="kicker"><span class="tag">${TYPE_LABEL[p.type] ?? ''}</span>${TYPE_TOOL[p.type] ?? ''}${escHtml(runners)}</p>
     <h1>${escHtml(p.name)}</h1>
     <p class="sub"><span id="lead"></span> <span id="lead-sub"></span></p>
+    ${projectLinksHtml(p.links)}
   </section>
 ${section('runs-sec', 'Recent runs', '<div class="runs" id="runs"></div>', 'Hover a bar for that run')}
   <div class="grid-2">

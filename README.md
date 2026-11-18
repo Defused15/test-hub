@@ -60,6 +60,7 @@ test-hub/
 ├── scripts/
 │   ├── build.mjs                   # Entry point — orchestrates the full build
 │   ├── rebuild-history.mjs         # Regenerates history/ from every latest.json version in git
+│   ├── project-links.json          # Optional per-project links: full report, live site, source code
 │   ├── lib/
 │   │   ├── parsers.mjs             # parseReport: Playwright, Jest and Newman → one shape
 │   │   ├── history.mjs             # One entry per run, newest 30 kept
