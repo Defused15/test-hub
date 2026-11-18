@@ -95,6 +95,16 @@ code, .mono, kbd { font-family: var(--mono); font-size: .9em; }
   font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -.01em;
 }
 .brand img { width: 22px; height: 22px; border-radius: 6px; }
+.top-end { display: inline-flex; align-items: center; gap: 14px; }
+.theme-toggle { position: relative; }
+.theme-toggle svg { position: absolute; transition: transform .3s var(--ease-out), opacity .2s var(--ease-out); }
+.theme-toggle .i-sun  { opacity: 0; transform: rotate(-90deg) scale(.6); }
+:root[data-theme="dark"] .theme-toggle .i-moon { opacity: 0; transform: rotate(90deg) scale(.6); }
+:root[data-theme="dark"] .theme-toggle .i-sun  { opacity: 1; transform: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .i-moon { opacity: 0; transform: rotate(90deg) scale(.6); }
+  :root:not([data-theme="light"]) .theme-toggle .i-sun  { opacity: 1; transform: none; }
+}
 .back {
   display: inline-flex; align-items: center; gap: 6px;
   color: var(--ink-2); text-decoration: none;

@@ -717,6 +717,24 @@
     testsTable(document.getElementById('tests'), rows, { showProject: false });
   }
 
+  // ── Theme toggle (light ↔ dark; the default follows the system) ─────────────
+
+  (function () {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const sys = matchMedia('(prefers-color-scheme: dark)');
+    const current = () => document.documentElement.dataset.theme || (sys.matches ? 'dark' : 'light');
+    const label = () => btn.setAttribute('aria-label', current() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    label();
+    sys.addEventListener('change', label);
+    btn.addEventListener('click', () => {
+      const next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('qa-hub-theme', next); } catch (e) { /* not persisted */ }
+      label();
+    });
+  })();
+
   // ── Boot ────────────────────────────────────────────────────────────────────
 
   if (DATA.page === 'project') projectPage(); else dashboard();

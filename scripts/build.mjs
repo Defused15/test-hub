@@ -83,7 +83,7 @@ mkdirSync(DIST, { recursive: true });
 const cacheBust = Date.now().toString(36);
 
 writeFileSync(join(DIST, 'index.html'), buildDashboardPage({ projects, global, history: historyMap, cacheBust }), 'utf8');
-for (const f of ['hub.js', 'hub.css']) copyFileSync(join(__dirname, 'site', f), join(DIST, f));
+for (const f of ['hub.js', 'hub.css', 'theme.js']) copyFileSync(join(__dirname, 'site', f), join(DIST, f));
 
 // ── Generate per-project detail pages ────────────────────────────────────────
 

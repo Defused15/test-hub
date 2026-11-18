@@ -5,6 +5,11 @@ const FONTS_CSS = 'https://fonts.googleapis.com/css2?family=Geist:wght@400;500;6
 const TYPE_LABEL = { playwright: 'E2E', jest: 'Unit', newman: 'API' };
 const TYPE_TOOL  = { playwright: 'Playwright', jest: 'Jest', newman: 'Newman' };
 
+const THEME_TOGGLE = `<button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Switch theme">
+      <svg class="i-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg>
+      <svg class="i-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/></svg>
+    </button>`;
+
 const ARROW_LEFT = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8 10 12.5"/></svg>';
 
 /**
@@ -30,6 +35,7 @@ function shell({ title, description, url, root, cacheBust, data, body }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${FONTS_CSS}">
 <link rel="stylesheet" href="${root}hub.css?v=${cacheBust}">
+<script src="${root}theme.js?v=${cacheBust}"></script>
 <link rel="icon" href="${root}favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="${root}favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="${root}apple-touch-icon.png">
@@ -60,7 +66,7 @@ export function buildDashboardPage({ projects, global, history, cacheBust }) {
   const body = `
   <header class="top">
     <a class="brand" href="./"><img src="favicon-32x32.png" alt="">QA Hub</a>
-    <span>Test results from ${projects.length === 1 ? '1 project' : projects.length + ' projects'}</span>
+    <span class="top-end"><span>Test results from ${projects.length === 1 ? '1 project' : projects.length + ' projects'}</span>${THEME_TOGGLE}</span>
   </header>
 
   <section class="hero">
@@ -97,7 +103,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
   const body = `
   <header class="top">
     <a class="back" href="../">${ARROW_LEFT}All projects</a>
-    <a class="brand" href="../"><img src="../favicon-32x32.png" alt="">QA Hub</a>
+    <span class="top-end"><a class="brand" href="../"><img src="../favicon-32x32.png" alt="">QA Hub</a>${THEME_TOGGLE}</span>
   </header>
 
   <section class="hero">

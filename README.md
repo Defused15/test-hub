@@ -67,7 +67,8 @@ test-hub/
 │   │   └── utils.mjs               # stripAnsi, safeJson, escHtml
 │   ├── site/
 │   │   ├── hub.js                  # Client: renders both pages from the embedded JSON
-│   │   └── hub.css                 # Styles (light and dark)
+│   │   ├── hub.css                 # Styles (light and dark)
+│   │   └── theme.js                # Applies the saved light/dark choice before first paint
 │   └── public/                     # Static assets copied as-is to dist/
 │       ├── favicon.ico
 │       ├── favicon-16x16.png
@@ -98,7 +99,7 @@ Running `npm run build` produces:
 ```
 dist/
 ├── index.html              # Main dashboard (all projects aggregated)
-├── hub.js, hub.css         # Copied from scripts/site/
+├── hub.js, hub.css, theme.js  # Copied from scripts/site/
 ├── projects/
 │   ├── QA-Playground-Tests.html   # Per-project detail page
 │   └── your-other-project.html
