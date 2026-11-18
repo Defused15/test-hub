@@ -6,6 +6,13 @@
   // ── Data ────────────────────────────────────────────────────────────────────
 
   const DATA = JSON.parse(document.getElementById('hub-data').textContent);
+  // History arrives packed (see packHistory in scripts/lib/history.mjs).
+  const unpack = h => !h || Array.isArray(h) ? h || [] : h.runs.map(r => ({
+    ...r,
+    tests: r.tests.map(([ti, pi, duration, oi]) => ({ title: h.titles[ti], project: h.projects[pi] ?? undefined, duration, outcome: h.outcomes[oi] })),
+  }));
+  if (DATA.page === 'project') DATA.history = unpack(DATA.history);
+  else for (const k in DATA.history || {}) DATA.history[k] = unpack(DATA.history[k]);
 
   // ── Formatting ──────────────────────────────────────────────────────────────
 

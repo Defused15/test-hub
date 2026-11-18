@@ -1,9 +1,10 @@
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, readdirSync, existsSync, cpSync, rmSync } from 'fs';
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { createHash } from 'crypto';
 
 import { parseReport } from './lib/parsers.mjs';
-import { updateHistory } from './lib/history.mjs';
+import { updateHistory, packHistory } from './lib/history.mjs';
 import { buildDashboardPage, buildProjectPage } from './lib/render.mjs';
 
 // ── Paths ─────────────────────────────────────────────────────────────────────
@@ -85,10 +86,15 @@ for (const p of projects) {
 rmSync(DIST, { recursive: true, force: true }); // drop files from older builds
 mkdirSync(DIST, { recursive: true });
 
-const cacheBust = Date.now().toString(36);
+// Changes only when the client files change, so browsers keep them cached across report-only deploys.
+const SITE_FILES = ['hub.js', 'hub.css', 'theme.js'];
+const cacheBust = createHash('sha1')
+  .update(SITE_FILES.map(f => readFileSync(join(__dirname, 'site', f))).join('\0'))
+  .digest('hex').slice(0, 10);
+const packedHistory = Object.fromEntries(Object.entries(historyMap).map(([k, v]) => [k, packHistory(v)]));
 
-writeFileSync(join(DIST, 'index.html'), buildDashboardPage({ projects, global, history: historyMap, cacheBust }), 'utf8');
-for (const f of ['hub.js', 'hub.css', 'theme.js']) copyFileSync(join(__dirname, 'site', f), join(DIST, f));
+writeFileSync(join(DIST, 'index.html'), buildDashboardPage({ projects, global, history: packedHistory, cacheBust }), 'utf8');
+for (const f of SITE_FILES) copyFileSync(join(__dirname, 'site', f), join(DIST, f));
 
 // ── Generate per-project detail pages ────────────────────────────────────────
 
@@ -97,7 +103,7 @@ mkdirSync(PROJ_DIST, { recursive: true });
 
 for (const p of projects) {
   const pagePath = join(PROJ_DIST, encodeURIComponent(p.name) + '.html');
-  writeFileSync(pagePath, buildProjectPage(p, cacheBust, historyMap[p.name] ?? []), 'utf8');
+  writeFileSync(pagePath, buildProjectPage(p, cacheBust, packedHistory[p.name] ?? packHistory([])), 'utf8');
 }
 console.log(`Project pages written to dist/projects/ (${projects.length})`);
 

@@ -4,7 +4,7 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { mergeHistory, updateHistory, HISTORY_MAX } from '../scripts/lib/history.mjs';
+import { mergeHistory, updateHistory, HISTORY_MAX, packHistory, unpackHistory } from '../scripts/lib/history.mjs';
 import { parseReport } from '../scripts/lib/parsers.mjs';
 
 const entry = (id, date) => ({ id, date, stats: { total: 1, expected: 1, unexpected: 0, flaky: 0, skipped: 0 }, duration: 1, tests: [] });
@@ -76,4 +76,16 @@ test('newman assertions become steps, after the HTTP exchange', () => {
     { title: 'Has body', duration: null, error: null, skipped: true },
   ]);
   assert.equal(p.tests[0].outcome, 'unexpected');
+});
+
+test('packHistory round-trips and stores each title once', () => {
+  const run = (id, outcome) => ({ id, date: id, stats: {}, duration: 1, projectNames: ['a'], tests: [
+    { title: 'long shared title', project: 'chromium', duration: 5, outcome },
+    { title: 'other', project: undefined, duration: null, outcome: 'skipped' },
+  ] });
+  const entries = [run('r1', 'expected'), run('r2', 'unexpected')];
+  const packed = packHistory(entries);
+  assert.deepEqual(packed.titles, ['long shared title', 'other']);
+  assert.deepEqual(unpackHistory(packed).map(r => r.tests), entries.map(r => r.tests));
+  assert.deepEqual(unpackHistory(packHistory([])), []);
 });

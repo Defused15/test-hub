@@ -79,3 +79,31 @@ export function writeHistory(name, entries, histDir) {
   writeFileSync(join(histDir, name + '.json'), JSON.stringify(merged, null, 2) + '\n', 'utf8');
   return merged;
 }
+
+/**
+ * Compact form embedded in the pages: test titles, runner names and outcomes are
+ * stored once in lookup tables and each run lists its tests as index tuples
+ * [title, project, duration, outcome]. hub.js expands it back with the same shape.
+ */
+export function packHistory(entries = []) {
+  const tables = { titles: [], projects: [], outcomes: [] };
+  const index = { titles: new Map(), projects: new Map(), outcomes: new Map() };
+  const ref = (kind, v) => {
+    if (!index[kind].has(v)) { index[kind].set(v, tables[kind].length); tables[kind].push(v); }
+    return index[kind].get(v);
+  };
+  const runs = entries.map(({ tests = [], ...run }) => ({
+    ...run,
+    tests: tests.map(t => [ref('titles', t.title), ref('projects', t.project ?? null), t.duration ?? null, ref('outcomes', t.outcome)]),
+  }));
+  return { packed: 1, ...tables, runs };
+}
+
+/** Inverse of packHistory (used by the tests; hub.js has its own copy). */
+export function unpackHistory(h) {
+  if (!h || Array.isArray(h)) return h ?? [];
+  return h.runs.map(r => ({
+    ...r,
+    tests: r.tests.map(([ti, pi, duration, oi]) => ({ title: h.titles[ti], project: h.projects[pi] ?? undefined, duration, outcome: h.outcomes[oi] })),
+  }));
+}
