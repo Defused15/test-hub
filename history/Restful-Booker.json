@@ -5162,7 +5162,7 @@
     ]
   },
   {
-    "date": 1781179400402,
+    "date": 1794994469741,
     "stats": {
       "total": 27,
       "expected": 27,
@@ -5170,7 +5170,7 @@
       "flaky": 0,
       "skipped": 0
     },
-    "duration": 1048,
+    "duration": 905,
     "projectNames": [
       "api"
     ],
@@ -5178,25 +5178,25 @@
       {
         "title": "Generate Token",
         "project": "api",
-        "duration": 94,
+        "duration": 73,
         "outcome": "expected"
       },
       {
         "title": "Login valid",
         "project": "api",
-        "duration": 12,
+        "duration": 11,
         "outcome": "expected"
       },
       {
         "title": "Wrong password",
         "project": "api",
-        "duration": 11,
+        "duration": 10,
         "outcome": "expected"
       },
       {
         "title": "Wrong username",
         "project": "api",
-        "duration": 10,
+        "duration": 9,
         "outcome": "expected"
       },
       {
@@ -5214,7 +5214,7 @@
       {
         "title": "XSS attempt",
         "project": "api",
-        "duration": 10,
+        "duration": 9,
         "outcome": "expected"
       },
       {
@@ -5226,7 +5226,7 @@
       {
         "title": "Create Booking",
         "project": "api",
-        "duration": 12,
+        "duration": 10,
         "outcome": "expected"
       },
       {
@@ -5250,13 +5250,13 @@
       {
         "title": "Get by check dates",
         "project": "api",
-        "duration": 11,
+        "duration": 10,
         "outcome": "expected"
       },
       {
         "title": "Update booking",
         "project": "api",
-        "duration": 11,
+        "duration": 10,
         "outcome": "expected"
       },
       {
@@ -5268,7 +5268,7 @@
       {
         "title": "Delete booking",
         "project": "api",
-        "duration": 10,
+        "duration": 9,
         "outcome": "expected"
       },
       {
@@ -5292,7 +5292,7 @@
       {
         "title": "Update booking - no auth",
         "project": "api",
-        "duration": 10,
+        "duration": 9,
         "outcome": "expected"
       },
       {
@@ -5304,7 +5304,7 @@
       {
         "title": "Create booking - totalprice zero",
         "project": "api",
-        "duration": 10,
+        "duration": 9,
         "outcome": "expected"
       },
       {
@@ -5328,13 +5328,13 @@
       {
         "title": "Cleanup - Delete edge booking 1 (totalprice zero)",
         "project": "api",
-        "duration": 10,
+        "duration": 16,
         "outcome": "expected"
       },
       {
         "title": "Cleanup - Delete edge booking 2 (special characters)",
         "project": "api",
-        "duration": 10,
+        "duration": 9,
         "outcome": "expected"
       }
     ]
