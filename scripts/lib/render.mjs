@@ -107,7 +107,7 @@ const INLINE_STYLES = `
   .step-title{font-family:"DM Mono","DM Mono Fallback",monospace;font-size:10.5px;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .dp-step--fail .step-title{color:var(--fail)}
   .step-dur{font-family:"DM Mono","DM Mono Fallback",monospace;font-size:10px;color:var(--ink4);white-space:nowrap}
-  .step-pass{color:var(--pass);font-size:11px} .step-fail{color:var(--fail);font-size:11px}
+  .step-pass{color:var(--pass);font-size:11px} .step-fail{color:var(--fail);font-size:11px} .step-skip{color:var(--ink4);font-size:11px}
   .step-err-row{grid-column:1/-1;font-family:"DM Mono","DM Mono Fallback",monospace;font-size:10px;color:var(--fail);padding:4px 20px 10px 52px;line-height:1.5}
   .dp-hist-hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
   .dp-hist-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
@@ -155,7 +155,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
   const statusClass = p.stats.ok ? 'ok' : 'fail';
   const statusText  = p.stats.ok ? 'All passed' : 'Failures detected';
   const typeLabel   = p.type === 'playwright' ? 'E2E' : p.type === 'newman' ? 'API' : 'Unit';
-  const genDate     = new Date().toLocaleDateString('en-US', {
+  const genDate     = new Date(p.startTime).toLocaleDateString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit',
   });
 
@@ -196,7 +196,7 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
       <h1><strong>${escHtml(p.name)}</strong></h1>
     </div>
     <div class="header-meta" style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
-      <span class="mono">generated ${genDate}</span>
+      <span class="mono" id="run-date" data-ts="${Number(p.startTime) || ''}">last run ${genDate}</span>
       <span class="pill ${statusClass}"><span class="dot"></span>${statusText}</span>
     </div>
   </header>
@@ -283,6 +283,16 @@ export function buildProjectPage(p, cacheBust, projectHistory) {
 
 <script>
 const escHtml = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+
+// Last-run date in the viewer's timezone, with relative age
+(function () {
+  const el = document.getElementById('run-date');
+  const ts = Number(el && el.dataset.ts);
+  if (!ts) return;
+  const days = Math.floor((Date.now() - ts) / 86400000);
+  const ago  = days < 1 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago';
+  el.textContent = 'last run ' + new Date(ts).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' · ' + ago;
+})();
 
 // ── Table: filter / sort / pagination ─────────────────────────────────────────
 let activeFilter = 'all', sortCol = null, sortDir = 1, currentPage = 1, pageSize = 25;
@@ -437,11 +447,12 @@ updateTable();
       let html = '<div class="dp-steps">';
       t.steps.forEach((s, i) => {
         const fail = !!s.error;
+        const icon = fail ? '✗' : s.skipped ? '—' : '✓';
         html += '<div class="dp-step' + (fail ? ' dp-step--fail' : '') + '">'
           + '<span class="step-num">' + (i + 1) + '</span>'
           + '<span class="step-title" title="' + esc(s.title) + '">' + esc(s.title) + '</span>'
-          + '<span class="step-dur">' + fmtD(s.duration) + '</span>'
-          + '<span class="' + (fail ? 'step-fail' : 'step-pass') + '">' + (fail ? '✗' : '✓') + '</span>'
+          + '<span class="step-dur">' + (s.duration == null ? '' : fmtD(s.duration)) + '</span>'
+          + '<span class="' + (fail ? 'step-fail' : s.skipped ? 'step-skip' : 'step-pass') + '">' + icon + '</span>'
           + '</div>';
         if (fail && s.error) html += '<div class="step-err-row">' + esc(s.error) + '</div>';
       });
@@ -477,7 +488,7 @@ updateTable();
       + '<canvas id="dp-hist-canvas" height="180"></canvas>'
       + '</div>';
     if (typeof Chart !== 'undefined') {
-      const labels      = hist.map(r => new Date(r.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+      const labels      = hist.map(r => new Date(r.date).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }));
       const pointColors = hist.map(r => r.outcome === 'expected' ? '#2d6a3f' : '#8b2020');
       dpChart = new Chart(document.getElementById('dp-hist-canvas'), {
         type: 'line',
@@ -527,41 +538,6 @@ updateTable();
 // ── Project charts ────────────────────────────────────────────────────────────
 const projectHistory = ${safeJson(projectHistory)};
 
-(function aggregateProjectHistory() {
-  const byDay = new Map();
-  for (const r of projectHistory) {
-    const d = new Date(r.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    if (!byDay.has(d)) {
-      byDay.set(d, { ...r, _count: 1, stats: { ...r.stats }, tests: r.tests ? [...r.tests] : [] });
-    } else {
-      const acc = byDay.get(d);
-      acc.duration += r.duration;
-      acc.stats.total += r.stats.total;
-      acc.stats.expected += r.stats.expected;
-      acc.stats.unexpected += r.stats.unexpected;
-      acc.stats.flaky += r.stats.flaky;
-      acc.stats.skipped += r.stats.skipped;
-      acc._count++;
-      if (r.date > acc.date) acc.date = r.date;
-      if (r.tests && r.tests.length) {
-        const testMap = new Map();
-        for (const t of acc.tests) testMap.set(t.title + '|' + t.project, t);
-        for (const t of r.tests) testMap.set(t.title + '|' + t.project, t);
-        acc.tests = Array.from(testMap.values());
-      }
-    }
-  }
-  projectHistory.splice(0, projectHistory.length, ...Array.from(byDay.values()).map(acc => {
-    acc.duration /= acc._count;
-    acc.stats.total /= acc._count;
-    acc.stats.expected /= acc._count;
-    acc.stats.unexpected /= acc._count;
-    acc.stats.flaky /= acc._count;
-    acc.stats.skipped /= acc._count;
-    return acc;
-  }).sort((a,b) => a.date - b.date));
-})();
-
 const projBrowsers   = ${safeJson(p.projectNames)};
 const projTests      = ${safeJson(p.tests)};
 
@@ -585,7 +561,7 @@ function initCharts() {
     });
   } else {
     const labels = projectHistory.map(s =>
-      new Date(s.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+      new Date(s.date).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
     );
 
     const prEl = document.getElementById('proj-chart-passrate');
@@ -701,6 +677,7 @@ function buildProjectHeatmap() {
 
   const dates    = histWithTests.map(e => e.date); // ascending
   const fmtD     = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const fmtRun   = ts => new Date(ts).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
   const clsMap   = { expected: 'hm-pass', unexpected: 'hm-fail', flaky: 'hm-flaky', skipped: 'hm-skip' };
   const lblMap   = { expected: 'Passed', unexpected: 'Failed', flaky: 'Flaky', skipped: 'Skipped' };
 
@@ -709,7 +686,7 @@ function buildProjectHeatmap() {
 
   // Header: corner + date labels
   html += '<div class="hm-corner"></div>';
-  dates.forEach(d => { html += '<div class="hm-date-lbl" title="' + fmtD(d) + '">' + fmtD(d) + '</div>'; });
+  dates.forEach(d => { html += '<div class="hm-date-lbl" title="' + fmtRun(d) + '">' + fmtD(d) + '</div>'; });
 
   // One row per unreliable test
   unreliable.forEach(({ title, project }) => {
@@ -719,7 +696,7 @@ function buildProjectHeatmap() {
       const outcome = outcomeLookup.get(JSON.stringify([title, project, d]));
       const cls = outcome ? (clsMap[outcome] || 'hm-skip') : 'hm-none';
       const lbl = outcome ? (lblMap[outcome] || outcome) : 'No data';
-      html += '<div class="hm-cell ' + cls + '" title="' + escHtml(trunc) + ' · ' + fmtD(d) + ' · ' + lbl + '"></div>';
+      html += '<div class="hm-cell ' + cls + '" title="' + escHtml(trunc) + ' · ' + fmtRun(d) + ' · ' + lbl + '"></div>';
     });
   });
 

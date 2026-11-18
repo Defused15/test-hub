@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { stripAnsi } from './utils.mjs';
 
 // ── Detect report format ──────────────────────────────────────────────────────
@@ -117,6 +118,13 @@ function flattenJest(testResults = []) {
 
 
 /** Parse a raw Jest JSON report into the normalized project shape. */
+/** Wall-clock run duration: latest file endTime minus run startTime. */
+function jestDuration(raw) {
+  const ends = (raw.testResults ?? []).map(r => r.endTime).filter(Number.isFinite);
+  if (!Number.isFinite(raw.startTime) || ends.length === 0) return 0;
+  return Math.max(0, Math.max(...ends) - raw.startTime);
+}
+
 export function parseJestProject(raw, name) {
   const tests      = flattenJest(raw.testResults ?? []);
   const expected   = raw.numPassedTests  ?? 0;
@@ -127,7 +135,7 @@ export function parseJestProject(raw, name) {
     name,
     type:         'jest',
     startTime:    raw.startTime ?? Date.now(),
-    duration:     0,
+    duration:     jestDuration(raw),
     workers:      1,
     stats: {
       total,
@@ -145,6 +153,30 @@ export function parseJestProject(raw, name) {
 // ── Newman (Postman) ──────────────────────────────────────────────────────────
 
 /** Parse a raw Newman JSON report into the normalized project shape. */
+/** One step for the HTTP exchange, then one per pm.test assertion. */
+function newmanSteps(e) {
+  const req   = e.request ?? {};
+  const res   = e.response ?? {};
+  const path  = Array.isArray(req.url?.path) ? '/' + req.url.path.join('/') : '';
+  const steps = [];
+  if (req.method) {
+    steps.push({
+      title:    `${req.method} ${path}` + (res.code ? ` → ${res.code}${res.status ? ' ' + res.status : ''}` : ''),
+      duration: res.responseTime ?? null,
+      error:    null,
+    });
+  }
+  for (const a of e.assertions ?? []) {
+    steps.push({
+      title:    a.assertion ?? 'Assertion',
+      duration: null,
+      error:    a.error ? stripAnsi(a.error.message ?? String(a.error)) : null,
+      skipped:  !!a.skipped,
+    });
+  }
+  return steps;
+}
+
 export function parseNewmanProject(raw, name) {
   const stats      = raw.run?.stats ?? {};
   const timings    = raw.run?.timings ?? {};
@@ -171,7 +203,7 @@ export function parseNewmanProject(raw, name) {
       retries:    0,
       error:      errorMsg,
       errorStack: null,
-      steps:      [],
+      steps:      newmanSteps(e),
     };
   });
 
@@ -192,4 +224,26 @@ export function parseNewmanProject(raw, name) {
     projectNames: ['api'],
     tests,
   };
+}
+
+// ── Entry point ───────────────────────────────────────────────────────────────
+
+/**
+ * Parse report JSON text into the normalized project shape, or null if the
+ * format is unknown. Adds `runId`, a stable identifier for this run: the
+ * report's own start time when it has one, otherwise a hash of the content.
+ */
+export function parseReport(text, name) {
+  const raw  = JSON.parse(text);
+  const type = detectReportType(raw);
+  const p = type === 'playwright' ? parsePlaywrightProject(raw, name)
+          : type === 'jest'       ? parseJestProject(raw, name)
+          : type === 'newman'     ? parseNewmanProject(raw, name)
+          : null;
+  if (!p) return null;
+  const reportedStart = raw.stats?.startTime ?? raw.startTime ?? raw.run?.timings?.started;
+  p.runId = reportedStart != null
+    ? 't:' + new Date(reportedStart).getTime()
+    : 'h:' + createHash('sha1').update(text).digest('hex').slice(0, 16);
+  return p;
 }

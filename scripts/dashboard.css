@@ -896,6 +896,7 @@ tr.clickable-row:hover td { background: var(--paper2); }
 }
 .step-pass { color: var(--pass); font-size: 11px; }
 .step-fail { color: var(--fail); font-size: 11px; }
+.step-skip { color: var(--ink4); font-size: 11px; }
 .step-err-row {
   grid-column: 1 / -1;
   font-family: "DM Mono", "DM Mono Fallback", monospace;
@@ -1103,6 +1104,9 @@ body.panel-open { overflow: hidden; }
   transition: transform 0.1s, opacity 0.1s;
 }
 .hm-cell:hover { transform: scale(1.3); opacity: 0.85; }
+.heatmap-grid--fluid { width: 100%; }
+.heatmap-grid--fluid .hm-cell { width: auto; height: 16px; }
+.heatmap-grid--fluid .hm-row-label { height: 16px; line-height: 16px; }
 .hm-pass  { background: #2d6a3f; }
 .hm-fail  { background: #8b2020; }
 .hm-flaky { background: #7a5c10; }

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "npm run build && npx serve dist",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "history:rebuild": "node scripts/rebuild-history.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, copyFileSync, mkdirSync, readdirSync, exis
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-import { detectReportType, parsePlaywrightProject, parseJestProject, parseNewmanProject } from './lib/parsers.mjs';
+import { parseReport } from './lib/parsers.mjs';
 import { updateHistory } from './lib/history.mjs';
 import { buildProjectPage } from './lib/render.mjs';
 import { safeJson } from './lib/utils.mjs';
@@ -42,20 +42,15 @@ const projects = projectDirs.map(name => {
     return null;
   }
 
-  let raw;
+  let p;
   try {
-    raw = JSON.parse(readFileSync(jsonPath, 'utf8'));
+    p = parseReport(readFileSync(jsonPath, 'utf8'), name);
   } catch {
     console.warn(`Could not parse ${name}/latest.json, skipping`);
     return null;
   }
-
-  const type = detectReportType(raw);
-  if (type === 'playwright') return parsePlaywrightProject(raw, name);
-  if (type === 'jest')       return parseJestProject(raw, name);
-  if (type === 'newman')     return parseNewmanProject(raw, name);
-  console.warn(`${name}/latest.json: unknown report format, skipping`);
-  return null;
+  if (!p) console.warn(`${name}/latest.json: unknown report format, skipping`);
+  return p;
 }).filter(Boolean);
 
 // ── Global aggregates ─────────────────────────────────────────────────────────

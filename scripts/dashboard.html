@@ -172,37 +172,6 @@ const { projects, global } = /*%%DATA%%*/null;
 const history = /*%%HISTORY%%*/null;
 const escHtml = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 
-if (history) {
-  for (const k of Object.keys(history)) {
-    const byDay = new Map();
-    for (const r of history[k]) {
-      const d = new Date(r.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      if (!byDay.has(d)) {
-        byDay.set(d, { ...r, _count: 1, stats: { ...r.stats } });
-      } else {
-        const acc = byDay.get(d);
-        acc.duration += r.duration;
-        acc.stats.total += r.stats.total;
-        acc.stats.expected += r.stats.expected;
-        acc.stats.unexpected += r.stats.unexpected;
-        acc.stats.flaky += r.stats.flaky;
-        acc.stats.skipped += r.stats.skipped;
-        acc._count++;
-        if (r.date > acc.date) acc.date = r.date;
-      }
-    }
-    history[k] = Array.from(byDay.values()).map(acc => {
-      acc.duration /= acc._count;
-      acc.stats.total /= acc._count;
-      acc.stats.expected /= acc._count;
-      acc.stats.unexpected /= acc._count;
-      acc.stats.flaky /= acc._count;
-      acc.stats.skipped /= acc._count;
-      return acc;
-    }).sort((a,b) => a.date - b.date);
-  }
-}
-
 const fmtDur  = ms => ms >= 1000 ? (ms/1000).toFixed(2)+'s' : ms+'ms';
 const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
 const timeAgo = ts => {
@@ -505,11 +474,12 @@ updateTable();
       let html = '<div class="dp-steps">';
       t.steps.forEach((s, i) => {
         const fail = !!s.error;
+        const icon = fail ? '✗' : s.skipped ? '—' : '✓';
         html += '<div class="dp-step' + (fail ? ' dp-step--fail' : '') + '">'
           + '<span class="step-num">' + (i + 1) + '</span>'
           + '<span class="step-title" title="' + esc(s.title) + '">' + esc(s.title) + '</span>'
-          + '<span class="step-dur">' + fmtD(s.duration) + '</span>'
-          + '<span class="' + (fail ? 'step-fail' : 'step-pass') + '">' + (fail ? '✗' : '✓') + '</span>'
+          + '<span class="step-dur">' + (s.duration == null ? '' : fmtD(s.duration)) + '</span>'
+          + '<span class="' + (fail ? 'step-fail' : s.skipped ? 'step-skip' : 'step-pass') + '">' + icon + '</span>'
           + '</div>';
         if (fail && s.error) html += '<div class="step-err-row">' + esc(s.error) + '</div>';
       });
@@ -545,7 +515,7 @@ updateTable();
       + '<canvas id="dp-hist-canvas" height="180"></canvas>'
       + '</div>';
     if (typeof Chart !== 'undefined') {
-      const labels      = hist.map(r => new Date(r.date).toLocaleDateString('en-US', { month:'short', day:'numeric' }));
+      const labels      = hist.map(r => new Date(r.date).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }));
       const pointColors = hist.map(r => r.outcome === 'expected' ? '#2d6a3f' : '#8b2020');
       dpChart = new Chart(document.getElementById('dp-hist-canvas'), {
         type: 'line',
@@ -615,18 +585,12 @@ function initCharts() {
     document.getElementById('trends-sl').style.display = '';
     document.getElementById('trends-grid').style.display = '';
 
-    // Extract unified sorted string dates for x-axis
-    const strToTs = new Map();
-    histKeys.forEach(k => history[k].forEach(s => {
-      const d = fmt(s.date);
-      if (!strToTs.has(d) || s.date < strToTs.get(d)) strToTs.set(d, s.date);
-    }));
-    const labels = [...strToTs.keys()].sort((a,b) => strToTs.get(a) - strToTs.get(b));
-
-    const getDataMap = (name, extractor) => {
-      const map = new Map(history[name].map(s => [fmt(s.date), extractor(s)]));
-      return labels.map(lbl => map.has(lbl) ? map.get(lbl) : null);
-    };
+    // Projects run at different times, so plot each run at its real timestamp.
+    const getPoints = (name, extractor) => history[name].map(s => ({ x: s.date, y: extractor(s) }));
+    const fmtRun = ts => new Date(ts).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    const timeX  = { type: 'linear', grid: { color: gridColor },
+      ticks: { maxTicksLimit: 6, callback: v => fmt(v) } };
+    const runTitle = { callbacks: { title: items => items.length ? fmtRun(items[0].parsed.x) : '' } };
 
     // Pass Rate Trend
     const prEl = document.getElementById('chart-passrate');
@@ -634,10 +598,9 @@ function initCharts() {
       new Chart(prEl, {
         type: 'line',
         data: {
-          labels,
           datasets: histKeys.map((name, i) => ({
             label: name,
-            data: getDataMap(name, s => s.stats.total > 0 ? +((s.stats.expected / s.stats.total) * 100).toFixed(1) : 0),
+            data: getPoints(name, s => s.stats.total > 0 ? +((s.stats.expected / s.stats.total) * 100).toFixed(1) : 0),
             borderColor: palette[i % palette.length],
             backgroundColor: palette[i % palette.length] + '18',
             tension: 0.35, pointRadius: 3, fill: false,
@@ -649,9 +612,10 @@ function initCharts() {
           plugins: {
             legend: { display: histKeys.length > 1, position: 'bottom',
               labels: { boxWidth: 10, font: { size: 10 } } },
+            tooltip: runTitle,
           },
           scales: {
-            x: baseScales.x,
+            x: timeX,
             y: { ...baseScales.y, max: 100, ticks: { callback: v => v + '%' } },
           },
         },
@@ -664,10 +628,9 @@ function initCharts() {
       new Chart(durEl, {
         type: 'line',
         data: {
-          labels,
           datasets: histKeys.map((name, i) => ({
             label: name,
-            data: getDataMap(name, s => s.duration),
+            data: getPoints(name, s => s.duration),
             borderColor: palette[i % palette.length],
             backgroundColor: palette[i % palette.length] + '18',
             tension: 0.35, pointRadius: 3, fill: false,
@@ -679,9 +642,10 @@ function initCharts() {
           plugins: {
             legend: { display: histKeys.length > 1, position: 'bottom',
               labels: { boxWidth: 10, font: { size: 10 } } },
+            tooltip: runTitle,
           },
           scales: {
-            x: baseScales.x,
+            x: timeX,
             y: { ...baseScales.y,
               ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(1)+'s' : v+'ms' } },
           },
@@ -770,47 +734,33 @@ function buildHeatmap() {
   const wrap = document.getElementById('heatmap-wrap');
   wrap.style.display = '';
 
-  const fmtD = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const strToTs = new Map();
-  histKeys.forEach(k => history[k].forEach(s => {
-    const d = fmtD(s.date);
-    if (!strToTs.has(d) || s.date < strToTs.get(d)) strToTs.set(d, s.date);
-  }));
-  const allLabels = [...strToTs.keys()].sort((a,b) => strToTs.get(a) - strToTs.get(b));
+  // Projects run on different schedules, so each row shows that project's own
+  // runs, newest at the right edge. Columns are run positions, not dates.
+  const cols   = Math.max(...histKeys.map(k => history[k].length));
+  const fmtRun = ts => new Date(ts).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
   let html = '<div class="heatmap-section">';
-  html += `<div class="heatmap-grid" style="grid-template-columns:160px repeat(${allLabels.length},13px)">`;
+  html += '<div class="heatmap-grid heatmap-grid--fluid" style="grid-template-columns:minmax(120px,200px) repeat(' + cols + ',minmax(10px,1fr))">';
 
-  // Header row: corner + date labels (vertical)
-  html += '<div class="hm-corner"></div>';
-  allLabels.forEach(lbl => {
-    html += '<div class="hm-date-lbl" title="' + lbl + '">' + lbl + '</div>';
-  });
-
-  // One row per project
   histKeys.forEach(name => {
-    const dateMap = new Map(history[name].map(e => [fmtD(e.date), e]));
+    const runs  = history[name].slice(-cols);
     const trunc = name.length > 28 ? name.slice(0, 26) + '…' : name;
     html += '<div class="hm-row-label" title="' + escHtml(name) + '">' + escHtml(trunc) + '</div>';
-    allLabels.forEach(lbl => {
-      const e = dateMap.get(lbl);
-      if (!e) {
-        html += '<div class="hm-cell hm-none" title="' + escHtml(name) + ' · ' + lbl + ' · No data"></div>';
-        return;
-      }
+    for (let i = 0; i < cols - runs.length; i++) html += '<div class="hm-cell hm-none" title="No run"></div>';
+    runs.forEach(e => {
       const pct = e.stats.total > 0 ? ((e.stats.expected / e.stats.total) * 100).toFixed(0) : 100;
       const cls = e.stats.unexpected > 0 ? 'hm-fail' : e.stats.flaky > 0 ? 'hm-flaky' : 'hm-pass';
-      html += '<div class="hm-cell ' + cls + '" title="' + escHtml(name) + ' · ' + lbl + ' · ' + pct + '% passed"></div>';
+      html += '<div class="hm-cell ' + cls + '" title="' + escHtml(name) + ' · ' + fmtRun(e.date) + ' · ' + pct + '% passed (' + e.stats.expected + '/' + e.stats.total + ')"></div>';
     });
   });
 
   html += '</div>'; // heatmap-grid
-  html += '<div class="hm-sub">Each column = one CI run. Newest run on the right.</div>';
+  html += '<div class="hm-sub">Last ' + cols + ' runs per project · newest on the right · hover a cell for details</div>';
   html += '<div class="hm-legend">'
     + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-pass"></div>All passed</div>'
     + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-flaky"></div>Flaky only</div>'
     + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-fail"></div>Failures</div>'
-    + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-none"></div>No data</div>'
+    + '<div class="hm-legend-item"><div class="hm-legend-swatch hm-none"></div>No run</div>'
     + '</div>';
   html += '</div>'; // heatmap-section
 
