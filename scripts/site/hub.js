@@ -748,7 +748,7 @@
     sys.addEventListener('change', label);
     btn.addEventListener('click', () => {
       const next = current() === 'dark' ? 'light' : 'dark';
-      document.documentElement.dataset.theme = next;
+      if (window.qaHubSetTheme) window.qaHubSetTheme(next); else document.documentElement.dataset.theme = next;
       try { localStorage.setItem('qa-hub-theme', next); } catch (e) { /* not persisted */ }
       label();
     });
